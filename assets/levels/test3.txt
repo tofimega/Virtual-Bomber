@@ -1,0 +1,19 @@
+xxxxxxxxxxxxxxxx
+xeeeeeeeeewwwwwx
+xeeeeeeeeewwwwwx
+xceeeeeeeewwwwwx
+xeeceeeeeewwwwwx
+xeeeeeeeeewwwwwx
+xeeeeeeeeewwwwwx
+xeeeeeeeeewwwwwx
+xeeeeeeeeewwwwwx
+xeeeeeeeeewwwwwx
+xeeeeceeeewwwwwx
+xeeeeeeeeewwwwwx
+xeeeweeeeewwwwwx
+xeeeeeeeeewwwwwx
+xxxxxxxxxxxxxxxx
+
+p 3 5
+p 3 8
+p 3 11

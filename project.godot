@@ -12,4 +12,10 @@ config_version=5
 
 config/name="java Bomberman port"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalAccess="*res://scripts/globals/global_access.gd"
+Utility="*res://scripts/globals/utility.gd"
