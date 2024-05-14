@@ -10,7 +10,7 @@ func _ready():
 	_switch_scene(initial_state)
 
 
-func _switch_scene(new_state: State)->void:
+func switch_scene(new_state: State)->void:
 	if current_state!=null:
 		current_state._exit_state()
 		current_state.active=false
