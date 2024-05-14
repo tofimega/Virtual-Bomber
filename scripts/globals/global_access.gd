@@ -8,6 +8,8 @@ func game_over(p: player_id)->bool:
 	if p==null:
 		return false
 		
+		
+		
 	player_progress[p]+=1
 	return player_progress[p]>games_to_win
 
