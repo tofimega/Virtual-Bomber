@@ -19,3 +19,8 @@ config/icon="res://icon.svg"
 
 GlobalAccess="*res://scripts/globals/global_access.gd"
 Utility="*res://scripts/globals/utility.gd"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
