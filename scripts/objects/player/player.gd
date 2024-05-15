@@ -12,9 +12,12 @@ var bomb_capacity: int=1
 var bombs_on_field: int=0
 var power: int=1
 
+var input_map: Dictionary
+
 var id: GlobalAccess.player_id:
 	set (p):
 		id=p
+		input_map=GlobalAccess.controls[p]
 		#TODO: set sprite & controller
 
 #region incs, decs
@@ -43,4 +46,8 @@ func _process(delta):
 	
 func kill()->void:
 	queue_free()
+	
+
+
+
 
