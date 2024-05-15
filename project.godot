@@ -24,3 +24,17 @@ Utility="*res://scripts/globals/utility.gd"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[layer_names]
+
+2d_physics/layer_1="edge"
+2d_physics/layer_2="wall"
+2d_physics/layer_3="crate"
+2d_physics/layer_4="bomb"
+2d_physics/layer_5="player"
+2d_physics/layer_7="enemy"
+2d_physics/layer_8="explosion"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
