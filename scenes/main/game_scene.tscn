@@ -6,8 +6,5 @@
 
 [node name="Players" type="Node2D" parent="."]
 
-[node name="TileMap" type="TileMap" parent="."]
-format = 2
-
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_6ha3f")

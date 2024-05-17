@@ -12,13 +12,13 @@ var bomb_capacity: int=1
 var bombs_on_field: int=0
 var power: int=1
 
-var input_map: Dictionary
+var input_map: PlayerInputMap
 
-var id: GlobalAccess.player_id:
+var id: GlobalAccess.PLAYER_ID:
 	set (p):
+		input_map=PlayerInputMap.get_input_map(p-1)
 		id=p
-		input_map=GlobalAccess.controls[p]
-		#TODO: set sprite & controller
+		#TODO: set sprite
 
 #region incs, decs
 func inc_capacity()->void:
@@ -40,14 +40,32 @@ func _ready():
 	hurt_box.body_entered.connect(kill)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-	
+	move()
+	place_bomb()
+
+func place_bomb()->void:
+	if Input.is_action_just_pressed(input_map.place_bomb):
+		print(id)
+
+func move()->void:
+	if Input.is_action_pressed(input_map.left):
+		position.x-=movement_speed
+	if Input.is_action_pressed(input_map.right):
+		position.x+=movement_speed
+	if Input.is_action_pressed(input_map.up):
+		position.y-=movement_speed
+	if Input.is_action_pressed(input_map.down):
+		position.y+=movement_speed
+
+
 func kill()->void:
+	SignalBus.player_dead.emit(self)
 	queue_free()
 	
 
+	
+	
 
 
 

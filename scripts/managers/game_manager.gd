@@ -2,26 +2,59 @@ class_name GameManager
 extends Node
 
 
-var active_players: Array=[]
+var active_players: Array[Player]=[]
 var active_explosions: int=0
 var active_bombs: int=0
 
+var player_spawn_points: Array[PlayerSpawn]=[]
 
 
 func _ready():
+	SignalBus.player_ready.connect(add_player)
+	SignalBus.player_dead.connect(rem_player)
+	SignalBus.bomb_placed.connect(inc_bombs)
+	SignalBus.bomb_exploded.connect(dec_bombs)
+
+	SignalBus.player_spawn_ready.connect(add_spawn_point)
+	
+	SignalBus.level_loaded.connect(spawn_players)
+	
 	_setup_score_counters()
 	_load_level()
+
 
 func _setup_score_counters()->void:
 	pass
 
 func _load_level()->void:
-	pass
+	var level=ResourceLoader.load("res://scenes/test_level.tscn").instantiate()
+	get_tree().get_root().add_child.call_deferred(level)
+
+func add_spawn_point(p: PlayerSpawn)->void:
+	player_spawn_points.append(p)
+	
+	
+func spawn_players()->void:
+	player_spawn_points.shuffle()
+	
+	var player_count=0
+	for i in GlobalAccess.PLAYER_ID:
+		var player: Player=ResourceLoader.load("res://scenes/player.tscn").instantiate()
+		player.id=i
+		print("placing player: ", player.id)
+		player.position.x=player_spawn_points[player_count].position.x
+		player.position.y=player_spawn_points[player_count].position.y
+		
+		get_tree().get_root().add_child.call_deferred(player)
+		player_count+=1
+		if player_count>=GlobalAccess.players:
+			break
+	
 #region incs, decs
-func add_player()->void:
-	pass
-func rem_player()->void:
-	pass
+func add_player(p: Player)->void:
+	active_players.append(p)
+func rem_player(p: Player)->void:
+	active_players.erase(p)
 	_check_game_state()
 
 func inc_bombs()->void:

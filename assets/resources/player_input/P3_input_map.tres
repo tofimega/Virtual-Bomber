@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlayerInputMap" load_steps=2 format=3 uid="uid://boq72lfmtlo8i"]
+
+[ext_resource type="Script" path="res://assets/resources/player_input/player_input_map.gd" id="1_wmvgb"]
+
+[resource]
+script = ExtResource("1_wmvgb")
+up = "P3_UP"
+down = "P3_DOWN"
+left = "P3_LEFT"
+right = "P3_RIGHT"
+place_bomb = "P3_BOMB"
