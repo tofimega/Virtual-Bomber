@@ -19,13 +19,8 @@ func get_winner()->String:
 	return PLAYER_ID.find_key(player_progress.find(player_progress.max()))
 
 # amount of players in-game
-var players: int=2:
-	get:
-		return players
-	set (p):
-		players=p
-		
-		
+var players: int=3
+
 # each player is given one of these
 enum PLAYER_ID{
 	P1=0,

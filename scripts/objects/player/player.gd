@@ -16,7 +16,7 @@ var input_map: PlayerInputMap
 
 var id: GlobalAccess.PLAYER_ID:
 	set (p):
-		input_map=PlayerInputMap.get_input_map(p-1)
+		input_map=PlayerInputMap.get_input_map(p)
 		id=p
 		#TODO: set sprite
 

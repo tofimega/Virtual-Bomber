@@ -38,10 +38,10 @@ func spawn_players()->void:
 	player_spawn_points.shuffle()
 	
 	var player_count=0
+
 	for i in GlobalAccess.PLAYER_ID:
 		var player: Player=ResourceLoader.load("res://scenes/player.tscn").instantiate()
-		player.id=i
-		print("placing player: ", player.id)
+		player.id=GlobalAccess.PLAYER_ID[i]
 		player.position.x=player_spawn_points[player_count].position.x
 		player.position.y=player_spawn_points[player_count].position.y
 		
