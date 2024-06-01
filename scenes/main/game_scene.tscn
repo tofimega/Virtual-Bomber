@@ -8,3 +8,7 @@
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_6ha3f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -90)
+anchor_mode = 0

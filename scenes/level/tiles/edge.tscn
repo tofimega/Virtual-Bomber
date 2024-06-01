@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://kppd17je1f8v"]
+
+[ext_resource type="PackedScene" uid="uid://bh1xlk8xexbq0" path="res://scenes/level/tiles/tile.tscn" id="1_jpwk5"]
+[ext_resource type="Texture2D" uid="uid://150ae7lopuoh" path="res://assets/images/tiles/wall/wall tile bottom.png" id="2_yxd4c"]
+[ext_resource type="Texture2D" uid="uid://c4btm74yg30mi" path="res://assets/images/tiles/wall/wall tile top.png" id="3_508p3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ugmj"]
+size = Vector2(30, 35)
+
+[node name="Edge" instance=ExtResource("1_jpwk5")]
+position = Vector2(0, -4)
+collision_layer = 1
+
+[node name="Sprite2D" parent="." index="0"]
+z_index = -1
+texture = ExtResource("2_yxd4c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_508p3")
+region_rect = Rect2(0, 0, 32, 36)
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_6ugmj")

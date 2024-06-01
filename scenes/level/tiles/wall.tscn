@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch521y8ie364i"]
+
+[ext_resource type="PackedScene" uid="uid://kppd17je1f8v" path="res://scenes/level/tiles/edge.tscn" id="1_xq8w2"]
+
+[node name="Wall" instance=ExtResource("1_xq8w2")]
+y_sort_enabled = true
+collision_layer = 2

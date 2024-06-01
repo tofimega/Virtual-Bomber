@@ -22,6 +22,18 @@ GlobalAccess="*res://scripts/globals/global_access.gd"
 Utility="*res://scripts/globals/utility.gd"
 SignalBus="*res://scripts/globals/signal_bus.gd"
 
+[debug]
+
+gdscript/warnings/unused_parameter=0
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=600
+window/size/initial_position_type=2
+window/size/resizable=false
+window/stretch/scale_mode="integer"
+
 [input]
 
 P1_UP={

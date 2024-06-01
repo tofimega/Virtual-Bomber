@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 
 var bombs:Array=[]
-var movement_speed: int=2
+var movement_speed: int=200
 
 var bomb_capacity: int=1
 var bombs_on_field: int=0
@@ -41,22 +41,20 @@ func _ready():
 
 
 func _process(delta):
+	z_index=position.y
 	move()
 	place_bomb()
+	
 
 func place_bomb()->void:
 	if Input.is_action_just_pressed(input_map.place_bomb):
 		print(id)
 
 func move()->void:
-	if Input.is_action_pressed(input_map.left):
-		position.x-=movement_speed
-	if Input.is_action_pressed(input_map.right):
-		position.x+=movement_speed
-	if Input.is_action_pressed(input_map.up):
-		position.y-=movement_speed
-	if Input.is_action_pressed(input_map.down):
-		position.y+=movement_speed
+	velocity.x=Input.get_axis(input_map.left,input_map.right)*movement_speed
+	velocity.y=Input.get_axis(input_map.up,input_map.down)*movement_speed
+	
+	move_and_slide()
 
 
 func kill()->void:
