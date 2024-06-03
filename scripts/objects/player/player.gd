@@ -58,8 +58,9 @@ func move()->void:
 
 
 func kill()->void:
-	SignalBus.player_dead.emit(self)
-	queue_free()
+	print("ow")
+	#SignalBus.player_dead.emit(self)
+	#queue_free()
 	
 
 	
