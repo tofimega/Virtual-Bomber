@@ -15,6 +15,9 @@ func game_over(p: String)->bool:
 var games_to_win: int=0
 
 
+var level_to_load: String="res://test3.txt"
+
+
 func get_winner()->String:
 	return PLAYER_ID.find_key(player_progress.find(player_progress.max()))
 

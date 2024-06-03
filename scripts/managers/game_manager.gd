@@ -27,6 +27,7 @@ func _setup_score_counters()->void:
 	pass
 
 func _load_level()->void:
+	GlobalAccess.level_to_load="res://test3.txt"
 	var level=ResourceLoader.load("res://scenes/test_level.tscn").instantiate()
 	get_parent().add_child.call_deferred(level)
 
@@ -46,6 +47,8 @@ func spawn_players()->void:
 		player.position.y=player_spawn_points[player_count].position.y
 		
 		get_parent().add_child.call_deferred(player)
+		#player_spawn_points[player_count].queue_free()
+		
 		player_count+=1
 		if player_count>=GlobalAccess.players:
 			break
