@@ -28,7 +28,7 @@ func _setup_score_counters()->void:
 
 func _load_level()->void:
 	var level=ResourceLoader.load("res://scenes/test_level.tscn").instantiate()
-	get_tree().get_root().add_child.call_deferred(level)
+	get_parent().add_child.call_deferred(level)
 
 func add_spawn_point(p: PlayerSpawn)->void:
 	player_spawn_points.append(p)
@@ -45,7 +45,7 @@ func spawn_players()->void:
 		player.position.x=player_spawn_points[player_count].position.x
 		player.position.y=player_spawn_points[player_count].position.y
 		
-		get_tree().get_root().add_child.call_deferred(player)
+		get_parent().add_child.call_deferred(player)
 		player_count+=1
 		if player_count>=GlobalAccess.players:
 			break

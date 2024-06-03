@@ -41,7 +41,7 @@ func _ready():
 
 
 func _process(delta):
-	z_index=position.y
+	#z_index=position.y
 	move()
 	place_bomb()
 	

@@ -55,6 +55,7 @@ texture_region_size = Vector2i(32, 36)
 texture = ExtResource("4_l51ea")
 texture_region_size = Vector2i(32, 36)
 0:0/0 = 0
+0:0/0/y_sort_origin = 7
 
 [sub_resource type="TileSet" id="TileSet_w2j1e"]
 tile_size = Vector2i(32, 32)
@@ -65,14 +66,16 @@ sources/1 = SubResource("TileSetAtlasSource_tllwi")
 normal = Vector2(0, 1)
 distance = 10.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c2y2"]
-size = Vector2(476, 20)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u7ry1"]
+distance = 10.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr5rq"]
-size = Vector2(45, 494)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6vmih"]
+normal = Vector2(1, 0)
+distance = 23.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku3mx"]
-size = Vector2(22, 490)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_842i1"]
+normal = Vector2(-1, 0)
+distance = 11.0
 
 [sub_resource type="Animation" id="Animation_tdtyy"]
 length = 0.001
@@ -210,6 +213,7 @@ _data = {
 }
 
 [node name="TestLevel" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_iun28")
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
@@ -229,7 +233,7 @@ y_sort_enabled = true
 tile_set = SubResource("TileSet_w2j1e")
 format = 2
 layer_0/name = "Edge Back"
-layer_0/enabled = false
+layer_0/z_index = -1
 layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 655360, 0, 0, 720896, 0, 0, 786432, 0, 0, 851968, 0, 0, 917504, 0, 0, 983040, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65551, 0, 0, 131087, 0, 0, 196623, 0, 0, 262159, 0, 0, 327695, 0, 0, 393231, 0, 0, 458767, 0, 0, 524303, 0, 0, 589839, 0, 0, 655375, 0, 0, 720911, 0, 0, 786447, 0, 0, 851983, 0, 0, 917519, 0, 0, 983055, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0)
 layer_1/name = "Edge Top"
 layer_1/y_sort_enabled = true
@@ -244,17 +248,17 @@ shape = SubResource("WorldBoundaryShape2D_bd05x")
 
 [node name="Bottom" type="CollisionShape2D" parent="Edge"]
 position = Vector2(262, 493)
-shape = SubResource("RectangleShape2D_2c2y2")
+shape = SubResource("WorldBoundaryShape2D_u7ry1")
 
 [node name="Left" type="CollisionShape2D" parent="Edge"]
 position = Vector2(8, 237)
-shape = SubResource("RectangleShape2D_xr5rq")
+shape = SubResource("WorldBoundaryShape2D_6vmih")
 
 [node name="Right" type="CollisionShape2D" parent="Edge"]
 position = Vector2(492, 243)
-shape = SubResource("RectangleShape2D_ku3mx")
+shape = SubResource("WorldBoundaryShape2D_842i1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Floor" type="Sprite2D" parent="."]
 z_index = -1
 texture_repeat = 2
 position = Vector2(256, 258)
@@ -262,7 +266,7 @@ texture = ExtResource("5_f4vek")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Floor"]
 libraries = {
 "": SubResource("AnimationLibrary_02ve3")
 }
