@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccvs1154g653j"]
+
+[ext_resource type="Script" path="res://scenes/actors/player/player.gd" id="1_pvi60"]
+[ext_resource type="Texture2D" uid="uid://ooowiq0f7snl" path="res://assets/images/player/1/sprite_0.png" id="2_1rqaf"]
+[ext_resource type="PackedScene" uid="uid://ccj2x3b58t045" path="res://scenes/components/bomb_ignorer/bomb_ignorer.tscn" id="3_4std7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq8yd"]
+size = Vector2(12, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5ryo"]
+size = Vector2(12, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83ava"]
+size = Vector2(12, 8)
+
+[node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 16
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_pvi60")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("2_1rqaf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_pq8yd")
+
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(0, 12)
+collision_layer = 0
+collision_mask = 192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_i5ryo")
+
+[node name="BombIgnorer" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_4std7")]
+collision_mask = 15
+target = NodePath("..")
+
+[node name="CollisionShape2D" parent="BombIgnorer" index="0"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_83ava")
+
+[editable path="BombIgnorer"]

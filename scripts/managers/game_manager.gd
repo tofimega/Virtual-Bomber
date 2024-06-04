@@ -28,7 +28,7 @@ func _setup_score_counters()->void:
 
 func _load_level()->void:
 	GlobalAccess.level_to_load="res://test3.txt"
-	var level=ResourceLoader.load("res://scenes/test_level.tscn").instantiate()
+	var level=ResourceLoader.load("res://scenes/level/test_level/test_level.tscn").instantiate()
 	get_parent().add_child.call_deferred(level)
 
 func add_spawn_point(p: PlayerSpawn)->void:
@@ -43,7 +43,7 @@ func spawn_players()->void:
 	var player_count=0
 
 	for i in GlobalAccess.PLAYER_ID:
-		var player: Player=ResourceLoader.load("res://scenes/player.tscn").instantiate()
+		var player: Player=ResourceLoader.load("res://scenes/actors/player/player.tscn").instantiate()
 		player.id=GlobalAccess.PLAYER_ID[i]
 		player.position.x=player_spawn_points[player_count].x
 		player.position.y=player_spawn_points[player_count].y

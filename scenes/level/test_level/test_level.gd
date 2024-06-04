@@ -34,7 +34,7 @@ func spawn_object(o: String,row:int,col:int)->void:
 	var pos:Vector2i=Vector2i(col,row)
 	
 	match o:
-		'p': tile_map.set_cell(1,pos,3,Vector2i.ZERO,0)
+		'p': tile_map.set_cell(2,pos,3,Vector2i.ZERO,0)
 		'be':return
 		'ge':return
 		'se':return

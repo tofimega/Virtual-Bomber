@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccj2x3b58t045"]
+
+[ext_resource type="Script" path="res://scenes/components/bomb_ignorer/bomb_ignorer.gd" id="1_4xfp6"]
+
+[node name="BombIgnorer" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_4xfp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
