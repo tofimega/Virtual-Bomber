@@ -6,7 +6,7 @@ var active_players: Array[Player]=[]
 var active_explosions: int=0
 var active_bombs: int=0
 
-var player_spawn_points: Array[PlayerSpawn]=[]
+var player_spawn_points: Array[Vector2]=[]
 
 
 func _ready():
@@ -32,7 +32,9 @@ func _load_level()->void:
 	get_parent().add_child.call_deferred(level)
 
 func add_spawn_point(p: PlayerSpawn)->void:
-	player_spawn_points.append(p)
+	player_spawn_points.append(p.position)
+	p.queue_free()
+	print("yea")
 	
 	
 func spawn_players()->void:
@@ -43,11 +45,10 @@ func spawn_players()->void:
 	for i in GlobalAccess.PLAYER_ID:
 		var player: Player=ResourceLoader.load("res://scenes/player.tscn").instantiate()
 		player.id=GlobalAccess.PLAYER_ID[i]
-		player.position.x=player_spawn_points[player_count].position.x
-		player.position.y=player_spawn_points[player_count].position.y
+		player.position.x=player_spawn_points[player_count].x
+		player.position.y=player_spawn_points[player_count].y
 		
 		get_parent().add_child.call_deferred(player)
-		#player_spawn_points[player_count].queue_free()
 		
 		player_count+=1
 		if player_count>=GlobalAccess.players:

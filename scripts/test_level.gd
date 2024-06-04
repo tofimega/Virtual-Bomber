@@ -3,7 +3,6 @@ extends Node2D
 @onready var tile_map = $TileMap
 
 
-
 func _ready():
 	var level_data: String =FileAccess.get_file_as_string(GlobalAccess.level_to_load)
 	
@@ -26,10 +25,10 @@ func _ready():
 		else:
 			var o: PackedStringArray=line.split(" ")
 			if len(o)==3:
-				spawn_object(o[0],int(o[1]),int(o[2]))
+				spawn_object(o[0],int(o[2]),int(o[1]))
 	
 	
-	#SignalBus.level_loaded.emit()
+	SignalBus.call_deferred("emit_level_loaded")
 
 func spawn_object(o: String,row:int,col:int)->void:
 	var pos:Vector2i=Vector2i(col,row)

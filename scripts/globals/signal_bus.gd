@@ -9,3 +9,7 @@ signal bomb_exploded(bomb)
 
 signal player_ready(p: Player)
 signal player_dead(p: Player)
+
+
+func emit_level_loaded()->void:
+	level_loaded.emit()
