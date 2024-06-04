@@ -38,6 +38,7 @@ func dec_bombs(b)->void:
 
 func _ready():
 	hurt_box.body_entered.connect(kill)
+	GlobalAccess.get_game_manager().add_player(self)
 
 
 func _process(delta):

@@ -30,7 +30,14 @@ enum PLAYER_ID{
 	P2=1,
 	P3=2,
 	}
+	
+#region node connections
+func get_player_container()->Node2D:
+	return get_tree().get_first_node_in_group("Player Container")
 
-#region controls
-
+func get_game_manager()->GameManager:
+	return get_tree().get_first_node_in_group("Game Manager")
 #endregion
+
+
+

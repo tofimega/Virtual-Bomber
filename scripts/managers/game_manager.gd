@@ -9,6 +9,7 @@ var active_bombs: int=0
 var player_spawn_points: Array[Vector2]=[]
 
 
+
 func _ready():
 	SignalBus.player_ready.connect(add_player)
 	SignalBus.player_dead.connect(rem_player)
@@ -21,6 +22,8 @@ func _ready():
 	
 	_setup_score_counters()
 	_load_level()
+
+
 
 
 func _setup_score_counters()->void:
@@ -48,7 +51,7 @@ func spawn_players()->void:
 		player.position.x=player_spawn_points[player_count].x
 		player.position.y=player_spawn_points[player_count].y
 		
-		get_parent().add_child.call_deferred(player)
+		GlobalAccess.get_player_container().add_child.call_deferred(player)
 		
 		player_count+=1
 		if player_count>=GlobalAccess.players:
