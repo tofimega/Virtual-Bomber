@@ -37,6 +37,9 @@ func get_player_container()->Node2D:
 
 func get_game_manager()->GameManager:
 	return get_tree().get_first_node_in_group("Game Manager")
+	
+func get_level_grid()->TileMap:
+	return get_tree().get_first_node_in_group("Level Grid")
 #endregion
 
 

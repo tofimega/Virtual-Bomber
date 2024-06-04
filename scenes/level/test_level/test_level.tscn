@@ -229,7 +229,7 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_c5ww6")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="." groups=["Level Grid"]]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_w2j1e")
 format = 2

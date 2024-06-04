@@ -49,6 +49,8 @@ func _process(delta):
 func place_bomb()->void:
 	if Input.is_action_just_pressed(input_map.place_bomb):
 		print(id)
+		
+	# mod bomb pos with GlobalAccess.get_level_grid.get_tileset.tile_size
 
 func move()->void:
 	velocity.x=Input.get_axis(input_map.left,input_map.right)*movement_speed
