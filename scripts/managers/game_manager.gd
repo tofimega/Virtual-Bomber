@@ -64,10 +64,10 @@ func rem_player(p: Player)->void:
 	active_players.erase(p)
 	_check_game_state()
 
-func inc_bombs()->void:
+func inc_bombs(b)->void:
 	active_bombs+=1
 	
-func dec_bombs()->void:
+func dec_bombs(b)->void:
 	active_bombs-=1
 	_check_game_state()
 	

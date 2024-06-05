@@ -250,4 +250,4 @@ sprite_frames = SubResource("SpriteFrames_1uj7j")
 autoplay = "default"
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(0, 5.5)
+position = Vector2(0, 2)

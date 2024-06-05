@@ -21,15 +21,16 @@ motion_mode = 1
 script = ExtResource("1_pvi60")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(-0.039999, -9.04)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("2_1rqaf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
+position = Vector2(-0.039999, -0.039999)
 shape = SubResource("RectangleShape2D_pq8yd")
 
 [node name="HurtBox" type="Area2D" parent="."]
-position = Vector2(0, 12)
+position = Vector2(-0.039999, 2.96)
 collision_layer = 0
 collision_mask = 192
 
@@ -38,6 +39,7 @@ position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_i5ryo")
 
 [node name="BombIgnorer" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_4std7")]
+position = Vector2(-0.039999, -9.04)
 collision_mask = 15
 target = NodePath("..")
 

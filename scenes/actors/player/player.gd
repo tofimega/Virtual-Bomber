@@ -1,15 +1,26 @@
 class_name Player
 extends CharacterBody2D
 
-@onready var player_sprite: Sprite2D = $PlayerSprite
-@onready var hurt_box: Area2D = $HurtBox
+@onready var player_sprite: Sprite2D = $PlayerSprite as Sprite2D
+@onready var hurt_box: Area2D = $HurtBox as Area2D
+@onready var bomb_ignorer = $BombIgnorer as Area2D
 
+
+var can_place: bool:
+	set(p):
+		pass
+	get:
+		return bomb_count<bomb_capacity && !bomb_ignorer.colliding
 
 var bombs:Array=[]
 var movement_speed: int=200
 
 var bomb_capacity: int=1
-var bombs_on_field: int=0
+var bomb_count: int:
+	set(b):
+		pass
+	get:
+		return len(bombs)
 var power: int=1
 
 var input_map: PlayerInputMap
@@ -27,18 +38,18 @@ func inc_capacity()->void:
 func inc_power()->void:
 	power+=1
 
-func inc_boms(b)->void:
-	bombs_on_field+=1
+func inc_bombs(b:Bomb)->void:
 	bombs.append(b)
 
 func dec_bombs(b)->void:
-	bombs_on_field-=1
 	bombs.erase(b)
 #endregion
 
 func _ready():
+	SignalBus.bomb_exploded.connect(dec_bombs)
 	hurt_box.body_entered.connect(kill)
-	GlobalAccess.get_game_manager().add_player(self)
+	SignalBus.player_ready.emit(self)
+	
 
 
 func _process(delta):
@@ -47,8 +58,13 @@ func _process(delta):
 	
 
 func place_bomb()->void:
-	if Input.is_action_just_pressed(input_map.place_bomb):
-		print(id)
+	if Input.is_action_just_pressed(input_map.place_bomb) && can_place:
+		var bomb:Bomb=ResourceLoader.load("res://scenes/actors/bomb/bomb.tscn").instantiate()
+		var tile_size=GlobalAccess.get_level_grid().get_tileset().tile_size
+		bomb.position.x=position.x-(int(position.x)% tile_size.x)
+		bomb.position.y=position.y-(int(position.y)% tile_size.y)
+		inc_bombs(bomb)
+		GlobalAccess.get_player_container().add_child.call_deferred(bomb)
 		
 	# round down bomb pos with GlobalAccess.get_level_grid.get_tileset.tile_size
 	# x - (x% tile_size.x) etc.
@@ -62,9 +78,10 @@ func move()->void:
 
 func kill()->void:
 	print("ow")
-	#SignalBus.player_dead.emit(self)
-	#queue_free()
+	SignalBus.player_dead.emit(self)
+	queue_free()
 	
+
 
 	
 	

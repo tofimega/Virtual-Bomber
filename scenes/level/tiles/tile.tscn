@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/level/tiles/Tile.gd" id="1_dvam0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8gge"]
-size = Vector2(32, 25)
+size = Vector2(32, 32)
 
 [node name="Tile" type="StaticBody2D"]
 collision_layer = 0
