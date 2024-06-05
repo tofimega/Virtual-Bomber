@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @onready var player_sprite: Sprite2D = $PlayerSprite as Sprite2D
 @onready var hurt_box: Area2D = $HurtBox as Area2D
-@onready var bomb_ignorer = $BombIgnorer as Area2D
+@onready var bomb_ignorer = $BombIgnorer as BombIgnorer
 
 
 var can_place: bool:
@@ -63,11 +63,10 @@ func place_bomb()->void:
 		var tile_size=GlobalAccess.get_level_grid().get_tileset().tile_size
 		bomb.position.x=position.x-(int(position.x)% tile_size.x)
 		bomb.position.y=position.y-(int(position.y)% tile_size.y)
+		bomb.player=self
 		inc_bombs(bomb)
-		GlobalAccess.get_player_container().add_child.call_deferred(bomb)
+		GlobalAccess.get_actor_container().add_child.call_deferred(bomb)
 		
-	# round down bomb pos with GlobalAccess.get_level_grid.get_tileset.tile_size
-	# x - (x% tile_size.x) etc.
 
 func move()->void:
 	velocity.x=Input.get_axis(input_map.left,input_map.right)*movement_speed

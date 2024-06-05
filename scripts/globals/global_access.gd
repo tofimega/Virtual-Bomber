@@ -32,8 +32,8 @@ enum PLAYER_ID{
 	}
 	
 #region node connections
-func get_player_container()->Node2D:
-	return get_tree().get_first_node_in_group("Player Container")
+func get_actor_container()->Node2D:
+	return get_tree().get_first_node_in_group("Actor Container")
 
 func get_game_manager()->GameManager:
 	return get_tree().get_first_node_in_group("Game Manager")

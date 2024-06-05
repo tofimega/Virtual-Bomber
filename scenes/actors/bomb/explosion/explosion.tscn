@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbm0wrywq23xc"]
+
+[ext_resource type="Script" path="res://scenes/actors/bomb/explosion/explosion.gd" id="1_5viag"]
+[ext_resource type="Texture2D" uid="uid://dya45wx4ld50j" path="res://assets/images/explosion/exp ph.png" id="1_qinen"]
+[ext_resource type="PackedScene" uid="uid://cbluefjrx4i8q" path="res://scenes/components/spreader/spreader.tscn" id="3_u50ep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgp3x"]
+size = Vector2(32, 32)
+
+[node name="Explosion" type="Area2D"]
+z_index = 1
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_5viag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qinen")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_wgp3x")
+
+[node name="Spreader" parent="." node_paths=PackedStringArray("explosion") instance=ExtResource("3_u50ep")]
+explosion = NodePath("..")
+
+[node name="DissipateTimer" type="Timer" parent="."]
+wait_time = 0.02
+one_shot = true
+
+[node name="SpreadTimer" type="Timer" parent="."]
+wait_time = 0.04
+one_shot = true
