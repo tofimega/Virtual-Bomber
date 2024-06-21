@@ -8,8 +8,8 @@
 script = ExtResource("1_to6ya")
 
 [node name="Top" type="Area2D" parent="."]
-collision_layer = 15
-collision_mask = 0
+collision_layer = 0
+collision_mask = 15
 monitoring = false
 monitorable = false
 
@@ -18,8 +18,8 @@ position = Vector2(16, -15)
 shape = SubResource("RectangleShape2D_mt6f1")
 
 [node name="Right" type="Area2D" parent="."]
-collision_layer = 15
-collision_mask = 0
+collision_layer = 0
+collision_mask = 15
 monitoring = false
 monitorable = false
 
@@ -28,8 +28,8 @@ position = Vector2(48, 16)
 shape = SubResource("RectangleShape2D_mt6f1")
 
 [node name="Bottom" type="Area2D" parent="."]
-collision_layer = 15
-collision_mask = 0
+collision_layer = 0
+collision_mask = 15
 monitoring = false
 monitorable = false
 
@@ -38,8 +38,8 @@ position = Vector2(16, 47)
 shape = SubResource("RectangleShape2D_mt6f1")
 
 [node name="Left" type="Area2D" parent="."]
-collision_layer = 15
-collision_mask = 0
+collision_layer = 0
+collision_mask = 15
 monitoring = false
 monitorable = false
 

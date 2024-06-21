@@ -21,7 +21,7 @@ var bomb_count: int:
 		pass
 	get:
 		return len(bombs)
-var power: int=1
+var power: int=7
 
 var input_map: PlayerInputMap
 
@@ -41,7 +41,8 @@ func inc_power()->void:
 func inc_bombs(b:Bomb)->void:
 	bombs.append(b)
 
-func dec_bombs(b)->void:
+func dec_bombs(b: Bomb)->void:
+	remove_collision_exception_with(b)
 	bombs.erase(b)
 #endregion
 
@@ -67,6 +68,8 @@ func place_bomb()->void:
 		inc_bombs(bomb)
 		GlobalAccess.get_actor_container().add_child.call_deferred(bomb)
 		
+
+
 
 func move()->void:
 	velocity.x=Input.get_axis(input_map.left,input_map.right)*movement_speed

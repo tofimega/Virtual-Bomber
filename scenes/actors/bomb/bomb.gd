@@ -7,12 +7,13 @@ extends StaticBody2D
 
 
 @onready var exploder = $Exploder as Area2D
+@onready var collision_shape = $CollisionShape2D
 
 
 var player: Player
 
 func _ready():
-
+	SignalBus.player_placing_bomb.emit(self)
 	timer.timeout.connect(explode)
 	exploder.area_entered.connect(explode)
 	timer.start(countdown)

@@ -16,7 +16,7 @@ size = Vector2(12, 8)
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 16
-collision_mask = 7
+collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_pvi60")
 
@@ -38,10 +38,11 @@ collision_mask = 192
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_i5ryo")
 
-[node name="BombIgnorer" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_4std7")]
+[node name="BombIgnorer" parent="." node_paths=PackedStringArray("target", "shape") instance=ExtResource("3_4std7")]
 position = Vector2(-0.039999, -9.04)
 collision_mask = 15
 target = NodePath("..")
+shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" parent="BombIgnorer" index="0"]
 position = Vector2(0, 9)

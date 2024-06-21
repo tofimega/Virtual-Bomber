@@ -15,7 +15,7 @@ signal spread_complete
 
 
 func _ready():
-
+	top.body_entered.connect(test)
 	set_direction()
 
 func set_direction()->void:
@@ -51,14 +51,17 @@ func spread()->void:
 		pass
 	match explosion.direction:
 		Explosion.SpreadDirection.SOURCE:
-			spread_to(Explosion.SpreadDirection.UP)
-			spread_to(Explosion.SpreadDirection.RIGHT)
-			spread_to(Explosion.SpreadDirection.DOWN)
-			spread_to(Explosion.SpreadDirection.LEFT)
-		_: spread_to(explosion.direction)
+			spread_to.call_deferred(Explosion.SpreadDirection.UP)
+			spread_to.call_deferred(Explosion.SpreadDirection.RIGHT)
+			spread_to.call_deferred(Explosion.SpreadDirection.DOWN)
+			spread_to.call_deferred(Explosion.SpreadDirection.LEFT)
+			
+		_:  spread_to.call_deferred(explosion.direction)
 	
 	spread_complete.emit()
 
+func test(b):
+	print(b)
 
 func spread_to(direction: Explosion.SpreadDirection)->void:
 	var level_grid: TileMap=GlobalAccess.get_level_grid()
