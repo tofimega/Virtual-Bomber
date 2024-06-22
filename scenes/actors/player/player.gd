@@ -70,7 +70,6 @@ func place_bomb()->void:
 		
 
 
-
 func move()->void:
 	velocity.x=Input.get_axis(input_map.left,input_map.right)*movement_speed
 	velocity.y=Input.get_axis(input_map.up,input_map.down)*movement_speed
@@ -80,8 +79,8 @@ func move()->void:
 
 func kill(arae)->void:
 	print("ow")
-	#SignalBus.player_dead.emit(self)
-	#queue_free()
+	SignalBus.player_dead.emit(self)
+	queue_free()
 	
 
 

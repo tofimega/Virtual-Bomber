@@ -84,15 +84,15 @@ func dec_explosions()->void:
 #region game state
 func next(over: bool)->void:
 	if over:
-		pass #TODO: results scene
+		get_tree().change_scene_to_file("res://scenes/main/game_scene.tscn") #TODO: results scene
 		return
-	pass #TODO: new game
+	get_tree().change_scene_to_file("res://scenes/main/game_scene.tscn")
 	
 func _check_game_state()->void:
 	if active_bombs==0 and active_explosions==0:
 		
 		if active_players.size()==1:
-			var over: bool=GlobalAccess.game_over(GlobalAccess.player_id.P1) # TODO: replace when players are added
+			var over: bool=GlobalAccess.game_over(active_players[0].id) # TODO: replace when players are added
 			next(over)
 			return
 			

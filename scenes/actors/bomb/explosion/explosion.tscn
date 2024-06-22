@@ -5,12 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://cbluefjrx4i8q" path="res://scenes/components/spreader/spreader.tscn" id="3_u50ep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgp3x"]
-size = Vector2(32, 32)
+size = Vector2(28, 28)
 
 [node name="Explosion" type="Area2D"]
 z_index = 1
 collision_layer = 128
-collision_mask = 15
+collision_mask = 0
+monitoring = false
 script = ExtResource("1_5viag")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

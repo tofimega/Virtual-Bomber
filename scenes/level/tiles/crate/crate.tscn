@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://df00v3oshlyt4"]
+[gd_scene load_steps=39 format=3 uid="uid://df00v3oshlyt4"]
 
 [ext_resource type="PackedScene" uid="uid://bh1xlk8xexbq0" path="res://scenes/level/tiles/tile.tscn" id="1_wjc1t"]
 [ext_resource type="Texture2D" uid="uid://be2nke45syhg4" path="res://assets/images/tiles/crate/breaking/crate breaking.png" id="2_dgue8"]
@@ -242,6 +242,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy2gq"]
+
 [node name="Crate" instance=ExtResource("1_wjc1t")]
 y_sort_enabled = true
 collision_layer = 4
@@ -249,7 +251,20 @@ script = ExtResource("2_jwki6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_1uj7j")
+animation = &"breaking"
 autoplay = "default"
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2(0, 2)
+
+[node name="Area2D" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 128
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_xy2gq")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

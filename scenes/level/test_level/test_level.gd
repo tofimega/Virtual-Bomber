@@ -43,7 +43,6 @@ func spawn_object(o: String,row:int,col:int)->void:
 
 
 func spawn_tile(o: String, row: int, col: int)->void:
-	var object_scene: PackedScene
 	var pos: Vector2i=Vector2i(col,row)
 	match o:
 		'x': return
