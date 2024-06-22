@@ -64,11 +64,14 @@ func test(b):
 	print(b)
 
 func spread_to(direction: Explosion.SpreadDirection)->void:
+	if explosion.raw_power==0: return
 	var level_grid: TileMap=GlobalAccess.get_level_grid()
 	
 	var new_pos: Vector2=Vector2(explosion.position)
 
+	
 	explosion.true_power=explosion.raw_power
+	
 	match direction:
 		Explosion.SpreadDirection.UP:
 			set_power(top)
@@ -95,10 +98,27 @@ func spread_to(direction: Explosion.SpreadDirection)->void:
 
 
 func set_power(checker:Area2D)->void:
-	for body in checker.get_overlapping_bodies():
+	if explosion.raw_power==0: return 
+	
+	var space: PhysicsDirectSpaceState2D=get_node("/root/GameScene").get_world_2d().get_direct_space_state()
+	var params: PhysicsShapeQueryParameters2D=PhysicsShapeQueryParameters2D.new()
+	params.collision_mask=checker.collision_mask
+	params.shape=checker.get_children()[0].shape
+	params.transform=checker.get_children()[0].get_global_transform()
+	
+	var raw_data: Array[Dictionary]=space.intersect_shape(params)
+	
+	
+	for body_info in raw_data:
+		
+		var body: CollisionObject2D=body_info["collider"]
+		
+		
 		
 		if body is Crate:
 			explosion.true_power=1
+			return
 		else:
 			explosion.true_power=0
 			return
+

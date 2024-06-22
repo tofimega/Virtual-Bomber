@@ -48,7 +48,7 @@ func dec_bombs(b: Bomb)->void:
 
 func _ready():
 	SignalBus.bomb_exploded.connect(dec_bombs)
-	hurt_box.body_entered.connect(kill)
+	hurt_box.area_entered.connect(kill)
 	SignalBus.player_ready.emit(self)
 	
 
@@ -78,10 +78,10 @@ func move()->void:
 	move_and_slide()
 
 
-func kill()->void:
+func kill(arae)->void:
 	print("ow")
-	SignalBus.player_dead.emit(self)
-	queue_free()
+	#SignalBus.player_dead.emit(self)
+	#queue_free()
 	
 
 
