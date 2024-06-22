@@ -13,7 +13,14 @@ func _on_area_2d_area_entered(area):
 
 func drop_item()->void:
 	print("yeowch")
-
+	
+	var powerup: Powerup=ResourceLoader.load("res://scenes/actors/powerup/powerup.tscn").instantiate()
+	powerup.position.x=position.x
+	powerup.position.y=position.y
+	
+	GlobalAccess.get_actor_container().add_child.call_deferred(powerup)
+	
+	
 
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite_2d.animation=="breaking":

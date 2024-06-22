@@ -92,7 +92,7 @@ func _check_game_state()->void:
 	if active_bombs==0 and active_explosions==0:
 		
 		if active_players.size()==1:
-			var over: bool=GlobalAccess.game_over(active_players[0].id) # TODO: replace when players are added
+			var over: bool=GlobalAccess.game_over(active_players[0].id)
 			next(over)
 			return
 			
