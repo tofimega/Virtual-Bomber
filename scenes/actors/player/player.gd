@@ -21,7 +21,7 @@ var bomb_count: int:
 		pass
 	get:
 		return len(bombs)
-var power: int=7
+var power: int=1
 
 var input_map: PlayerInputMap
 

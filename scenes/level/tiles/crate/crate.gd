@@ -13,12 +13,18 @@ func _on_area_2d_area_entered(area):
 
 func drop_item()->void:
 	print("yeowch")
+	if randi()%5<3:
+		var powerup: Powerup
+		if randi()%2==0:
+			powerup=ResourceLoader.load("res://scenes/actors/powerup/range/range_powerup.tscn").instantiate()
+		else:
+			powerup=ResourceLoader.load("res://scenes/actors/powerup/capacity/capacity_powerup.tscn").instantiate()
+		
+		
+		powerup.position.x=position.x
+		powerup.position.y=position.y
 	
-	var powerup: Powerup=ResourceLoader.load("res://scenes/actors/powerup/powerup.tscn").instantiate()
-	powerup.position.x=position.x
-	powerup.position.y=position.y
-	
-	GlobalAccess.get_actor_container().add_child.call_deferred(powerup)
+		GlobalAccess.get_actor_container().add_child.call_deferred(powerup)
 	
 	
 
