@@ -9,16 +9,19 @@ var current_state: State
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	switch_scene(initial_state)
+	get_parent().ready.connect(start)
 
+func start()->void:
+	switch_state(initial_state)
 
-func switch_scene(new_state: State)->void:
+func switch_state(new_state: State)->void:
 	if current_state!=null:
-		current_state._exit_state()
-		current_state.active=false
+		current_state.exit_state()
+		current_state.set_process(false)
 		
-	new_state._enter_state()
-	new_state.active=true
+		
+	new_state.enter_state()
+	new_state.set_process(true)
 		
 	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cb25rkkl8la8e"]
+[gd_scene load_steps=62 format=3 uid="uid://cb25rkkl8la8e"]
 
 [ext_resource type="Script" path="res://scenes/level/test_level/test_level.gd" id="1_c5ww6"]
 [ext_resource type="Texture2D" uid="uid://150ae7lopuoh" path="res://assets/images/tiles/wall/wall tile bottom.png" id="2_fhyya"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cfb0dtik3eo17" path="res://scenes/actors/enemy/base_enemy/base_enemy.tscn" id="7_bfspc"]
 [ext_resource type="Texture2D" uid="uid://ds7rrhu04sc0d" path="res://assets/images/tiles/floor/sprite_00.png" id="7_kxa54"]
 [ext_resource type="Texture2D" uid="uid://dad5s4eqbrqby" path="res://assets/images/tiles/floor/sprite_01.png" id="8_1gefl"]
+[ext_resource type="PackedScene" uid="uid://bcwmsyq4opwhq" path="res://scenes/actors/enemy/ghost_enemy/ghost_enemy.tscn" id="8_kgv25"]
 [ext_resource type="Texture2D" uid="uid://tsv4yiac64f6" path="res://assets/images/tiles/floor/sprite_02.png" id="9_0csw1"]
 [ext_resource type="Texture2D" uid="uid://dilvjyy42t0g6" path="res://assets/images/tiles/floor/sprite_03.png" id="10_mfv7w"]
 [ext_resource type="Texture2D" uid="uid://bbfaas1w4xfa3" path="res://assets/images/tiles/floor/sprite_04.png" id="11_3w41y"]
@@ -69,6 +70,7 @@ scenes/2/scene = ExtResource("5_mqyap")
 resource_name = "Objects"
 scenes/0/scene = ExtResource("6_qcm86")
 scenes/1/scene = ExtResource("7_bfspc")
+scenes/2/scene = ExtResource("8_kgv25")
 
 [sub_resource type="TileSet" id="TileSet_w2j1e"]
 tile_size = Vector2i(32, 32)
