@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcwmsyq4opwhq"]
+[gd_scene load_steps=5 format=3 uid="uid://bcwmsyq4opwhq"]
 
 [ext_resource type="PackedScene" uid="uid://cfb0dtik3eo17" path="res://scenes/actors/enemy/base_enemy/base_enemy.tscn" id="1_0r7rj"]
 [ext_resource type="Script" path="res://scenes/actors/enemy/ghost_enemy/ghost_enemy.gd" id="2_4mmqc"]
 [ext_resource type="Texture2D" uid="uid://cptor470os5e8" path="res://assets/images/enemy/ghost/sprite_0.png" id="3_l76pe"]
-[ext_resource type="Script" path="res://scenes/state_machines/state_machine.gd" id="3_xbjko"]
-[ext_resource type="Script" path="res://scenes/state_machines/ghost_enemy/ghost_enemy_normal_state.gd" id="4_w86xx"]
-[ext_resource type="Script" path="res://scenes/state_machines/ghost_enemy/ghost_enemy_passthrough_state.gd" id="5_uoc16"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ua473"]
-size = Vector2(13, 10)
+size = Vector2(15, 12)
 
 [node name="GhostEnemy" instance=ExtResource("1_0r7rj")]
 collision_mask = 1
@@ -19,22 +16,9 @@ z_index = 1
 scale = Vector2(1, 1)
 texture = ExtResource("3_l76pe")
 
-[node name="StateMachine" type="Node" parent="." index="3" node_paths=PackedStringArray("initial_state", "states")]
-script = ExtResource("3_xbjko")
-initial_state = NodePath("GhostEnemyNormalState")
-states = [NodePath("GhostEnemyNormalState"), NodePath("GhostEnemyPassthroughState")]
-
-[node name="GhostEnemyNormalState" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("target", "machine")]
-script = ExtResource("4_w86xx")
-target = NodePath("../..")
-machine = NodePath("..")
-
-[node name="GhostEnemyPassthroughState" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("target", "machine")]
-script = ExtResource("5_uoc16")
-target = NodePath("../..")
-machine = NodePath("..")
-
-[node name="PassBox" type="Area2D" parent="." index="4"]
+[node name="PassBox" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PassBox" index="0"]
 position = Vector2(-0.5, -1)

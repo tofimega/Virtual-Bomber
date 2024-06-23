@@ -3,22 +3,26 @@ extends BaseEnemy
 
 
 @onready var pass_box = $PassBox
-@onready var state_machine = $StateMachine
+
 
 
 func _ready()->void:
 	super()
-	#TODO: fix this
-	pass_box.body_entered.connect(switch_to_pts)
-	pass_box.body_exited.connect(switch_to_ns)
+
 	speed=50
 
-
+var force_turn=false
+func choose_direction()->void:
+	if (!pass_box.has_overlapping_bodies()	&& !pass_box.has_overlapping_areas()) || force_turn:
+		super()
 func _process(delta):
-	pass
-
-func switch_to_pts(_b)->void:
-	state_machine.switch_state(state_machine.states[1])
 	
-func switch_to_ns(_b)->void:
-	state_machine.switch_state(state_machine.states[0])
+	velocity.x=current_dir.x*speed
+	velocity.y=current_dir.y*speed
+	
+	force_turn=move_and_slide()
+	
+	if force_turn:
+		turn()
+
+
