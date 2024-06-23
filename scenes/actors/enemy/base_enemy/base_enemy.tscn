@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfb0dtik3eo17"]
+
+[ext_resource type="Script" path="res://scenes/actors/enemy/base_enemy/base_enemy.gd" id="1_q2axv"]
+[ext_resource type="Texture2D" uid="uid://blbvsfbecslbr" path="res://assets/images/enemy/base/sprite_0.png" id="2_0nj5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oc65t"]
+size = Vector2(15, 12)
+
+[node name="BaseEnemy" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 64
+collision_mask = 15
+motion_mode = 1
+script = ExtResource("1_q2axv")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("2_0nj5y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_oc65t")

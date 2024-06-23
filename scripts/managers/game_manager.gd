@@ -7,7 +7,7 @@ var active_explosions: int=0
 var active_bombs: int=0
 
 var player_spawn_points: Array[Vector2]=[]
-
+var enemy_spawn_points: Array[EnemySpawn]=[]
 
 
 func _ready():
@@ -22,13 +22,31 @@ func _ready():
 
 	SignalBus.player_spawn_ready.connect(add_spawn_point)
 	
-	SignalBus.level_loaded.connect(spawn_players)
+	SignalBus.enemy_spawn_ready.connect(add_enemy_spawn_point)
+	
+	SignalBus.level_loaded.connect(start_game)
 	
 	_setup_score_counters()
 	_load_level()
 
 
+func start_game()->void:
+	spawn_enemies()
+	spawn_players()
 
+func spawn_enemies()->void:
+	for p in enemy_spawn_points:
+		var e: BaseEnemy=p.enemy_type
+		e.position=p.position
+		GlobalAccess.get_actor_container().add_child.call_deferred(e)
+		
+		p.queue_free()
+	enemy_spawn_points.clear()
+
+
+
+func add_enemy_spawn_point(p: EnemySpawn)->void:
+	enemy_spawn_points.append(p)
 
 func _setup_score_counters()->void:
 	pass

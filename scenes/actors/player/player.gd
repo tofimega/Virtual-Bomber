@@ -49,6 +49,7 @@ func dec_bombs(b: Bomb)->void:
 func _ready():
 	SignalBus.bomb_exploded.connect(dec_bombs)
 	hurt_box.area_entered.connect(kill)
+	hurt_box.body_entered.connect(kill)
 	SignalBus.player_ready.emit(self)
 	
 

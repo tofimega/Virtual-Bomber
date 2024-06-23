@@ -15,6 +15,8 @@ signal explosion_dissipated()
 signal player_ready(p: Player)
 signal player_dead(p: Player)
 
+signal enemy_spawn_ready(spawn_point: EnemySpawn)
+
 
 func emit_level_loaded()->void:
 	level_loaded.emit()

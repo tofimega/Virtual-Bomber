@@ -21,7 +21,7 @@ motion_mode = 1
 script = ExtResource("1_pvi60")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(-0.039999, -9.04)
+position = Vector2(0, -9.04)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("2_1rqaf")
 

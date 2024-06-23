@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cb25rkkl8la8e"]
+[gd_scene load_steps=61 format=3 uid="uid://cb25rkkl8la8e"]
 
 [ext_resource type="Script" path="res://scenes/level/test_level/test_level.gd" id="1_c5ww6"]
 [ext_resource type="Texture2D" uid="uid://150ae7lopuoh" path="res://assets/images/tiles/wall/wall tile bottom.png" id="2_fhyya"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://df00v3oshlyt4" path="res://scenes/level/tiles/crate/crate.tscn" id="4_1a2yv"]
 [ext_resource type="PackedScene" uid="uid://ch521y8ie364i" path="res://scenes/level/tiles/wall.tscn" id="5_mqyap"]
 [ext_resource type="PackedScene" uid="uid://2yno1n7e6yhx" path="res://scenes/level/player_spawn/player_spawn.tscn" id="6_qcm86"]
+[ext_resource type="PackedScene" uid="uid://cfb0dtik3eo17" path="res://scenes/actors/enemy/base_enemy/base_enemy.tscn" id="7_bfspc"]
 [ext_resource type="Texture2D" uid="uid://ds7rrhu04sc0d" path="res://assets/images/tiles/floor/sprite_00.png" id="7_kxa54"]
 [ext_resource type="Texture2D" uid="uid://dad5s4eqbrqby" path="res://assets/images/tiles/floor/sprite_01.png" id="8_1gefl"]
 [ext_resource type="Texture2D" uid="uid://tsv4yiac64f6" path="res://assets/images/tiles/floor/sprite_02.png" id="9_0csw1"]
@@ -67,6 +68,7 @@ scenes/2/scene = ExtResource("5_mqyap")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wbygu"]
 resource_name = "Objects"
 scenes/0/scene = ExtResource("6_qcm86")
+scenes/1/scene = ExtResource("7_bfspc")
 
 [sub_resource type="TileSet" id="TileSet_w2j1e"]
 tile_size = Vector2i(32, 32)
