@@ -25,7 +25,7 @@ func explode()->void:
 	print("boom")
 	timer.stop()
 	#spawn starter explosion
-	var explosion: Explosion=ResourceLoader.load("res://scenes/actors/bomb/explosion/explosion.tscn").instantiate()
+	var explosion: Explosion=preload("res://scenes/actors/bomb/explosion/explosion.tscn").instantiate()
 	explosion.raw_power=player.power
 	explosion.true_power=player.power
 	explosion.position=Vector2(position)

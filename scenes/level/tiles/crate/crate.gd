@@ -16,9 +16,9 @@ func drop_item()->void:
 	if randi()%5<3:
 		var powerup: Powerup
 		if randi()%2==0:
-			powerup=ResourceLoader.load("res://scenes/actors/powerup/range/range_powerup.tscn").instantiate()
+			powerup=preload("res://scenes/actors/powerup/range/range_powerup.tscn").instantiate()
 		else:
-			powerup=ResourceLoader.load("res://scenes/actors/powerup/capacity/capacity_powerup.tscn").instantiate()
+			powerup=preload("res://scenes/actors/powerup/capacity/capacity_powerup.tscn").instantiate()
 		
 		
 		powerup.position.x=position.x

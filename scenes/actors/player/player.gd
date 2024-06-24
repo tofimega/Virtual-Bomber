@@ -62,7 +62,7 @@ func _physics_process(delta):
 
 func place_bomb()->void:
 	if Input.is_action_just_pressed(input_map.place_bomb) && can_place:
-		var bomb:Bomb=ResourceLoader.load("res://scenes/actors/bomb/bomb.tscn").instantiate()
+		var bomb:Bomb=preload("res://scenes/actors/bomb/bomb.tscn").instantiate()
 		var tile_size=GlobalAccess.get_level_grid().get_tileset().tile_size
 		bomb.position.x=position.x-(int(position.x)% tile_size.x)
 		bomb.position.y=position.y-(int(position.y)% tile_size.y)

@@ -88,7 +88,7 @@ func spread_to(direction: Explosion.SpreadDirection)->void:
 	if explosion.true_power>0:
 		
 		
-		var nextplosion: Explosion=ResourceLoader.load("res://scenes/actors/bomb/explosion/explosion.tscn").instantiate()
+		var nextplosion: Explosion=preload("res://scenes/actors/bomb/explosion/explosion.tscn").instantiate()
 
 		nextplosion.position=new_pos
 		nextplosion.true_power=explosion.true_power-1
