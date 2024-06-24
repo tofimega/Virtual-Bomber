@@ -64,13 +64,13 @@ func check(dir: Vector2)->bool:
 	var space: PhysicsDirectSpaceState2D=get_node("/root/GameScene").get_world_2d().get_direct_space_state()
 	var params: PhysicsRayQueryParameters2D=PhysicsRayQueryParameters2D.new()
 	params.collision_mask=collision_mask
-	params.from=position
-	params.to=position+(dir*speed*5)
+	params.from=position-(current_dir*speed)
+	params.to=position+(dir*speed)
 	params.exclude=[self]
 	
 	var raw_data: Dictionary=space.intersect_ray(params)
 	
-	return raw_data["collider"]==null #BUG: always returns false
+	return !raw_data.has("collider")
 
 
 
