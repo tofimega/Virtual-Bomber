@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3jnl5bs6ep2a"]
+
+[ext_resource type="PackedScene" uid="uid://cfb0dtik3eo17" path="res://scenes/actors/enemy/base_enemy/base_enemy.tscn" id="1_x3ye2"]
+[ext_resource type="Script" path="res://scenes/actors/enemy/smart_enemy/smart_enemy.gd" id="2_jnrpo"]
+[ext_resource type="Texture2D" uid="uid://dqdv7w8f0mevu" path="res://assets/images/enemy/smart/sprite_0.png" id="3_uwnpg"]
+
+[node name="SmartEnemy" instance=ExtResource("1_x3ye2")]
+script = ExtResource("2_jnrpo")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("3_uwnpg")

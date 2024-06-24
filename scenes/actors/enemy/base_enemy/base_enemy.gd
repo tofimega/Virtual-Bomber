@@ -1,6 +1,7 @@
 class_name BaseEnemy
 extends CharacterBody2D
 
+@onready var collision_shape_2d = $CollisionShape2D
 
 @onready var timer = $Timer
 @export var speed: int=100
@@ -22,7 +23,7 @@ func choose_direction()->void:
 			_: current_dir=Vector2.UP
 
 
-func _process(delta):
+func _physics_process(delta):
 	
 	velocity.x=current_dir.x*speed
 	velocity.y=current_dir.y*speed

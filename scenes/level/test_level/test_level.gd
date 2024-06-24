@@ -37,7 +37,7 @@ func spawn_object(o: String,row:int,col:int)->void:
 		'p': tile_map.set_cell(2,pos,3,Vector2i.ZERO,0)
 		'be':tile_map.set_cell(2,pos,3,Vector2i.ZERO,1)
 		'ge':tile_map.set_cell(2,pos,3,Vector2i.ZERO,2)
-		'se':return
+		'se':tile_map.set_cell(2,pos,3,Vector2i.ZERO,3)
 		'ce':return
 
 
