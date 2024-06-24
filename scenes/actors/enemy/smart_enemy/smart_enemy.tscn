@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dqdv7w8f0mevu" path="res://assets/images/enemy/smart/sprite_0.png" id="3_uwnpg"]
 
 [node name="SmartEnemy" instance=ExtResource("1_x3ye2")]
+collision_mask = 47
 script = ExtResource("2_jnrpo")
 
 [node name="Sprite2D" parent="." index="1"]

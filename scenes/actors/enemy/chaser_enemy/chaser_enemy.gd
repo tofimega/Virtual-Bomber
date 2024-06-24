@@ -6,7 +6,7 @@ func _ready()->void:
 
 
 func choose_direction()->void:
-	if randi()%7==0:
+	if randi()%4==0:
 		match randi()%4:
 			0: current_dir=Vector2.UP
 			1: current_dir=Vector2.DOWN

@@ -35,6 +35,7 @@ func spawn_object(o: String,row:int,col:int)->void:
 	
 	match o:
 		'p': tile_map.set_cell(2,pos,3,Vector2i.ZERO,0)
+		#TODO: rework to use EnemySpawn instead
 		'be':tile_map.set_cell(2,pos,3,Vector2i.ZERO,1)
 		'ge':tile_map.set_cell(2,pos,3,Vector2i.ZERO,2)
 		'se':tile_map.set_cell(2,pos,3,Vector2i.ZERO,3)
