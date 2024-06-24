@@ -9,7 +9,7 @@ extends BaseEnemy
 func _ready()->void:
 	super()
 
-	speed=50
+	speed=75
 
 var force_turn=false
 func choose_direction()->void:

@@ -102,9 +102,9 @@ func dec_explosions()->void:
 #region game state
 func next(over: bool)->void:
 	if over:
-		get_tree().change_scene_to_file("res://scenes/main/game_scene.tscn") #TODO: results scene
+		get_tree().change_scene_to_file.call_deferred("res://scenes/main/game_scene.tscn") #TODO: results scene
 		return
-	get_tree().change_scene_to_file("res://scenes/main/game_scene.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://scenes/main/game_scene.tscn")
 	
 func _check_game_state()->void:
 	if active_bombs==0 and active_explosions==0:

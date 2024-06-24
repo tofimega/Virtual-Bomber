@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var collision_shape_2d = $CollisionShape2D
 
 @onready var timer = $Timer
-@export var speed: int=100
+@export var speed: int=150
 
 var current_dir: Vector2
 

@@ -64,7 +64,7 @@ func check(dir: Vector2)->bool:
 	var space: PhysicsDirectSpaceState2D=get_node("/root/GameScene").get_world_2d().get_direct_space_state()
 	var params: PhysicsPointQueryParameters2D=PhysicsPointQueryParameters2D.new()
 	params.collision_mask=collision_mask
-	params.position=position+(dir*speed)
+	params.position=position+(dir*speed/10)
 	params.exclude=[self]
 	
 	var raw_data: Array[Dictionary]=space.intersect_point(params)
@@ -74,7 +74,7 @@ func check(dir: Vector2)->bool:
 
 
 func _ready()->void:
-	speed=150
+	speed=175
 	super.choose_direction()
 	
 func turn()->void:
