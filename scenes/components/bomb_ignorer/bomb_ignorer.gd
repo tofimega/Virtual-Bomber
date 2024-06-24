@@ -8,11 +8,17 @@ extends Area2D
 var colliding:bool=false
 
 func _ready():
+	SignalBus.bomb_exploded.connect(remove_extra)
 	SignalBus.player_placing_bomb.connect(early_overlap_ignore)
 
 
+func remove_extra(bomb:Bomb)->void:
+	if target.get_collision_exceptions().has(bomb):
+		_on_body_exited(bomb)
+
+
 func early_overlap_ignore(bomb:Bomb)->void:
-	if shape.shape.collide(shape.get_transform(),bomb.collision_shape.shape,bomb.collision_shape.get_transform()):
+	if shape.shape.collide(shape.get_global_transform(),bomb.collision_shape.shape,bomb.collision_shape.get_global_transform()):
 		_on_body_entered(bomb)
 
 

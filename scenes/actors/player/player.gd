@@ -39,7 +39,8 @@ func inc_power()->void:
 	power+=1
 
 func inc_bombs(b:Bomb)->void:
-	bombs.append(b)
+	if b.player==self:
+		bombs.append(b)
 
 func dec_bombs(b: Bomb)->void:
 	remove_collision_exception_with(b)
@@ -48,11 +49,11 @@ func dec_bombs(b: Bomb)->void:
 
 func _ready():
 	SignalBus.bomb_exploded.connect(dec_bombs)
+	SignalBus.bomb_placed.connect(inc_bombs)
 	hurt_box.area_entered.connect(kill)
 	hurt_box.body_entered.connect(kill)
 	SignalBus.player_ready.emit(self)
 	
-
 
 func _physics_process(delta):
 	move()
@@ -66,7 +67,6 @@ func place_bomb()->void:
 		bomb.position.x=position.x-(int(position.x)% tile_size.x)
 		bomb.position.y=position.y-(int(position.y)% tile_size.y)
 		bomb.player=self
-		inc_bombs(bomb)
 		GlobalAccess.get_actor_container().add_child.call_deferred(bomb)
 		
 
