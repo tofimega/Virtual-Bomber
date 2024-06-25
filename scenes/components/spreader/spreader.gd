@@ -115,7 +115,7 @@ func set_power(checker:Area2D)->void:
 		
 		
 		
-		if body is Crate:
+		if body is Crate or body is Bomb:
 			explosion.true_power=1
 			return
 		else:
