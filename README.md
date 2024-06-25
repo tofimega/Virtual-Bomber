@@ -9,6 +9,7 @@ Finishing a game originally made for a uni assignment.
 
 ## remaining tasks:
 - bugfix, cleanup & optimization sweep
+- add controller support
 - redesign and implement level editor
 - visual & audio assets
 - version 1.0 

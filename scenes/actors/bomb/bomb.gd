@@ -12,6 +12,9 @@ extends StaticBody2D
 
 var player: Player
 
+
+@onready var power: int=player.power
+
 func _ready():
 	SignalBus.player_placing_bomb.emit(self)
 	timer.timeout.connect(explode)
@@ -30,9 +33,8 @@ func explode()->void:
 	timer.stop()
 	#spawn starter explosion
 	var explosion: Explosion=preload("res://scenes/actors/bomb/explosion/explosion.tscn").instantiate()
-	if player!=null:
-		explosion.raw_power=player.power
-		explosion.true_power=player.power
+	explosion.raw_power=power
+	explosion.true_power=power
 	
 	explosion.position=Vector2(position)
 	explosion.direction=Explosion.SpreadDirection.SOURCE

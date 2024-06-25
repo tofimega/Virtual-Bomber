@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-25T11:15:05.659Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0" etag="C2Nns5QeywTNKj9A3CrI" version="24.6.2" type="device">
+<mxfile host="app.diagrams.net" modified="2024-06-25T12:08:26.724Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0" etag="kuixEeR5XoIwmBmQ_4yx" version="24.6.2" type="device">
   <diagram name="Page-1" id="MHz25P8l1DLz0FaoC143">
     <mxGraphModel dx="3785" dy="1780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -693,6 +693,9 @@
         </mxCell>
         <mxCell id="TJpbbNPDJ1j3fr_7OfPR-228" value="&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;0&lt;/font&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;spacingBottom=4;container=0;" vertex="1" parent="TJpbbNPDJ1j3fr_7OfPR-212">
           <mxGeometry x="130" y="55" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TJpbbNPDJ1j3fr_7OfPR-230" value="&lt;div&gt;Timer&lt;/div&gt;&lt;div&gt;Level info&lt;/div&gt;&lt;div&gt;Match info&lt;/div&gt;Game settings" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1550" y="1890" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
