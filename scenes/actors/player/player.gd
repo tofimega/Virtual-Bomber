@@ -78,7 +78,7 @@ func move()->void:
 	move_and_slide()
 
 
-func kill(arae)->void:
+func kill(area)->void:
 	print("ow")
 	SignalBus.player_dead.emit(self)
 	queue_free()

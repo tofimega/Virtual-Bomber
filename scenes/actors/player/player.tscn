@@ -41,6 +41,7 @@ shape = SubResource("RectangleShape2D_i5ryo")
 [node name="BombIgnorer" parent="." node_paths=PackedStringArray("target", "shape") instance=ExtResource("3_4std7")]
 position = Vector2(-0.039999, -9.04)
 collision_mask = 15
+monitorable = true
 target = NodePath("..")
 shape = NodePath("CollisionShape2D")
 
