@@ -2,15 +2,16 @@ class_name BaseEnemy
 extends CharacterBody2D
 
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var hurt_box = $HurtBox
 
 @onready var timer = $Timer
 @export var speed: int=150
 
 var current_dir: Vector2
 
-
-
 func _ready():
+	hurt_box.area_entered.connect(kill)
+	hurt_box.body_entered.connect(kill)
 	timer.timeout.connect(turn)
 	timer.start(randf_range(1,5))
 	choose_direction()
@@ -46,3 +47,10 @@ func turn()->void:
 	timer.start(randf_range(1,5)) 
 	turning=false
 	
+
+
+	
+func kill(a)->void:
+	queue_free()
+
+

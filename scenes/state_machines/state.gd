@@ -1,8 +1,8 @@
 class_name State
 extends Node
 
-@export var machine: StateMachine
 
+signal switch_to(new_state: State)
 
 func _process(delta):
 	_check_switch_conditions()

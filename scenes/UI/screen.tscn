@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dprp0wf7mpr1h"]
+
+[ext_resource type="Script" path="res://scenes/UI/screen.gd" id="1_j3wy4"]
+
+[sub_resource type="Gradient" id="Gradient_1w3ao"]
+colors = PackedColorArray(0, 1, 0, 1, 0.0901961, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7bk1k"]
+gradient = SubResource("Gradient_1w3ao")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3n5j"]
+texture = SubResource("GradientTexture1D_7bk1k")
+
+[node name="Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j3wy4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_m3n5j")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 14
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Left" type="Container" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="GameScreen" type="SubViewport" parent="MarginContainer/HBoxContainer/SubViewportContainer" groups=["main_viewport"]]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+render_target_update_mode = 4
+
+[node name="Right" type="Container" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2

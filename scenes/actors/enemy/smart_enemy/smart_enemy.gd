@@ -61,7 +61,7 @@ func choose_direction()->void:
 	
 	
 func check(dir: Vector2)->bool:
-	var space: PhysicsDirectSpaceState2D=get_node("/root/GameScene").get_world_2d().get_direct_space_state()
+	var space: PhysicsDirectSpaceState2D=GlobalAccess.get_scene().get_world_2d().get_direct_space_state()
 	var params: PhysicsPointQueryParameters2D=PhysicsPointQueryParameters2D.new()
 	params.collision_mask=collision_mask
 	
@@ -75,6 +75,8 @@ func check(dir: Vector2)->bool:
 
 
 func _ready()->void:
+	hurt_box.area_entered.connect(kill)
+	hurt_box.body_entered.connect(kill)
 	speed=175
 	super.choose_direction()
 	

@@ -2,7 +2,7 @@ class_name StateMachine
 extends Node
 
 @export var initial_state: State
-@export var states: Array[State]
+@export var extra_states: Array[State]
 
 
 var current_state: State
@@ -12,6 +12,10 @@ func _ready():
 	get_parent().ready.connect(start)
 
 func start()->void:
+	var c=get_children()
+	
+	
+	
 	switch_state(initial_state)
 
 func switch_state(new_state: State)->void:

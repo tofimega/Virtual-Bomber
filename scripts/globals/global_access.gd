@@ -32,6 +32,37 @@ enum PLAYER_ID{
 	}
 	
 #region node connections
+
+
+func replace_left_scene(new: PackedScene)->void:
+	if new.can_instantiate():
+		var left=get_node("/root/Screen").left
+		left.get_children()[0].queue_free()
+		left.add_child.call_deferred(new)
+	
+
+
+func replace_right_scene(new: PackedScene)->void:
+	if new.can_instantiate():
+		var left=get_node("/root/Screen").right
+		left.get_children()[0].queue_free()
+		left.add_child.call_deferred(new)
+	
+
+func replace_game_scene(new: PackedScene)->void:
+	if new.can_instantiate():
+		var viewport: SubViewport=get_tree().get_first_node_in_group("main_viewport")
+	
+		viewport.get_children()[0].queue_free()
+		viewport.add_child.call_deferred(new.instantiate())
+
+
+func get_main_viewport()->SubViewport:
+	return get_tree().get_first_node_in_group("main_viewport")
+
+func get_scene()->Node:
+	return get_tree().get_first_node_in_group("main_viewport").get_children()[0]
+
 func get_actor_container()->Node2D:
 	return get_tree().get_first_node_in_group("Actor Container")
 

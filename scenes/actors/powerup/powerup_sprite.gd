@@ -8,5 +8,6 @@ func _on_timer_timeout():
 
 
 func _on_animation_finished():
+	set_frame_and_progress(0,0)
 	timer.start(cooldown)
 

@@ -2,6 +2,8 @@ class_name ChaserEnemy
 extends SmartEnemy
 
 func _ready()->void:
+	hurt_box.area_entered.connect(kill)
+	hurt_box.body_entered.connect(kill)
 	speed=150
 
 

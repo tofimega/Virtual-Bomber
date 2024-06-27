@@ -189,7 +189,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 50.0
+"speed": 40.0
 }]
 
 [node name="RangePowerup" instance=ExtResource("1_51y4o")]

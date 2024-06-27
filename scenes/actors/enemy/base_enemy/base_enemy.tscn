@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfb0dtik3eo17"]
+[gd_scene load_steps=7 format=3 uid="uid://cfb0dtik3eo17"]
 
 [ext_resource type="Script" path="res://scenes/actors/enemy/base_enemy/base_enemy.gd" id="1_q2axv"]
 [ext_resource type="Texture2D" uid="uid://blbvsfbecslbr" path="res://assets/images/enemy/base/sprite_0.png" id="2_0nj5y"]
@@ -8,6 +8,9 @@
 size = Vector2(15, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2o5rx"]
+size = Vector2(15, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0snie"]
 size = Vector2(15, 12)
 
 [node name="BaseEnemy" type="CharacterBody2D"]
@@ -37,3 +40,14 @@ shape = NodePath("CollisionShape2D2")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BombIgnorer"]
 position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_2o5rx")
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_0snie")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
