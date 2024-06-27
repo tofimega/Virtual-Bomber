@@ -54,7 +54,7 @@ func _setup_score_counters()->void:
 func _load_level()->void:
 	GlobalAccess.level_to_load="res://spriteTest.txt"
 	var level=preload("res://scenes/level/test_level/test_level.tscn").instantiate()
-	get_parent().add_child.call_deferred(level)
+	GlobalAccess.get_game_scene().add_child.call_deferred(level)
 
 func add_spawn_point(p: PlayerSpawn)->void:
 	player_spawn_points.append(p.position)
@@ -101,12 +101,28 @@ func dec_explosions()->void:
 #endregion
 #region game state
 func next(over: bool)->void:
-	if over:
-		get_tree().change_scene_to_file.call_deferred("res://scenes/main/game_scene.tscn") #TODO: results scene
-		return
-	get_tree().change_scene_to_file.call_deferred("res://scenes/main/game_scene.tscn")
+	SignalBus.player_ready.disconnect(add_player)
+	SignalBus.player_dead.disconnect(rem_player)
+	SignalBus.bomb_placed.disconnect(inc_bombs)
+	SignalBus.bomb_exploded.disconnect(dec_bombs)
+	SignalBus.new_explosion_on_field.disconnect(inc_explosions)
+	SignalBus.explosion_dissipated.disconnect(dec_explosions)
+	SignalBus.player_spawn_ready.disconnect(add_spawn_point)
+	SignalBus.enemy_spawn_ready.disconnect(add_enemy_spawn_point)
+	SignalBus.level_loaded.disconnect(start_game)
 	
+	if over:
+		GlobalAccess.replace_game_scene(load("res://scenes/main/game_scene.tscn")) #TODO: results scene
+		return
+	GlobalAccess.replace_game_scene(load("res://scenes/main/game_scene.tscn"))
+	game_finished=true
+	
+	
+var game_finished: bool=false
 func _check_game_state()->void:
+	if game_finished: return
+	
+	
 	if active_bombs==0 and active_explosions==0:
 		
 		if active_players.size()==1:

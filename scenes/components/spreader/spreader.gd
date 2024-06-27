@@ -100,7 +100,7 @@ func spread_to(direction: Explosion.SpreadDirection)->void:
 func set_power(checker:Area2D)->void:
 	if explosion.raw_power==0: return 
 	
-	var space: PhysicsDirectSpaceState2D=get_node("/root/GameScene").get_world_2d().get_direct_space_state()
+	var space: PhysicsDirectSpaceState2D=GlobalAccess.get_game_scene().get_world_2d().get_direct_space_state()
 	var params: PhysicsShapeQueryParameters2D=PhysicsShapeQueryParameters2D.new()
 	params.collision_mask=checker.collision_mask
 	params.shape=checker.get_children()[0].shape
