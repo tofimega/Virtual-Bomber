@@ -101,16 +101,7 @@ func dec_explosions()->void:
 #endregion
 #region game state
 func next(over: bool)->void:
-	SignalBus.player_ready.disconnect(add_player)
-	SignalBus.player_dead.disconnect(rem_player)
-	SignalBus.bomb_placed.disconnect(inc_bombs)
-	SignalBus.bomb_exploded.disconnect(dec_bombs)
-	SignalBus.new_explosion_on_field.disconnect(inc_explosions)
-	SignalBus.explosion_dissipated.disconnect(dec_explosions)
-	SignalBus.player_spawn_ready.disconnect(add_spawn_point)
-	SignalBus.enemy_spawn_ready.disconnect(add_enemy_spawn_point)
-	SignalBus.level_loaded.disconnect(start_game)
-	
+
 	if over:
 		GlobalAccess.replace_game_scene(load("res://scenes/main/game_scene.tscn")) #TODO: results scene
 		return

@@ -30,36 +30,57 @@ enum PLAYER_ID{
 	P2=1,
 	P3=2,
 	}
-	
 #region node connections
 
 
 func replace_left_scene(new: PackedScene)->void:
+	if replacer_thread_left.is_alive():
+		return
+	if replacer_thread_left.is_started():
+		replacer_thread_left.wait_to_finish()
 	if new.can_instantiate():
 		var left=get_node("/root/Screen").left
-		left.get_children()[0].queue_free()
-		left.remove_child(left.get_children()[0])
-		left.add_child.call_deferred(new.instantiate())
-	
-
+		if left.get_children().size()>0:
+			var a=left.get_children()[0]
+			replacer_thread_left.start(delayed_replace.bind(a,new.instantiate(),left))
+		else:
+			replacer_thread_left.start(delayed_replace.bind(null,new.instantiate(),left))
 
 func replace_right_scene(new: PackedScene)->void:
+	if replacer_thread_right.is_alive():
+		return
+	if replacer_thread_right.is_started():
+		replacer_thread_right.wait_to_finish()
 	if new.can_instantiate():
 		var left=get_node("/root/Screen").right
-		left.get_children()[0].queue_free()
-		left.remove_child(left.get_children()[0])
-		left.add_child.call_deferred.call_deferred(new.instantiate())
-	
+		if left.get_children().size()>0:
+			var a=left.get_children()[0]
+			replacer_thread_left.start(delayed_replace.bind(a,new.instantiate(),left))
+		else:
+			replacer_thread_right.start(delayed_replace.bind(null,new.instantiate(),left))
 
 func replace_game_scene(new: PackedScene)->void:
+	if replacer_thread_main.is_alive():
+		return
+	if replacer_thread_main.is_started():
+		replacer_thread_main.wait_to_finish()
 	if new.can_instantiate():
 		var viewport: SubViewport=get_tree().get_first_node_in_group("main_viewport")
-		
-		
-		viewport.get_children()[0].queue_free()
-		viewport.remove_child(viewport.get_children()[0])
-		
-		viewport.add_child.call_deferred(new.instantiate())
+		if viewport.get_children().size()>0:
+			var a=viewport.get_children()[0]
+			replacer_thread_main.start(delayed_replace.bind(a,new.instantiate(),viewport))
+		else:
+			replacer_thread_main.start(delayed_replace.bind(null,new.instantiate(),viewport))
+
+var replacer_thread_left: Thread=Thread.new()
+var replacer_thread_right: Thread=Thread.new()
+var replacer_thread_main: Thread=Thread.new()
+func delayed_replace(until_null: Node,what: Node, to: Node)->void:
+	if until_null!=null:
+		until_null.queue_free()
+		while until_null!=null:
+			continue
+	to.add_child.call_deferred(what)
 
 
 func get_main_viewport()->SubViewport:

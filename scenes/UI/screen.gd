@@ -11,7 +11,7 @@ var starting_scene: PackedScene=preload("res://scenes/main/game_scene.tscn")
 func _ready()->void:
 	
 	if starting_scene!=null:
-		var scene=starting_scene.instantiate()
-		game_screen.add_child.call_deferred(scene)
+		#var scene=starting_scene.instantiate()
+		GlobalAccess.replace_game_scene(starting_scene)
 	
 	

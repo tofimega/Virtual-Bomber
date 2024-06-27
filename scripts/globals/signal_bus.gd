@@ -17,8 +17,6 @@ signal player_dead(p: Player)
 
 signal enemy_spawn_ready(spawn_point: EnemySpawn)
 
-var count: int=0
 func emit_level_loaded()->void:
-	count+=1
-	print(count)
 	level_loaded.emit()
+
