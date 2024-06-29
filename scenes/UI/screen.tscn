@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/UI/screen.gd" id="1_j3wy4"]
 
 [sub_resource type="Gradient" id="Gradient_1w3ao"]
-colors = PackedColorArray(0, 1, 0, 1, 0.0901961, 1, 1, 1)
+colors = PackedColorArray(0.785684, 0.814039, 1, 1, 0.995089, 0.847072, 0.725398, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_7bk1k"]
 gradient = SubResource("Gradient_1w3ao")
@@ -45,8 +45,14 @@ theme_override_constants/margin_bottom = 14
 layout_mode = 2
 alignment = 1
 
-[node name="Left" type="Container" parent="MarginContainer/HBoxContainer"]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+
+[node name="Left" type="SubViewport" parent="MarginContainer/HBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(180, 512)
+render_target_update_mode = 4
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -56,5 +62,11 @@ handle_input_locally = false
 canvas_item_default_texture_filter = 0
 render_target_update_mode = 4
 
-[node name="Right" type="Container" parent="MarginContainer/HBoxContainer"]
+[node name="SubViewportContainer3" type="SubViewportContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+
+[node name="Right" type="SubViewport" parent="MarginContainer/HBoxContainer/SubViewportContainer3"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(180, 512)
+render_target_update_mode = 4

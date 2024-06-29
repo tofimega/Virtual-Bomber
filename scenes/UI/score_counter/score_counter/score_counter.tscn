@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://df1csvjksmu2v"]
+
+[ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="1_oroi1"]
+
+[node name="ScoreCounter" type="Control"]
+custom_minimum_size = Vector2(180, 146)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 146.0
+
+[node name="PlayerIcon" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 71.0
+offset_bottom = 71.0
+texture = ExtResource("1_oroi1")
+expand_mode = 1
+
+[node name="Stastistics" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 11.0
+offset_right = 119.0
+offset_bottom = 51.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="Label" type="Label" parent="Stastistics"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "o: 12"
+
+[node name="Label2" type="Label" parent="Stastistics"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "o: 12"
+
+[node name="Label3" type="Label" parent="Stastistics"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "o: 12"
+
+[node name="Label4" type="Label" parent="Stastistics"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "o: 12"
+
+[node name="Label5" type="Label" parent="Stastistics"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "o: 12"
+
+[node name="Label6" type="Label" parent="Stastistics"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "o: 12"
+
+[node name="PlayerName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 113.0
+offset_right = 65.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 20
+text = "Player"
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 99.0
+offset_right = 182.0
+offset_bottom = 148.0
+theme_override_font_sizes/font_size = 35
+text = "0"
+horizontal_alignment = 1
