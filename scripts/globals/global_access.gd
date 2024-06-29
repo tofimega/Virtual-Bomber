@@ -58,12 +58,12 @@ func replace_right_scene(new: PackedScene)->void:
 	if replacer_thread_right.is_alive(): return
 	if replacer_thread_right.is_started(): replacer_thread_right.wait_to_finish()
 	if new.can_instantiate():
-		var left=get_node("/root/Screen").right
-		if left.get_children().size()>0:
-			var a=left.get_children()[0]
-			replacer_thread_left.start(delayed_replace.bind(a,new.instantiate(),left))
+		var right=get_node("/root/Screen").right
+		if right.get_children().size()>0:
+			var a=right.get_children()[0]
+			replacer_thread_right.start(delayed_replace.bind(a,new.instantiate(),right))
 		else:
-			replacer_thread_right.start(delayed_replace.bind(null,new.instantiate(),left))
+			replacer_thread_right.start(delayed_replace.bind(null,new.instantiate(),right))
 
 func replace_game_scene(new: PackedScene)->void:
 	if replacer_thread_main.is_alive(): return
