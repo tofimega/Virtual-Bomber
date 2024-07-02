@@ -89,7 +89,7 @@ func spread_to(direction: Explosion.SpreadDirection)->void:
 		
 		
 		var nextplosion: Explosion=preload("res://scenes/actors/bomb/explosion/explosion.tscn").instantiate()
-
+		nextplosion.player_id=explosion.player_id
 		nextplosion.position=new_pos
 		nextplosion.true_power=explosion.true_power-1
 		nextplosion.raw_power=explosion.true_power-1

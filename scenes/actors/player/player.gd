@@ -27,22 +27,29 @@ var input_map: PlayerInputMap
 
 var id: GlobalAccess.PLAYER_ID:
 	set (p):
+		#TODO: set player data in GlobalAccess
 		input_map=PlayerInputMap.get_input_map(p)
 		id=p
 		#TODO: set sprite
 
 #region incs, decs
+#TODO: set player data via signals instead
 func inc_capacity()->void:
+	GlobalAccess.player_data[id].capacity+=1
 	bomb_capacity+=1
 
 func inc_power()->void:
+	GlobalAccess.player_data[id].range+=1
 	power+=1
 
 func inc_bombs(b:Bomb)->void:
 	if b.player==self:
+		GlobalAccess.player_data[id].bomb_count+=1
 		bombs.append(b)
 
 func dec_bombs(b: Bomb)->void:
+	if b.id==id:
+		GlobalAccess.player_data[id].bomb_count-=1
 	remove_collision_exception_with(b)
 	bombs.erase(b)
 #endregion
@@ -79,6 +86,10 @@ func move()->void:
 
 
 func kill(area)->void:
+	if area is Explosion:
+		SignalBus.player_killed_player.emit(area.player_id)
+	
+	GlobalAccess.player_data[id].deaths+=1
 	print("ow")
 	SignalBus.player_dead.emit(self)
 	queue_free()

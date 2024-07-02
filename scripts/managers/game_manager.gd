@@ -36,6 +36,7 @@ func start_game()->void:
 	spawn_players()
 
 func initialize_data()->void:
+	#TODO: have this be done by the players on init
 	var pd: Array[PlayerData]=GlobalAccess.player_data
 	for a: PlayerData in pd:
 		a.range=1

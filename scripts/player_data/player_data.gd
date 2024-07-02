@@ -49,3 +49,16 @@ var enemies_killed: int=0:
 		enemies_killed=e
 		SignalBus.player_data_changed.emit(id)
 
+func _init()->void:
+	SignalBus.player_killed_player.connect(_inc_player_kill_count)
+	SignalBus.player_killed_enemy.connect(_inc_enemy_kill_count)
+
+
+func _inc_player_kill_count(id: GlobalAccess.PLAYER_ID)->void:
+	if id == self.id:
+		players_killed+=1
+
+
+func _inc_enemy_kill_count(id: GlobalAccess.PLAYER_ID)->void:
+	if id == self.id:
+		enemies_killed+=1

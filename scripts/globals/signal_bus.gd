@@ -20,6 +20,10 @@ signal player_dead(p: Player)
 
 signal enemy_spawn_ready(spawn_point: EnemySpawn)
 
+signal player_killed_player(killer: GlobalAccess.PLAYER_ID)
+signal player_killed_enemy(killer: GlobalAccess.PLAYER_ID)
+
+
 func emit_level_loaded()->void:
 	level_loaded.emit()
 

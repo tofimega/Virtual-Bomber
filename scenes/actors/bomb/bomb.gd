@@ -14,7 +14,7 @@ var player: Player
 
 
 @onready var power: int=player.power
-
+@onready var id: GlobalAccess.PLAYER_ID=player.id
 func _ready():
 	SignalBus.player_placing_bomb.emit(self)
 	timer.timeout.connect(explode)
@@ -35,7 +35,7 @@ func explode()->void:
 	var explosion: Explosion=preload("res://scenes/actors/bomb/explosion/explosion.tscn").instantiate()
 	explosion.raw_power=power
 	explosion.true_power=power
-	
+	explosion.player_id=id
 	explosion.position=Vector2(position)
 	explosion.direction=Explosion.SpreadDirection.SOURCE
 	GlobalAccess.get_actor_container().add_child.call_deferred(explosion)
