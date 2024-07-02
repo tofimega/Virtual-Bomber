@@ -37,3 +37,7 @@ func update_data(id):
 		deaths.text="x: "+str(d.deaths)
 		players_killed.text="p: "+str(d.players_killed)
 		bomb_count.text="b: "+str(d.bomb_count)
+		
+		if d.bomb_count>=d.capacity:
+			bomb_count.add_theme_color_override("font_color",Color(1,0,0,1))
+		else: bomb_count.remove_theme_color_override("font_color")
