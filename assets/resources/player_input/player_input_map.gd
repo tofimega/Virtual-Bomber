@@ -14,4 +14,6 @@ static func get_input_map(id: GlobalAccess.PLAYER_ID)-> PlayerInputMap:
 		GlobalAccess.PLAYER_ID.P1: return ResourceLoader.load("res://assets/resources/player_input/P1_input_map.tres")
 		GlobalAccess.PLAYER_ID.P2: return ResourceLoader.load("res://assets/resources/player_input/P2_input_map.tres")
 		GlobalAccess.PLAYER_ID.P3: return ResourceLoader.load("res://assets/resources/player_input/P3_input_map.tres")
+		GlobalAccess.PLAYER_ID.P4: return ResourceLoader.load("res://assets/resources/player_input/P4_input_map.tres")
+	
 	return null

@@ -22,7 +22,7 @@ func get_winner()->String:
 	return PLAYER_ID.find_key(player_data.find(player_data.reduce(func(m,v): return v if v.points>m.points else m)))
 
 # amount of players in-game
-var players: int=3
+var players: int=4
 
 # each player is given one of these
 enum PLAYER_ID{
