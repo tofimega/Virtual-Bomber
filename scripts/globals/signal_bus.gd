@@ -4,6 +4,9 @@ extends Node
 signal player_spawn_ready(spawm_point: PlayerSpawn)
 signal level_loaded
 
+signal player_data_changed(id: GlobalAccess.PLAYER_ID)
+
+
 signal bomb_placed(bomb: Bomb)
 signal bomb_exploded(bomb: Bomb)
 signal player_placing_bomb(bomb: Bomb)

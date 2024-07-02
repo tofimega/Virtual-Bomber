@@ -1,15 +1,15 @@
 extends Node
 
 # score of each player
-var player_progress: Array[int]=[0,0,0]
+var player_data: Array[PlayerData]=[PlayerData.new(),PlayerData.new(),PlayerData.new(),PlayerData.new()]
 
 # at the end of a given round, this will be called
 func game_over(p: PLAYER_ID)->bool:
 	if p==null:
 		return false
 		
-	player_progress[p]+=1
-	return player_progress[p]>games_to_win
+	player_data[p].points+=1
+	return player_data[p].points>games_to_win
 
 # number of rounds a match will last
 var games_to_win: int=0
@@ -19,7 +19,7 @@ var level_to_load: String="res://test3.txt"
 
 
 func get_winner()->String:
-	return PLAYER_ID.find_key(player_progress.find(player_progress.max()))
+	return PLAYER_ID.find_key(player_data.find(player_data.reduce(func(m,v): return v if v.points>m.points else m)))
 
 # amount of players in-game
 var players: int=3
@@ -29,9 +29,14 @@ enum PLAYER_ID{
 	P1=0,
 	P2=1,
 	P3=2,
+	P4=3,
 	}
 #region node connections
 
+signal scene_replaced(new: Node,on: Node)
+
+func emit_scene_replaced(new: Node,on: Node)->void:
+	scene_replaced.emit(new,on)
 
 
 func replace_subscene(old: Node, new: PackedScene, on_thread: Thread)->void:
@@ -47,7 +52,7 @@ func replace_left_scene(new: PackedScene)->void:
 	if replacer_thread_left.is_alive(): return
 	if replacer_thread_left.is_started(): replacer_thread_left.wait_to_finish()
 	if new.can_instantiate():
-		var left=get_node("/root/Screen").left
+		var left=get_tree().get_first_node_in_group("left_viewport")
 		if left.get_children().size()>0:
 			var a=left.get_children()[0]
 			replacer_thread_left.start(delayed_replace.bind(a,new.instantiate(),left))
@@ -58,7 +63,7 @@ func replace_right_scene(new: PackedScene)->void:
 	if replacer_thread_right.is_alive(): return
 	if replacer_thread_right.is_started(): replacer_thread_right.wait_to_finish()
 	if new.can_instantiate():
-		var right=get_node("/root/Screen").right
+		var right=get_tree().get_first_node_in_group("right_viewport")
 		if right.get_children().size()>0:
 			var a=right.get_children()[0]
 			replacer_thread_right.start(delayed_replace.bind(a,new.instantiate(),right))
@@ -86,7 +91,7 @@ func delayed_replace(until_null: Node,what: Node, to: Node)->void:
 		while until_null!=null:
 			continue
 	to.add_child.call_deferred(what)
-
+	emit_scene_replaced.call_deferred(what,to)
 
 func get_main_viewport()->SubViewport:
 	return get_tree().get_first_node_in_group("main_viewport")

@@ -31,8 +31,18 @@ func _ready():
 
 
 func start_game()->void:
+	initialize_data()
 	spawn_enemies()
 	spawn_players()
+
+func initialize_data()->void:
+	var pd: Array[PlayerData]=GlobalAccess.player_data
+	for a: PlayerData in pd:
+		a.range=1
+		a.capacity=1
+		a.bomb_count=0
+
+
 
 func spawn_enemies()->void:
 	for p in enemy_spawn_points:

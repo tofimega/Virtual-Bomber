@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://df1csvjksmu2v"]
+[gd_scene load_steps=3 format=3 uid="uid://df1csvjksmu2v"]
 
+[ext_resource type="Script" path="res://scenes/UI/score_counter/score_counter/score_counter.gd" id="1_h4ygj"]
 [ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="1_oroi1"]
 
 [node name="ScoreCounter" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_h4ygj")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0
@@ -35,35 +37,35 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="Label" type="Label" parent="Stastistics"]
+[node name="Range" type="Label" parent="Stastistics"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "o: 12"
+text = "r: 12"
 
-[node name="Label2" type="Label" parent="Stastistics"]
+[node name="EnemiesKilled" type="Label" parent="Stastistics"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "o: 12"
+text = "e: 12"
 
-[node name="Label3" type="Label" parent="Stastistics"]
+[node name="Capacity" type="Label" parent="Stastistics"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "o: 12"
+text = "c: 12"
 
-[node name="Label4" type="Label" parent="Stastistics"]
+[node name="Deaths" type="Label" parent="Stastistics"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "o: 12"
+text = "x: 12"
 
-[node name="Label5" type="Label" parent="Stastistics"]
+[node name="BombCount" type="Label" parent="Stastistics"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "o: 12"
+text = "b: 12"
 
-[node name="Label6" type="Label" parent="Stastistics"]
+[node name="PlayersKilled" type="Label" parent="Stastistics"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "o: 12"
+text = "p: 12"
 
 [node name="PlayerName" type="Label" parent="."]
 layout_mode = 0

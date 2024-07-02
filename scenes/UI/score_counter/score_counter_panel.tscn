@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjhgswl3o7wxb"]
+[gd_scene load_steps=4 format=3 uid="uid://cjhgswl3o7wxb"]
 
 [ext_resource type="StyleBox" uid="uid://cym4w6qa0fe8n" path="res://scenes/UI/score_counter/new_style_box_texture.tres" id="1_oawry"]
+[ext_resource type="Script" path="res://scenes/UI/score_counter/score_counter_panel.gd" id="1_qrfxw"]
 [ext_resource type="PackedScene" uid="uid://df1csvjksmu2v" path="res://scenes/UI/score_counter/score_counter/score_counter.tscn" id="2_rlbxa"]
 
 [node name="ScoreCounterPanel" type="Control"]
 custom_minimum_size = Vector2(180, 512)
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_qrfxw")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
