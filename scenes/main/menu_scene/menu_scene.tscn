@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5mmofn5wex84"]
+[gd_scene load_steps=3 format=3 uid="uid://c5mmofn5wex84"]
 
 [ext_resource type="Script" path="res://scenes/UI/2d_list/2d_list.gd" id="1_sv4dn"]
+[ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="2_sb81h"]
 
 [node name="MenuScene" type="Control"]
 custom_minimum_size = Vector2(512, 512)
@@ -21,8 +22,22 @@ offset_top = 200.0
 offset_right = 100.0
 offset_bottom = 200.0
 script = ExtResource("1_sv4dn")
-offset_x = 14.0
-offset_y = 50.0
+offset_per_index = Vector2(14, 50)
+
+[node name="Icon3" type="Sprite2D" parent="ButtonLists/MainMenu"]
+texture = ExtResource("2_sb81h")
+
+[node name="Icon4" type="Sprite2D" parent="ButtonLists/MainMenu"]
+position = Vector2(14, 50)
+texture = ExtResource("2_sb81h")
+
+[node name="Icon5" type="Sprite2D" parent="ButtonLists/MainMenu"]
+position = Vector2(28, 100)
+texture = ExtResource("2_sb81h")
+
+[node name="Icon6" type="Sprite2D" parent="ButtonLists/MainMenu"]
+position = Vector2(42, 150)
+texture = ExtResource("2_sb81h")
 
 [node name="PlayerSelect" type="Container" parent="ButtonLists"]
 layout_mode = 0
@@ -31,8 +46,7 @@ offset_top = 200.0
 offset_right = 100.0
 offset_bottom = 200.0
 script = ExtResource("1_sv4dn")
-offset_x = 14.0
-offset_y = 50.0
+offset_per_index = null
 
 [node name="EditLevel" type="Container" parent="ButtonLists"]
 layout_mode = 0
@@ -41,5 +55,4 @@ offset_top = 200.0
 offset_right = 100.0
 offset_bottom = 200.0
 script = ExtResource("1_sv4dn")
-offset_x = 14.0
-offset_y = 50.0
+offset_per_index = null
