@@ -5,7 +5,7 @@ extends Node
 
 var states: Dictionary={}
 
-var current_state: State
+var current_state: State=null
 
 
 func _ready():
@@ -15,12 +15,14 @@ func _ready():
 			c.machine=self
 			states[c.name]=c
 	states.make_read_only()
+	for s in states:
+		states[s].setup_state_connections()
+	switch_state(null, initial_state)
 
-
-
-
-
-func switch_state(new_state: State)->void:
+func switch_state(old_state: State,new_state: State)->void:
+	if old_state!=current_state: return
+	if new_state==current_state: return
+	
 	if current_state!=null:
 		current_state.exit_state()
 		current_state.set_process(false)

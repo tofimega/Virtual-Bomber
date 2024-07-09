@@ -11,11 +11,11 @@ var machine: StateMachine:
 @export var idle_update: bool=true:
 	set(i):
 		idle_update=i
-		set_process(i&&is_processing())
+		set_process(i and is_processing())
 @export var fixed_update: bool=false:
 	set(f):
 		fixed_update=f
-		set_physics_process(f&&is_physics_processing())
+		set_physics_process(f and is_physics_processing())
 
 signal switch_to(new_state: State)
 

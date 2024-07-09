@@ -46,7 +46,6 @@ offset_top = 200.0
 offset_right = 100.0
 offset_bottom = 200.0
 script = ExtResource("1_sv4dn")
-offset_per_index = null
 
 [node name="EditLevel" type="Container" parent="ButtonLists"]
 layout_mode = 0
@@ -55,4 +54,3 @@ offset_top = 200.0
 offset_right = 100.0
 offset_bottom = 200.0
 script = ExtResource("1_sv4dn")
-offset_per_index = null
