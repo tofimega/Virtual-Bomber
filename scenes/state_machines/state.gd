@@ -19,7 +19,7 @@ var machine: StateMachine:
 
 signal switch_to(new_state: State)
 
-func _init():
+func _ready():
 	set_physics_process(false)
 	set_process(false)
 
