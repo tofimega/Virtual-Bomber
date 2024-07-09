@@ -52,20 +52,20 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "c: 12"
 
-[node name="Deaths" type="Label" parent="Stastistics"]
+[node name="PlayersKilled" type="Label" parent="Stastistics"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "x: 12"
+text = "p: 12"
 
 [node name="BombCount" type="Label" parent="Stastistics"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "b: 12"
 
-[node name="PlayersKilled" type="Label" parent="Stastistics"]
+[node name="Deaths" type="Label" parent="Stastistics"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-text = "p: 12"
+text = "x: 12"
 
 [node name="PlayerName" type="Label" parent="."]
 layout_mode = 0

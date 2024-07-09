@@ -52,7 +52,7 @@ func replace_left_scene(new: PackedScene)->void:
 	if replacer_thread_left.is_alive(): return
 	if replacer_thread_left.is_started(): replacer_thread_left.wait_to_finish()
 	if new.can_instantiate():
-		var left=get_tree().get_first_node_in_group("left_viewport")
+		var left=get_tree().get_first_node_in_group("left_panel")
 		if left.get_children().size()>0:
 			var a=left.get_children()[0]
 			replacer_thread_left.start(delayed_replace.bind(a,new.instantiate(),left))
@@ -63,7 +63,7 @@ func replace_right_scene(new: PackedScene)->void:
 	if replacer_thread_right.is_alive(): return
 	if replacer_thread_right.is_started(): replacer_thread_right.wait_to_finish()
 	if new.can_instantiate():
-		var right=get_tree().get_first_node_in_group("right_viewport")
+		var right=get_tree().get_first_node_in_group("right_panel")
 		if right.get_children().size()>0:
 			var a=right.get_children()[0]
 			replacer_thread_right.start(delayed_replace.bind(a,new.instantiate(),right))
@@ -73,7 +73,7 @@ func replace_right_scene(new: PackedScene)->void:
 func replace_game_scene(new: PackedScene)->void:
 	if replacer_thread_main.is_alive(): return
 	if replacer_thread_main.is_started(): replacer_thread_main.wait_to_finish()
-	if new.can_instantiate():
+	if new != null and new.can_instantiate():
 		var viewport: SubViewport=get_tree().get_first_node_in_group("main_viewport")
 		if viewport.get_children().size()>0:
 			var a=viewport.get_children()[0]
@@ -90,11 +90,18 @@ func delayed_replace(until_null: Node,what: Node, to: Node)->void:
 		until_null.queue_free()
 		while until_null!=null:
 			continue
-	to.add_child.call_deferred(what)
-	emit_scene_replaced.call_deferred(what,to)
+	if what !=null:
+		to.add_child.call_deferred(what)
+		emit_scene_replaced.call_deferred(what,to)
 
 func get_main_viewport()->SubViewport:
 	return get_tree().get_first_node_in_group("main_viewport")
+	
+func get_left_panel()->Node:
+	return get_tree().get_first_node_in_group("left_panel")
+func get_right_panel()->Node:
+	return get_tree().get_first_node_in_group("right_panel")
+
 
 func get_game_scene()->Node:
 	return get_tree().get_first_node_in_group("main_viewport").get_children()[0]

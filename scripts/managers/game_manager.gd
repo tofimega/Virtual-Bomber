@@ -114,15 +114,15 @@ func dec_explosions()->void:
 func next(over: bool)->void:
 
 	if over:
-		GlobalAccess.replace_game_scene(load("res://scenes/main/game_scene.tscn")) #TODO: results scene
+		GlobalAccess.replace_game_scene(load("res://scenes/main/results_scene/results.tscn")) #TODO: results scene
 		return
 	GlobalAccess.replace_game_scene(load("res://scenes/main/game_scene.tscn"))
-	game_finished=true
+
 	
 	
-var game_finished: bool=false
+
 func _check_game_state()->void:
-	if game_finished: return
+
 	
 	
 	if active_bombs==0 and active_explosions==0:

@@ -42,17 +42,13 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 14
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_direction = 2
 layout_mode = 2
 alignment = 1
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Left" type="Control" parent="MarginContainer/HBoxContainer" groups=["left_panel"]]
+custom_minimum_size = Vector2(180, 512)
 layout_mode = 2
-
-[node name="Left" type="SubViewport" parent="MarginContainer/HBoxContainer/SubViewportContainer2" groups=["left_viewport"]]
-handle_input_locally = false
-canvas_item_default_texture_filter = 0
-size = Vector2i(180, 512)
-render_target_update_mode = 4
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -62,11 +58,6 @@ handle_input_locally = false
 canvas_item_default_texture_filter = 0
 render_target_update_mode = 4
 
-[node name="SubViewportContainer3" type="SubViewportContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Right" type="Control" parent="MarginContainer/HBoxContainer" groups=["right_panel"]]
+custom_minimum_size = Vector2(180, 512)
 layout_mode = 2
-
-[node name="Right" type="SubViewport" parent="MarginContainer/HBoxContainer/SubViewportContainer3" groups=["right_viewport"]]
-handle_input_locally = false
-canvas_item_default_texture_filter = 0
-size = Vector2i(180, 512)
-render_target_update_mode = 4

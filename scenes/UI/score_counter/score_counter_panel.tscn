@@ -8,6 +8,8 @@
 custom_minimum_size = Vector2(180, 512)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 180.0
+offset_bottom = 512.0
 script = ExtResource("1_qrfxw")
 
 [node name="Panel" type="Panel" parent="."]
