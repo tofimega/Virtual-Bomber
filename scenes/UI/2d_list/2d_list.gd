@@ -2,11 +2,11 @@
 class_name List2D
 extends Container
 
-@export var offset_x: float=100:
+@export_range(0.0,100.0,1.0, "or_greater","or_less","suffix:px") var offset_x: float=100:
 	set(x):
 		offset_x=x
 		queue_sort()
-@export var offset_y: float=100:
+@export_range(0,100,1.0, "or_greater","or_less","suffix:px") var offset_y: float=100:
 	set(y):
 		offset_y=y
 		queue_sort()
