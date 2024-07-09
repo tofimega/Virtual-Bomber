@@ -8,8 +8,9 @@ Finishing a game originally made for a uni assignment.
 - redesign and implement UI
 
 ## remaining tasks:
-- bugfix, cleanup & optimization sweep
+- bugfix, cleanup, modularization & optimization sweep
 - update level format
+- finish game scene UI (dependent on above)
 - add controller support
 - redesign and implement level editor
 - visual & audio assets
