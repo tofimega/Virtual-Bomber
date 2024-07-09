@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5mmofn5wex84"]
+
+[ext_resource type="Script" path="res://scenes/UI/2d_list/2d_list.gd" id="1_sv4dn"]
+[ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="2_1fym1"]
+
+[node name="MenuScene" type="Control"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="List2D" type="Container" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = 100.0
+offset_bottom = 200.0
+script = ExtResource("1_sv4dn")
+offset_x = 14.0
+offset_y = 40.0
+
+[node name="Icon" type="Sprite2D" parent="List2D"]
+texture = ExtResource("2_1fym1")
+region_enabled = true
+region_rect = Rect2(20, 15, 108, 28)
+
+[node name="Icon2" type="Sprite2D" parent="List2D"]
+position = Vector2(14, 40)
+texture = ExtResource("2_1fym1")
+region_enabled = true
+region_rect = Rect2(20, 15, 108, 28)
+
+[node name="Icon3" type="Sprite2D" parent="List2D"]
+position = Vector2(28, 80)
+texture = ExtResource("2_1fym1")
+region_enabled = true
+region_rect = Rect2(20, 15, 108, 28)
+
+[node name="Icon4" type="Sprite2D" parent="List2D"]
+position = Vector2(42, 120)
+texture = ExtResource("2_1fym1")
+region_enabled = true
+region_rect = Rect2(20, 15, 108, 28)
