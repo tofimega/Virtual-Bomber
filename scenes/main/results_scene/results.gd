@@ -27,5 +27,4 @@ func back_to_menu()->void:
 		n.free()
 	for n in GlobalAccess.get_right_panel().get_children():
 		n.free()
-	#GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/menu_scene.tscn"))
-	get_tree().quit(0)
+	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/menu_scene.tscn"))

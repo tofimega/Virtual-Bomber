@@ -18,7 +18,7 @@ func switch_list(to: List2D, forward: bool)->void:
 
 func _ready()->void:
 	menu_state_machine.final_positions[main_menu]=Vector2(50,470)
-	menu_state_machine.final_positions[edit_level]=Vector2(50,470)
+	menu_state_machine.final_positions[edit_level]=Vector2(35,470)
 	menu_state_machine.new_list=main_menu
 	menu_state_machine.start()
 
@@ -36,7 +36,7 @@ func _on_edit_level_pressed():
 
 
 func _on_start_game_pressed():
-	print("later")
+	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/game_scene/game_scene.tscn"))
 
 
 func _on_back_pressed():
