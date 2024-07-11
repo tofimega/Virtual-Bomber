@@ -7,7 +7,7 @@ extends Control
 @onready var right = $MarginContainer/HBoxContainer/Right
 
 
-var starting_scene: PackedScene=preload("res://scenes/main/game_scene/game_scene.tscn")
+var starting_scene: PackedScene=preload("res://scenes/main/menu_scene/menu_scene.tscn")
 
 func _ready()->void:
 	

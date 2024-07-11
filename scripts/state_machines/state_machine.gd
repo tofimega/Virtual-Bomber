@@ -16,21 +16,27 @@ func _ready():
 			states[c.name]=c
 	states.make_read_only()
 	for s in states:
-		states[s].setup_state_connections()
+		states[s]._setup_state_connections()
+		states[s].set_process(false)
+		states[s].set_physics_process(false)
+
+
+func start()->void:
 	switch_state(null, initial_state)
 
 func switch_state(old_state: State,new_state: State)->void:
-	if old_state!=current_state: return
+	if old_state!=current_state and current_state!=null: return
 	if new_state==current_state: return
-	
+	print("old state: ", old_state, "new state: ", new_state)
 	if current_state!=null:
-		current_state.exit_state()
+		current_state._exit_state()
 		current_state.set_process(false)
 		current_state.set_physics_process(false)
 		
-	new_state.enter_state()
+	new_state._enter_state()
 	new_state.set_process(new_state.idle_update)
 	new_state.set_physics_process(new_state.fixed_update)
-		
-	
+	current_state=new_state
+
+
 	

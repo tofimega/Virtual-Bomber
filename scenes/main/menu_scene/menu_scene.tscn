@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5mmofn5wex84"]
+[gd_scene load_steps=7 format=3 uid="uid://c5mmofn5wex84"]
 
+[ext_resource type="Script" path="res://scenes/main/menu_scene/menu_scene.gd" id="1_lfty0"]
 [ext_resource type="Script" path="res://scenes/UI/2d_list/2d_list.gd" id="1_sv4dn"]
-[ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="2_sb81h"]
+[ext_resource type="Script" path="res://scripts/state_machines/main_menu/menu_state_machine.gd" id="3_1a8fw"]
+[ext_resource type="Script" path="res://scripts/state_machines/main_menu/states/menu_still_state.gd" id="4_6qlk3"]
+[ext_resource type="Script" path="res://scripts/state_machines/main_menu/states/menu_transition_backward_state.gd" id="5_gfrr2"]
+[ext_resource type="Script" path="res://scripts/state_machines/main_menu/states/menu_transition_forward_state.gd" id="6_cwlbw"]
 
 [node name="MenuScene" type="Control"]
 custom_minimum_size = Vector2(512, 512)
@@ -9,48 +13,84 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 512.0
 offset_bottom = 512.0
+script = ExtResource("1_lfty0")
 
-[node name="ButtonLists" type="Control" parent="."]
+[node name="Interface" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MainMenu" type="Container" parent="ButtonLists"]
+[node name="MainMenu" type="Container" parent="Interface"]
 layout_mode = 0
-offset_left = 100.0
+offset_left = -251.0
 offset_top = 200.0
-offset_right = 100.0
+offset_right = -251.0
 offset_bottom = 200.0
 script = ExtResource("1_sv4dn")
-offset_per_index = Vector2(14, 50)
+offset_per_index = Vector2(-14, -40)
 
-[node name="Icon3" type="Sprite2D" parent="ButtonLists/MainMenu"]
-texture = ExtResource("2_sb81h")
+[node name="Exit" type="Button" parent="Interface/MainMenu"]
+custom_minimum_size = Vector2(108, 28)
+layout_mode = 2
+text = "Exit
+"
 
-[node name="Icon4" type="Sprite2D" parent="ButtonLists/MainMenu"]
-position = Vector2(14, 50)
-texture = ExtResource("2_sb81h")
+[node name="Settings" type="Button" parent="Interface/MainMenu"]
+custom_minimum_size = Vector2(108, 28)
+layout_mode = 2
+text = "Settings"
 
-[node name="Icon5" type="Sprite2D" parent="ButtonLists/MainMenu"]
-position = Vector2(28, 100)
-texture = ExtResource("2_sb81h")
+[node name="EditLevel" type="Button" parent="Interface/MainMenu"]
+custom_minimum_size = Vector2(108, 28)
+layout_mode = 2
+text = "Edit Level"
 
-[node name="Icon6" type="Sprite2D" parent="ButtonLists/MainMenu"]
-position = Vector2(42, 150)
-texture = ExtResource("2_sb81h")
+[node name="StartGame" type="Button" parent="Interface/MainMenu"]
+custom_minimum_size = Vector2(108, 28)
+layout_mode = 2
+text = "Start Game"
 
-[node name="PlayerSelect" type="Container" parent="ButtonLists"]
+[node name="EditLevel" type="Container" parent="Interface"]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 100.0
-offset_bottom = 200.0
+offset_left = -561.0
+offset_top = 191.0
+offset_right = -561.0
+offset_bottom = 191.0
 script = ExtResource("1_sv4dn")
+offset_per_index = Vector2(-14, -40)
 
-[node name="EditLevel" type="Container" parent="ButtonLists"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 200.0
-offset_right = 100.0
-offset_bottom = 200.0
-script = ExtResource("1_sv4dn")
+[node name="Back" type="Button" parent="Interface/EditLevel"]
+custom_minimum_size = Vector2(108, 28)
+layout_mode = 2
+text = "Back"
+
+[node name="LoadLevel" type="Button" parent="Interface/EditLevel"]
+custom_minimum_size = Vector2(108, 28)
+layout_mode = 2
+text = "Load Level"
+
+[node name="NewLevel" type="Button" parent="Interface/EditLevel"]
+custom_minimum_size = Vector2(108, 28)
+layout_mode = 2
+text = "New Level"
+
+[node name="MenuStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_1a8fw")
+initial_state = NodePath("MenuStillState")
+
+[node name="MenuStillState" type="Node" parent="MenuStateMachine"]
+script = ExtResource("4_6qlk3")
+
+[node name="MenuTransitionBackwardState" type="Node" parent="MenuStateMachine"]
+script = ExtResource("5_gfrr2")
+
+[node name="MenuTransitionForwardState" type="Node" parent="MenuStateMachine"]
+script = ExtResource("6_cwlbw")
+
+[connection signal="pressed" from="Interface/MainMenu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Interface/MainMenu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Interface/MainMenu/EditLevel" to="." method="_on_edit_level_pressed"]
+[connection signal="pressed" from="Interface/MainMenu/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Interface/EditLevel/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Interface/EditLevel/LoadLevel" to="." method="_on_load_level_pressed"]
+[connection signal="pressed" from="Interface/EditLevel/NewLevel" to="." method="_on_new_level_pressed"]

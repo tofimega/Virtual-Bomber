@@ -19,10 +19,6 @@ var machine: StateMachine:
 
 signal switch_to(new_state: State)
 
-func _ready():
-	set_physics_process(false)
-	set_process(false)
-
 
 func _process(delta):
 	_check_switch_conditions()
@@ -35,9 +31,9 @@ func _physics_process(delta):
 func _setup_state_connections()->void:
 	pass
 
-func enter_state()->void:
+func _enter_state()->void:
 	pass
-func exit_state()->void:
+func _exit_state()->void:
 	pass
 func _check_switch_conditions():
 	pass

@@ -15,7 +15,8 @@ func _notification(what):
 		NOTIFICATION_SORT_CHILDREN:
 			var i: int=0
 			for c in get_children():
-				c.position=offset_per_index*i
+				if c.get_property_list().filter(func(x): return x["name"]=="position" and x["type"]==TYPE_VECTOR2).size()>0:
+					c.position=offset_per_index*i
 				
 				i+=1
 		NOTIFICATION_CHILD_ORDER_CHANGED:
