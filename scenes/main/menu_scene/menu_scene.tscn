@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scenes/main/menu_scene/menu_scene.gd" id="1_lfty0"]
 [ext_resource type="Script" path="res://scenes/UI/2d_list/2d_list.gd" id="1_sv4dn"]
-[ext_resource type="Script" path="res://scripts/state_machines/main_menu/menu_state_machine.gd" id="3_1a8fw"]
-[ext_resource type="Script" path="res://scripts/state_machines/main_menu/states/menu_still_state.gd" id="4_6qlk3"]
-[ext_resource type="Script" path="res://scripts/state_machines/main_menu/states/menu_transition_backward_state.gd" id="5_gfrr2"]
-[ext_resource type="Script" path="res://scripts/state_machines/main_menu/states/menu_transition_forward_state.gd" id="6_cwlbw"]
+[ext_resource type="Script" path="res://scenes/main/menu_scene/state_machine/main_menu/menu_state_machine.gd" id="3_s3n7f"]
+[ext_resource type="Script" path="res://scenes/main/menu_scene/state_machine/main_menu/states/menu_still_state.gd" id="4_ld5d3"]
+[ext_resource type="Script" path="res://scenes/main/menu_scene/state_machine/main_menu/states/menu_transition_backward_state.gd" id="5_8fd4m"]
+[ext_resource type="Script" path="res://scenes/main/menu_scene/state_machine/main_menu/states/menu_transition_forward_state.gd" id="6_ao3wo"]
 
 [node name="MenuScene" type="Control"]
 custom_minimum_size = Vector2(512, 512)
@@ -75,17 +75,17 @@ layout_mode = 2
 text = "New Level"
 
 [node name="MenuStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("3_1a8fw")
+script = ExtResource("3_s3n7f")
 initial_state = NodePath("MenuStillState")
 
 [node name="MenuStillState" type="Node" parent="MenuStateMachine"]
-script = ExtResource("4_6qlk3")
+script = ExtResource("4_ld5d3")
 
 [node name="MenuTransitionBackwardState" type="Node" parent="MenuStateMachine"]
-script = ExtResource("5_gfrr2")
+script = ExtResource("5_8fd4m")
 
 [node name="MenuTransitionForwardState" type="Node" parent="MenuStateMachine"]
-script = ExtResource("6_cwlbw")
+script = ExtResource("6_ao3wo")
 
 [connection signal="pressed" from="Interface/MainMenu/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Interface/MainMenu/Settings" to="." method="_on_settings_pressed"]
