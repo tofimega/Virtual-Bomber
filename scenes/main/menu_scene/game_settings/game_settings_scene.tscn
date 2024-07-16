@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn6tkd6nwa7re"]
+
+[ext_resource type="PackedScene" uid="uid://b1p0mrw1ydpmb" path="res://scenes/main/menu_scene/game_settings/player_tags_container/player_tags.tscn" id="1_i3fjp"]
+[ext_resource type="Script" path="res://scenes/main/menu_scene/game_settings/game_settings_scene.gd" id="1_vnjlh"]
+[ext_resource type="PackedScene" uid="uid://diocwk3exa5b1" path="res://scenes/main/menu_scene/game_settings/game_mode_selection/game_mode_selection.tscn" id="2_lglid"]
+[ext_resource type="PackedScene" uid="uid://5j4rc8qewbqp" path="res://scenes/main/menu_scene/game_settings/level_selection/level_selection.tscn" id="3_8iua2"]
+
+[node name="GameSettingsScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = 18.0
+offset_right = -198.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vnjlh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PlayerTags" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_i3fjp")]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+
+[node name="GameModeSelection" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_lglid")]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LevelSelection" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_8iua2")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_constants/separation = 353
+
+[node name="BackToMenu" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Back"
+
+[node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Start Game"

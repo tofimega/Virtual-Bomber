@@ -36,7 +36,7 @@ func _on_edit_level_pressed():
 
 
 func _on_start_game_pressed():
-	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/game_scene/game_scene.tscn"))
+	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/game_settings/game_settings_scene.tscn"))
 
 
 func _on_back_pressed():

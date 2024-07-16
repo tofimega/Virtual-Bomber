@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://5j4rc8qewbqp"]
+
+[ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="1_r6odh"]
+
+[node name="LevelSelection" type="Panel"]
+custom_minimum_size = Vector2(320, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Level name"
+alignment = 0
+
+[node name="MenuButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Custom Level"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+texture = ExtResource("1_r6odh")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Level title"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Level author"
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Level description"
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Level attributes:"
+
+[node name="Label2" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+columns = 3

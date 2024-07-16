@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://diocwk3exa5b1"]
+
+[node name="GameModeSelection" type="Panel"]
+custom_minimum_size = Vector2(160, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+offset_left = 4.0
+offset_right = 154.0
+offset_bottom = 250.0
+theme_override_constants/separation = 15
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+alignment = 1
+item_count = 1
+selected = 0
+popup/item_0/text = "Game Mode"
+popup/item_0/id = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Game mode description"
+autowrap_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer"]
+layout_mode = 2
+prefix = "Wins:"
