@@ -3,15 +3,19 @@
 [node name="GameModeSelection" type="Panel"]
 custom_minimum_size = Vector2(160, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-offset_left = 4.0
-offset_right = 154.0
-offset_bottom = 250.0
 theme_override_constants/separation = 15
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
@@ -21,13 +25,14 @@ selected = 0
 popup/item_0/text = "Game Mode"
 popup/item_0/id = 0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 150)
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 170)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Game mode description"
+text = "Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description "
 autowrap_mode = 2
+clip_text = true
 
-[node name="SpinBox" type="SpinBox" parent="VBoxContainer"]
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 prefix = "Wins:"
