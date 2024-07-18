@@ -38,7 +38,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 280)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
 [node name="GameModeSelection" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_lglid")]

@@ -63,7 +63,6 @@ func _setup_score_counters()->void:
 	pass
 
 func _load_level()->void:
-	GlobalAccess.level_to_load="res://spriteTest.txt"
 	var level=preload("res://scenes/level/test_level/test_level.tscn").instantiate()
 	GlobalAccess.get_game_scene().add_child.call_deferred(level)
 

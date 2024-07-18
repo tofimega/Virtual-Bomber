@@ -10,16 +10,7 @@ extends Control
 @onready var players_killed: Label = $Stastistics/PlayersKilled
 @onready var score: Label = $Score
 
-var id: GlobalAccess.PLAYER_ID:
-	set(a):
-		if a >= GlobalAccess.players:
-			modulate=Color(0.3,0.3,0.3,1)
-			
-		
-		GlobalAccess.player_data[a].free()
-		GlobalAccess.player_data[a]=PlayerData.new()
-		GlobalAccess.player_data[a].id=a
-		id=a
+var id: GlobalAccess.PLAYER_ID
 
 func _ready()->void:
 	SignalBus.player_data_changed.connect(update_data)

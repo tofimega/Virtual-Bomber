@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw80fdp1v6447"]
+[gd_scene load_steps=3 format=3 uid="uid://cw80fdp1v6447"]
 
 [ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="1_chdkt"]
+[ext_resource type="Script" path="res://scenes/UI/player_select/player_select_tag.gd" id="1_fvpxa"]
 
 [node name="PlayerSelectTag" type="Control"]
 custom_minimum_size = Vector2(110, 100)
@@ -9,6 +10,7 @@ anchors_preset = 0
 offset_right = 70.0
 offset_bottom = 50.0
 size_flags_horizontal = 3
+script = ExtResource("1_fvpxa")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -27,7 +29,7 @@ offset_bottom = 59.0
 texture = ExtResource("1_chdkt")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="RemovePlayer" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -41,7 +43,7 @@ offset_bottom = -12.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Button2" type="Button" parent="."]
+[node name="ControlStyle" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -53,7 +55,7 @@ offset_bottom = 53.0
 grow_horizontal = 0
 text = "kb"
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="PlayerName" type="LineEdit" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

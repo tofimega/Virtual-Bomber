@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://diocwk3exa5b1"]
+[gd_scene load_steps=2 format=3 uid="uid://diocwk3exa5b1"]
+
+[ext_resource type="Script" path="res://scenes/main/menu_scene/game_settings/game_mode_selection/game_mode_selection.gd" id="1_eulx5"]
 
 [node name="GameModeSelection" type="Panel"]
 custom_minimum_size = Vector2(160, 0)
+script = ExtResource("1_eulx5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -26,7 +29,7 @@ popup/item_0/text = "Game Mode"
 popup/item_0/id = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 170)
+custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description Game mode description "
@@ -35,4 +38,7 @@ clip_text = true
 
 [node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+min_value = 1.0
+max_value = 99.0
+value = 3.0
 prefix = "Wins:"

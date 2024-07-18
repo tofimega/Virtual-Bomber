@@ -1,7 +1,7 @@
 extends Node
 
 # score of each player
-var player_data: Array[PlayerData]=[PlayerData.new(),PlayerData.new(),PlayerData.new(),PlayerData.new()]
+var player_data: Array[PlayerData]=[]
 
 # at the end of a given round, this will be called
 func game_over(p: PLAYER_ID)->bool:
@@ -22,7 +22,9 @@ func get_winner()->String:
 	return PLAYER_ID.find_key(player_data.find(player_data.reduce(func(m,v): return v if v.points>m.points else m)))
 
 # amount of players in-game
-var players: int=4
+var players: int:
+	get:
+		return player_data.size()
 
 # each player is given one of these
 enum PLAYER_ID{

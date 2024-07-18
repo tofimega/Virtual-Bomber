@@ -23,6 +23,10 @@ signal enemy_spawn_ready(spawn_point: EnemySpawn)
 signal player_killed_player(killer: GlobalAccess.PLAYER_ID)
 signal player_killed_enemy(killer: GlobalAccess.PLAYER_ID)
 
+signal request_add_player()
+signal request_remove_player(player: GlobalAccess.PLAYER_ID)
+signal player_removed(player: GlobalAccess.PLAYER_ID)
+signal player_name_changed(player: GlobalAccess.PLAYER_ID, new_name: String)
 
 func emit_level_loaded()->void:
 	level_loaded.emit()

@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://5j4rc8qewbqp"]
+[gd_scene load_steps=3 format=3 uid="uid://5j4rc8qewbqp"]
 
+[ext_resource type="Script" path="res://scenes/main/menu_scene/game_settings/level_selection/level_selection.gd" id="1_d3vqr"]
 [ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="1_r6odh"]
 
 [node name="LevelSelection" type="Panel"]
 custom_minimum_size = Vector2(320, 0)
+script = ExtResource("1_d3vqr")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -26,20 +28,26 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 230)
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
+[node name="LevelButtons" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Level1Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Level name"
+text = "SpriteTest"
 alignment = 0
 
-[node name="MenuButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Level2Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Test3"
+alignment = 0
+
+[node name="CustomLevelButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Custom Level"
@@ -79,7 +87,7 @@ text = "Level author aaaaaaaaaaaaaaaaaa"
 clip_text = true
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 80)
+custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Level description Level description Level description Level description Level description Level description Level description Level description Level description Level description Level description Level description Level description Level description "
@@ -92,6 +100,6 @@ theme_override_font_sizes/font_size = 12
 text = "Level attributes:"
 
 [node name="Label2" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 columns = 3

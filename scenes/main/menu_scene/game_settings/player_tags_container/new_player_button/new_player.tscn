@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2e5of57eaivl"]
+
+[ext_resource type="Script" path="res://scenes/main/menu_scene/game_settings/player_tags_container/new_player_button/new_player.gd" id="1_noulf"]
+
+[node name="NewPlayer" type="Button"]
+custom_minimum_size = Vector2(70, 70)
+size_flags_vertical = 4
+text = "+"
+script = ExtResource("1_noulf")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
