@@ -16,10 +16,9 @@ func start_new_game()->void:
 	
 	for n in GlobalAccess.get_left_panel().get_children():
 		n.free()
-	
 	for n in GlobalAccess.get_right_panel().get_children():
 		n.free()
-	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/game_scene/game_scene.tscn"))
+	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/game_settings/game_settings_scene.tscn"))
 
 
 func back_to_menu()->void:
