@@ -19,10 +19,12 @@ func _ready():
 
 func get_level_from_user()->void:
 	var file_dialog:FileDialog=FileDialog.new()
-	file_dialog.position=Vector2(get_tree().get_root().size.x/2,get_tree().get_root().size.y/2)
+	file_dialog.size=Vector2(700,500)
 	file_dialog.title="Select Level"
 	file_dialog.mode_overrides_title=false
 	file_dialog.file_mode=FileDialog.FILE_MODE_OPEN_FILE
+	file_dialog.access=FileDialog.ACCESS_FILESYSTEM
+	file_dialog.initial_position=Window.WINDOW_INITIAL_POSITION_CENTER_SCREEN_WITH_MOUSE_FOCUS
 	file_dialog.confirmed.connect(
 	func():
 		GlobalAccess.level_to_load=file_dialog.current_path
