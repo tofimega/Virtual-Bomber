@@ -15,7 +15,7 @@ func game_over(p: PLAYER_ID)->bool:
 var games_to_win: int=0
 
 
-var level_to_load: String="res://test3.txt"
+var level_to_load: String
 
 
 func get_winner()->String:

@@ -14,6 +14,16 @@ func _ready():
 	back_to_menu.pressed.connect(switch_to_menu)
 	
 func switch_to_game()->void:
+	if player_tags.player_count<2: return
+	if player_tags.player_count>4: return
+	
+	#TODO: redo this once LevelData is created
+	if GlobalAccess.level_to_load == null: return
+	if GlobalAccess.level_to_load=="": return
+	if not FileAccess.file_exists(GlobalAccess.level_to_load): return
+	
+	if game_mode_selection.wins<1: return
+	
 	GlobalAccess.player_data.clear()
 	for i:int in player_tags.player_count:
 		var data: PlayerData=PlayerData.new()
