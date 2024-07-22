@@ -18,7 +18,7 @@ func start_new_game()->void:
 		n.free()
 	for n in GlobalAccess.get_right_panel().get_children():
 		n.free()
-	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/game_settings/game_settings_scene.tscn"))
+	SceneControl.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/game_settings/game_settings_scene.tscn"))
 
 
 func back_to_menu()->void:
@@ -26,4 +26,4 @@ func back_to_menu()->void:
 		n.free()
 	for n in GlobalAccess.get_right_panel().get_children():
 		n.free()
-	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/menu_scene.tscn"))
+	SceneControl.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/menu_scene.tscn"))

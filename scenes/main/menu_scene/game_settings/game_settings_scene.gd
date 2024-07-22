@@ -32,7 +32,7 @@ func switch_to_game()->void:
 		
 		
 	GlobalAccess.games_to_win=game_mode_selection.wins
-	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/game_scene/game_scene.tscn"))
+	SceneControl.replace_game_scene(ResourceLoader.load("res://scenes/main/game_scene/game_scene.tscn"))
 
 func switch_to_menu()->void:
-	GlobalAccess.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/menu_scene.tscn"))
+	SceneControl.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/menu_scene.tscn"))

@@ -113,9 +113,9 @@ func dec_explosions()->void:
 func next(over: bool)->void:
 
 	if over:
-		GlobalAccess.replace_game_scene(load("res://scenes/main/results_scene/results.tscn")) #TODO: results scene
+		SceneControl.replace_game_scene(load("res://scenes/main/results_scene/results.tscn")) #TODO: results scene
 		return
-	GlobalAccess.replace_game_scene(load("res://scenes/main/game_scene/game_scene.tscn"))
+	SceneControl.replace_game_scene(load("res://scenes/main/game_scene/game_scene.tscn"))
 
 	
 	

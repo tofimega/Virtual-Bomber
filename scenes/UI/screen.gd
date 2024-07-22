@@ -12,7 +12,6 @@ var starting_scene: PackedScene=preload("res://scenes/main/menu_scene/menu_scene
 func _ready()->void:
 	
 	if starting_scene!=null:
-		#var scene=starting_scene.instantiate()
-		GlobalAccess.replace_game_scene(starting_scene)
+		SceneControl.replace_game_scene(starting_scene)
 	
 	

@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 SignalBus="*res://scripts/globals/signal_bus.gd"
 GlobalAccess="*res://scripts/globals/global_access.gd"
 Utility="*res://scripts/globals/utility.gd"
+SceneControl="*res://scripts/globals/scene_control.gd"
 
 [debug]
 
