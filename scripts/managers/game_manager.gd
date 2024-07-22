@@ -115,7 +115,7 @@ func next(over: bool)->void:
 	if over:
 		GlobalAccess.replace_game_scene(load("res://scenes/main/results_scene/results.tscn")) #TODO: results scene
 		return
-	GlobalAccess.replace_game_scene(load("res://scenes/main/game_scene.tscn"))
+	GlobalAccess.replace_game_scene(load("res://scenes/main/game_scene/game_scene.tscn"))
 
 	
 	
