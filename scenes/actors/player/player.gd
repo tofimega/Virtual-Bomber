@@ -35,21 +35,21 @@ var id: GlobalAccess.PLAYER_ID:
 #region incs, decs
 #TODO: set player data via signals instead
 func inc_capacity()->void:
-	GlobalAccess.player_data[id].capacity+=1
+	GlobalAccess.game_settings.player_data[id].capacity+=1
 	bomb_capacity+=1
 
 func inc_power()->void:
-	GlobalAccess.player_data[id].range+=1
+	GlobalAccess.game_settings.player_data[id].range+=1
 	power+=1
 
 func inc_bombs(b:Bomb)->void:
 	if b.player==self:
-		GlobalAccess.player_data[id].bomb_count+=1
+		GlobalAccess.game_settings.player_data[id].bomb_count+=1
 		bombs.append(b)
 
 func dec_bombs(b: Bomb)->void:
 	if b.id==id:
-		GlobalAccess.player_data[id].bomb_count-=1
+		GlobalAccess.game_settings.player_data[id].bomb_count-=1
 	remove_collision_exception_with(b)
 	bombs.erase(b)
 #endregion
@@ -89,7 +89,7 @@ func kill(area)->void:
 	if area is Explosion:
 		SignalBus.player_killed_player.emit(area.player_id)
 	
-	GlobalAccess.player_data[id].deaths+=1
+	GlobalAccess.game_settings.player_data[id].deaths+=1
 	print("ow")
 	SignalBus.player_dead.emit(self)
 	queue_free()

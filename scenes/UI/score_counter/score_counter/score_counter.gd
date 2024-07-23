@@ -1,5 +1,6 @@
 class_name ScoreCounter
 extends Control
+
 @onready var player_name: Label = $PlayerName
 @onready var player_icon: TextureRect = $PlayerIcon
 @onready var range: Label = $Stastistics/Range
@@ -10,14 +11,19 @@ extends Control
 @onready var players_killed: Label = $Stastistics/PlayersKilled
 @onready var score: Label = $Score
 
-var id: GlobalAccess.PLAYER_ID
+var id: GlobalAccess.PLAYER_ID:
+	set(a):
+		id=a
+		if id>=GlobalAccess.game_settings.player_data.size():
+			modulate=Color(0.5,0.5,0.5,0.8)
+		else:
+			modulate=Color(1,1,1,1)
 
 func _ready()->void:
 	SignalBus.player_data_changed.connect(update_data)
-	
 func update_data(id):
 	if id==self.id:
-		var d: PlayerData=GlobalAccess.player_data[id]
+		var d: PlayerData=GlobalAccess.game_settings.player_data[id]
 		player_name.text=d.name
 		score.text=str(d.points)
 		player_icon.texture=d.icon

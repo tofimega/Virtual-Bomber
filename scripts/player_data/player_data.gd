@@ -1,5 +1,5 @@
 class_name PlayerData
-extends Object
+extends RefCounted
 
 
 var id: GlobalAccess.PLAYER_ID: 

@@ -12,10 +12,12 @@ extends Panel
 @onready var level_2_button_2 = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons/Level2Button2
 
 
+var current_selection: String=""
+
 func _ready():
-	level_1_button.pressed.connect(func():GlobalAccess.level_to_load="res://spriteTest.txt")
-	level_2_button.pressed.connect(func():GlobalAccess.level_to_load="res://test3.txt")
-	level_2_button_2.pressed.connect(func():GlobalAccess.level_to_load="res://assets/levels/1.txt")
+	level_1_button.pressed.connect(func():current_selection="res://spriteTest.txt")
+	level_2_button.pressed.connect(func():current_selection="res://test3.txt")
+	level_2_button_2.pressed.connect(func():current_selection="res://assets/levels/1.txt")
 	custom_level_button.pressed.connect(get_level_from_user)
 
 

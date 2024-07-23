@@ -24,7 +24,7 @@ func try_add_player()->void:
 		player_count+=1
 		if player_count==4:
 			player_tags.remove_child(player_tags.get_children()[-1])
-		
+
 		
 func try_remove_player(id: GlobalAccess.PLAYER_ID)->void:
 	if player_count>2:
@@ -37,3 +37,4 @@ func try_remove_player(id: GlobalAccess.PLAYER_ID)->void:
 		if not player_tags.get_children()[-1] is Button:
 			player_tags.add_child(new_button_scene.instantiate())
 		player_count-=1
+		

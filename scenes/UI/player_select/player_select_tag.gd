@@ -11,8 +11,6 @@ var id: GlobalAccess.PLAYER_ID
 
 func _ready()->void:
 	remove_player_button.pressed.connect(remove_player)
-	player_name.text_changed.connect(func(new_name: String): SignalBus.player_name_changed.emit(id,new_name))
-
 
 
 func remove_player()->void:
