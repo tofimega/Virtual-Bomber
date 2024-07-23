@@ -32,7 +32,7 @@ func replace_right_scene(new: PackedScene)->void:
 	else:
 		old=get_right_panel().get_children()[0]
 		
-	replace_subscene(get_right_panel(),old,new,replacer_thread_left)
+	replace_subscene(get_right_panel(),old,new,replacer_thread_right)
 
 func replace_game_scene(new: PackedScene)->void:
 	var old: Node
@@ -41,7 +41,7 @@ func replace_game_scene(new: PackedScene)->void:
 	else:
 		old=get_main_viewport().get_children()[0]
 		
-	replace_subscene(get_main_viewport(),old,new,replacer_thread_left)
+	replace_subscene(get_main_viewport(),old,new,replacer_thread_main)
 
 var replacer_thread_left: Thread=Thread.new()
 var replacer_thread_right: Thread=Thread.new()

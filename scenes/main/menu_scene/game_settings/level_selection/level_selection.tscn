@@ -47,6 +47,12 @@ theme_override_font_sizes/font_size = 12
 text = "Test3"
 alignment = 0
 
+[node name="Level2Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "1"
+alignment = 0
+
 [node name="CustomLevelButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12

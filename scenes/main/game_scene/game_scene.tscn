@@ -12,3 +12,6 @@ y_sort_enabled = true
 
 [node name="GameManager" type="Node" parent="." groups=["Game Manager"]]
 script = ExtResource("1_6ha3f")
+
+[node name="Timer" type="Timer" parent="GameManager"]
+wait_time = 4.0

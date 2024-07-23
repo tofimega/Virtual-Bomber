@@ -9,7 +9,7 @@ func game_over(p: PLAYER_ID)->bool:
 		return false
 		
 	player_data[p].points+=1
-	return player_data[p].points>games_to_win
+	return player_data[p].points>=games_to_win
 
 # number of rounds a match will last
 var games_to_win: int=0

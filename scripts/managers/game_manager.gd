@@ -1,6 +1,8 @@
 class_name GameManager
 extends Node
 
+@onready var timer = $Timer
+
 
 var active_players: Array[Player]=[]
 var active_explosions: int=0
@@ -26,6 +28,7 @@ func _ready():
 	
 	SignalBus.level_loaded.connect(start_game)
 	
+	timer.timeout.connect(start_next_round)
 	_setup_score_counters()
 	_load_level()
 
@@ -95,19 +98,15 @@ func add_player(p: Player)->void:
 func rem_player(p: Player)->void:
 	active_players.erase(p)
 	_check_game_state()
-
 func inc_bombs(b)->void:
 	active_bombs+=1
-	
 func dec_bombs(b)->void:
 	active_bombs-=1
-	_check_game_state()
-	
 func inc_explosions()->void:
 	active_explosions+=1
 func dec_explosions()->void:
 	active_explosions-=1
-	_check_game_state()
+
 #endregion
 #region game state
 func next(over: bool)->void:
@@ -118,19 +117,17 @@ func next(over: bool)->void:
 	SceneControl.replace_game_scene(load("res://scenes/main/game_scene/game_scene.tscn"))
 
 	
-	
+func start_next_round()->void:
+	if active_players.size()==1:
+		var over: bool=GlobalAccess.game_over(active_players[0].id)
+		next(over)
+		return
+	elif active_players.is_empty():
+		next(false)
 
 func _check_game_state()->void:
+	if active_players.size()<=1:
+		timer.start()
 
 	
-	
-	if active_bombs==0 and active_explosions==0:
-		
-		if active_players.size()==1:
-			var over: bool=GlobalAccess.game_over(active_players[0].id)
-			next(over)
-			return
-			
-		elif active_players.is_empty():
-			next(false)
 #endregion
