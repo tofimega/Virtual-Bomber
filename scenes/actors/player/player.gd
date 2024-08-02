@@ -51,7 +51,8 @@ func inc_power()->void:
 	SignalBus.player_range_up.emit(id)
 
 func inc_bombs(b:Bomb)->void:
-	bombs.append(b)
+	if b.id==id:
+		bombs.append(b)
 
 func dec_bombs(b: Bomb)->void:
 	remove_collision_exception_with(b)
