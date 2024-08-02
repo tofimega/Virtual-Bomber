@@ -23,6 +23,9 @@ signal explosion_dissipated()
 
 signal player_ready(p: Player)
 signal player_dead(p: Player)
+
+signal player_capacity_up(id: GlobalAccess.PLAYER_ID)
+signal player_range_up(id: GlobalAccess.PLAYER_ID)
 #endregion
 
 #region scoring

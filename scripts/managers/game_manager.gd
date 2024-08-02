@@ -40,8 +40,8 @@ func start_game()->void:
 
 func initialize_data()->void:
 	#TODO: have this be done by the players on init
-	var pd: Array[PlayerData]=GlobalAccess.game_settings.player_data
-	for a: PlayerData in pd:
+	var pd: Dictionary=GlobalAccess.game_settings.player_data
+	for a: PlayerData in pd.values():
 		a.range=1
 		a.capacity=1
 		a.bomb_count=0

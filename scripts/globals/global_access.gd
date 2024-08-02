@@ -22,7 +22,7 @@ var level_to_load: String
 
 
 func get_winner()->String:
-	return PLAYER_ID.find_key(game_settings.player_data.find(game_settings.player_data.reduce(func(m,v): return v if v.points>m.points else m)))
+	return PLAYER_ID.find_key(game_settings.player_data.values().find(game_settings.player_data.values().reduce(func(m,v): return v if v.points>m.points else m)))
 
 # amount of players in-game
 var players: int:

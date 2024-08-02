@@ -1,21 +1,29 @@
 class_name PlayerData
 extends RefCounted
 
-
+var player_id_set=false:
+	set(d):
+		player_id_set=true
 var id: GlobalAccess.PLAYER_ID: 
 	set(i):
-		id=i
-		name="Player "+str(i+1)
+		if !player_id_set:
+			id=i
+			player_id_set=true
+		
 
 var icon: Texture2D=ResourceLoader.load("res://icon.svg"):
 	set(i):
 		icon=i
 		SignalBus.player_data_changed.emit(id)
 
-var name: String="Player"+ " "+ str(id+1):
+var name: String="":
 	set(n):
 		name=n
 		SignalBus.player_data_changed.emit(id)
+	get:
+		if name=="":
+			return "Player "+str(id+1)
+		return name
 
 var points: int:
 	set(p):
