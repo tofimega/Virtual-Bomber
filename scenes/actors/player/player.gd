@@ -13,15 +13,26 @@ var can_place: bool:
 		return bomb_count<bomb_capacity && !bomb_ignorer.colliding
 
 var bombs:Array=[]
-var movement_speed: int=200
+const movement_speed: int=200
 
-var bomb_capacity: int=1
+
 var bomb_count: int:
 	set(b):
 		pass
 	get:
 		return len(bombs)
-var power: int=1
+var power: int:
+	set(s):
+		pass
+	get:
+		return GlobalAccess.game_settings.get_player_data(id).range
+
+var bomb_capacity: int:
+	set(s):
+		pass
+	get:
+		return GlobalAccess.game_settings.get_player_data(id).capacity
+
 
 var input_map: PlayerInputMap
 
@@ -33,23 +44,16 @@ var id: GlobalAccess.PLAYER_ID:
 		#TODO: set sprite
 
 #region incs, decs
-#TODO: set player data via signals instead
 func inc_capacity()->void:
-	GlobalAccess.game_settings.player_data[id].capacity+=1
-	bomb_capacity+=1
+	SignalBus.player_capacity_up.emit(id)
 
 func inc_power()->void:
-	GlobalAccess.game_settings.player_data[id].range+=1
-	power+=1
+	SignalBus.player_range_up.emit(id)
 
 func inc_bombs(b:Bomb)->void:
-	if b.player==self:
-		GlobalAccess.game_settings.player_data[id].bomb_count+=1
-		bombs.append(b)
+	bombs.append(b)
 
 func dec_bombs(b: Bomb)->void:
-	if b.id==id:
-		GlobalAccess.game_settings.player_data[id].bomb_count-=1
 	remove_collision_exception_with(b)
 	bombs.erase(b)
 #endregion

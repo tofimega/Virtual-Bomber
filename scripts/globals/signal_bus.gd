@@ -13,6 +13,9 @@ signal request_remove_player(player: GlobalAccess.PLAYER_ID)
 
 
 #region game flow
+signal start_new_round
+signal new_round
+
 signal bomb_placed(bomb: Bomb)
 signal bomb_exploded(bomb: Bomb)
 signal player_placing_bomb(bomb: Bomb)

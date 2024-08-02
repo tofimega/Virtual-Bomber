@@ -1,6 +1,10 @@
 class_name PlayerData
 extends RefCounted
 
+
+
+
+
 var player_id_set=false:
 	set(d):
 		player_id_set=true
@@ -60,7 +64,24 @@ var enemies_killed: int=0:
 func _init()->void:
 	SignalBus.player_killed_player.connect(_inc_player_kill_count)
 	SignalBus.player_killed_enemy.connect(_inc_enemy_kill_count)
-
+	SignalBus.player_capacity_up.connect(func(id: GlobalAccess.PLAYER_ID):
+		if id==self.id:	capacity+=1
+		)
+	SignalBus.player_range_up.connect(func(id:GlobalAccess.PLAYER_ID):
+		if id==self.id:
+			range+=1
+		)
+		
+	SignalBus.bomb_placed.connect(func(b:Bomb):
+		if b.id==id:
+			bomb_count+=1
+		)
+	SignalBus.bomb_exploded.connect(func(b:Bomb):
+		if b.id==id:
+			bomb_count-=1
+		)
+		
+	SignalBus.new_round.connect(reset_round_data)
 
 func _inc_player_kill_count(id: GlobalAccess.PLAYER_ID)->void:
 	if id == self.id:
@@ -70,3 +91,9 @@ func _inc_player_kill_count(id: GlobalAccess.PLAYER_ID)->void:
 func _inc_enemy_kill_count(id: GlobalAccess.PLAYER_ID)->void:
 	if id == self.id:
 		enemies_killed+=1
+
+
+func reset_round_data()->void:
+	range=1
+	capacity=1
+	bomb_count==0

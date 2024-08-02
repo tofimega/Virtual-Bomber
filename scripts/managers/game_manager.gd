@@ -39,12 +39,7 @@ func start_game()->void:
 	spawn_players()
 
 func initialize_data()->void:
-	#TODO: have this be done by the players on init
-	var pd: Dictionary=GlobalAccess.game_settings.player_data
-	for a: PlayerData in pd.values():
-		a.range=1
-		a.capacity=1
-		a.bomb_count=0
+	SignalBus.new_round.emit()
 
 
 
