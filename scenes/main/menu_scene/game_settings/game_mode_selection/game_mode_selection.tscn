@@ -41,4 +41,5 @@ layout_mode = 2
 min_value = 1.0
 max_value = 99.0
 value = 3.0
+rounded = true
 prefix = "Wins:"
