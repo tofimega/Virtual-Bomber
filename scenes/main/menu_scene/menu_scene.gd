@@ -28,7 +28,7 @@ func _on_exit_pressed():
 
 
 func _on_settings_pressed():
-	print("settings not a thing yet")
+	SceneControl.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/settings_menu/settings_menu.tscn"))
 
 
 func _on_edit_level_pressed():

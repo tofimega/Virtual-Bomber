@@ -54,6 +54,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="GameScreen" type="SubViewport" parent="MarginContainer/HBoxContainer/SubViewportContainer" groups=["main_viewport"]]
+disable_3d = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 render_target_update_mode = 4
