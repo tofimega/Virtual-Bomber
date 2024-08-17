@@ -49,9 +49,6 @@ func get_actor_container()->Node2D:
 func get_game_manager()->GameManager:
 	return get_tree().get_first_node_in_group("Game Manager")
 	
-func get_level_grid()->TileMap:
+func get_level_grid()->TileMapContainer:
 	return get_tree().get_first_node_in_group("Level Grid")
 #endregion
-
-
-

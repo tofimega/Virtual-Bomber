@@ -40,4 +40,3 @@ signal player_killed_enemy(killer: GlobalAccess.PLAYER_ID)
 
 func emit_level_loaded()->void:
 	level_loaded.emit()
-

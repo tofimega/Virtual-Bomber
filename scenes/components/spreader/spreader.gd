@@ -65,7 +65,7 @@ func test(b):
 
 func spread_to(direction: Explosion.SpreadDirection)->void:
 	if explosion.raw_power==0: return
-	var level_grid: TileMap=GlobalAccess.get_level_grid()
+	var level_grid: TileMapContainer=GlobalAccess.get_level_grid()
 	
 	var new_pos: Vector2=Vector2(explosion.position)
 
@@ -75,16 +75,16 @@ func spread_to(direction: Explosion.SpreadDirection)->void:
 	match direction:
 		Explosion.SpreadDirection.UP:
 			set_power(top)
-			new_pos.y-=level_grid.get_tileset().tile_size.y
+			new_pos.y-=level_grid.object.tile_set.tile_size.y
 		Explosion.SpreadDirection.DOWN:
 			set_power(bottom)
-			new_pos.y+=level_grid.get_tileset().tile_size.y
+			new_pos.y+=level_grid.object.tile_set.tile_size.y
 		Explosion.SpreadDirection.LEFT:
 			set_power(left)
-			new_pos.x-=level_grid.get_tileset().tile_size.x
+			new_pos.x-=level_grid.object.tile_set.tile_size.x
 		Explosion.SpreadDirection.RIGHT:
 			set_power(right)
-			new_pos.x+=level_grid.get_tileset().tile_size.x
+			new_pos.x+=level_grid.object.tile_set.tile_size.x
 	if explosion.true_power>0:
 		
 		
@@ -121,4 +121,3 @@ func set_power(checker:Area2D)->void:
 		else:
 			explosion.true_power=0
 			return
-

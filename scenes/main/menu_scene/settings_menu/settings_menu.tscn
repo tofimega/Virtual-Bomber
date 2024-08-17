@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://yoex8hkg1gtq"]
+[gd_scene load_steps=2 format=3 uid="uid://yoex8hkg1gtq"]
+
+[ext_resource type="Script" path="res://scenes/main/menu_scene/settings_menu/settings_menu.gd" id="1_defdn"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -9,6 +11,7 @@ offset_right = -398.0
 offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_defdn")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -103,8 +106,7 @@ offset_top = -11.5
 offset_right = 40.0
 offset_bottom = 11.5
 grow_vertical = 2
-text = "Scaling
-"
+text = "Scaling Mode"
 
 [node name="ScalingSelect" type="OptionButton" parent="MarginContainer/Categories/Graphics/VBoxContainer/GridContainer"]
 layout_mode = 2

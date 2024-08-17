@@ -35,4 +35,3 @@ enum SpreadDirection{
 	LEFT,
 	RIGHT,
 }
-

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var tile_map = $TileMap
+@onready var tile_map: TileMapContainer = $TileMap
 
 
 func _ready():
@@ -34,12 +34,12 @@ func spawn_object(o: String,row:int,col:int)->void:
 	var pos:Vector2i=Vector2i(col,row)
 	
 	match o:
-		'p': tile_map.set_cell(2,pos,3,Vector2i.ZERO,0)
+		'p': tile_map.object.set_cell(pos,3,Vector2i.ZERO,0)
 		#TODO: rework to use EnemySpawn instead
-		'be':tile_map.set_cell(2,pos,3,Vector2i.ZERO,1)
-		'ge':tile_map.set_cell(2,pos,3,Vector2i.ZERO,2)
-		'se':tile_map.set_cell(2,pos,3,Vector2i.ZERO,3)
-		'ce':tile_map.set_cell(2,pos,3,Vector2i.ZERO,4)
+		'be':tile_map.object.set_cell(pos,3,Vector2i.ZERO,1)
+		'ge':tile_map.object.set_cell(pos,3,Vector2i.ZERO,2)
+		'se':tile_map.object.set_cell(pos,3,Vector2i.ZERO,3)
+		'ce':tile_map.object.set_cell(pos,3,Vector2i.ZERO,4)
 
 
 
@@ -48,7 +48,7 @@ func spawn_tile(o: String, row: int, col: int)->void:
 	match o:
 		'x': return
 		'e': return
-		'w': tile_map.set_cell(1,pos,2,Vector2i.ZERO,2)
-		'c': tile_map.set_cell(1,pos,2,Vector2i.ZERO,1)
+		'w': tile_map.edge_top.set_cell(pos,2,Vector2i.ZERO,2)
+		'c': tile_map.edge_top.set_cell(pos,2,Vector2i.ZERO,1)
 		
 		

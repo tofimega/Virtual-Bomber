@@ -17,12 +17,12 @@ func choose_direction()->void:
 	else:
 		super()
 	
-	var t: TileMap=GlobalAccess.get_level_grid()
+	var t: TileMapContainer=GlobalAccess.get_level_grid()
 	if t!=null:
 		if current_dir==Vector2.UP||current_dir==Vector2.DOWN:
-			wandering=t.tile_set.tile_size.y/2
+			wandering=t.object.tile_set.tile_size.y/2
 		else:
-			wandering=t.tile_set.tile_size.x/2
+			wandering=t.object.tile_set.tile_size.x/2
 	else:
 		wandering=0
 
@@ -40,4 +40,3 @@ func _physics_process(delta):
 	else:
 		wandering=0
 		turn()
-
