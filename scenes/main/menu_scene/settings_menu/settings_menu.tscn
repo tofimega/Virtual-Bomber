@@ -32,7 +32,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Graphics" type="Control" parent="MarginContainer/Categories"]
-custom_minimum_size = Vector2(0, 154)
+custom_minimum_size = Vector2(0, 118)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Categories/Graphics"]
@@ -118,31 +118,6 @@ popup/item_0/text = "Floating Point"
 popup/item_1/text = "Integer"
 popup/item_1/id = 1
 
-[node name="Scale" type="Panel" parent="MarginContainer/Categories/Graphics/VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="MarginContainer/Categories/Graphics/VBoxContainer/GridContainer/Scale"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -11.5
-offset_right = 40.0
-offset_bottom = 11.5
-grow_vertical = 2
-text = "Scale
-"
-
-[node name="ScaleSelect" type="SpinBox" parent="MarginContainer/Categories/Graphics/VBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 1.0
-max_value = 10.0
-value = 2.0
-
 [node name="Sound" type="Control" parent="MarginContainer/Categories"]
 custom_minimum_size = Vector2(0, 154)
 layout_mode = 2
@@ -208,7 +183,7 @@ grow_vertical = 2
 text = "Controls"
 
 [node name="BackToMenu" type="Button" parent="MarginContainer/Categories"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 text = "Back"
 

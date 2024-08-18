@@ -33,7 +33,7 @@ signal player_range_up(id: GlobalAccess.PLAYER_ID)
 
 #region scoring
 signal player_data_changed(id: GlobalAccess.PLAYER_ID)
-signal player_killed_player(killer: GlobalAccess.PLAYER_ID)
+signal player_killed_player(killer: GlobalAccess.PLAYER_ID, victim: GlobalAccess.PLAYER_ID)
 signal player_killed_enemy(killer: GlobalAccess.PLAYER_ID)
 #endregion
 

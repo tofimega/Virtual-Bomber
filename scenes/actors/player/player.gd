@@ -92,7 +92,7 @@ func move()->void:
 
 func kill(area)->void:
 	if area is Explosion:
-		SignalBus.player_killed_player.emit(area.player_id)
+		SignalBus.player_killed_player.emit(area.player_id,self.id)
 	
 	GlobalAccess.game_settings.player_data[id].deaths+=1
 	print("ow")
