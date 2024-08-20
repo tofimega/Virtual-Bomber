@@ -5,6 +5,11 @@ extends Control
 @onready var scaling_select: OptionButton = $MarginContainer/Categories/Graphics/VBoxContainer/GridContainer/ScalingSelect
 
 func _ready() -> void:
+	var texture_preview: Sprite2D=Sprite2D.new()
+	texture_preview.texture=preload("res://assets/images/tiles/wall tile.png")
+	texture_preview.position.y+=200
+	SceneControl.get_left_panel().add_child(texture_preview)
+	
 	init_values()
 	filter_select.item_selected.connect(change_filter)
 	scaling_select.item_selected.connect(change_scale_mode)
@@ -36,4 +41,6 @@ func print_status()->void:
 	print("(In Menu)\n"+"filter="+str(filter_select.selected)+"\nscaling mode="+str(scaling_select.selected))
 
 func _on_back_to_menu_pressed() -> void:
+	for n in SceneControl.get_left_panel().get_children():
+		n.free()
 	SceneControl.replace_game_scene(ResourceLoader.load("res://scenes/main/menu_scene/menu_scene.tscn"))

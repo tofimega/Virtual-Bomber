@@ -9,6 +9,7 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0erwl"]
 
 [node name="Bomb" type="StaticBody2D"]
+z_index = -1
 y_sort_enabled = true
 collision_layer = 8
 collision_mask = 0
