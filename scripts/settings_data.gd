@@ -10,3 +10,8 @@ extends Resource
 	set(f):
 		filter=f
 		Settings.settings_changed.emit()
+
+@export var window_mode: DisplayServer.WindowMode: 
+	set(m):
+		window_mode=m
+		Settings.settings_changed.emit()

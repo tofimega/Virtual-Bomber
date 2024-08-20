@@ -118,6 +118,31 @@ popup/item_0/text = "Floating Point"
 popup/item_1/text = "Integer"
 popup/item_1/id = 1
 
+[node name="WindowMode" type="Panel" parent="MarginContainer/Categories/Graphics/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/Categories/Graphics/VBoxContainer/GridContainer/WindowMode"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 40.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Window Mode"
+
+[node name="WindowModeSelect" type="OptionButton" parent="MarginContainer/Categories/Graphics/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "Windowed"
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+
 [node name="Sound" type="Control" parent="MarginContainer/Categories"]
 custom_minimum_size = Vector2(0, 154)
 layout_mode = 2
