@@ -8,6 +8,9 @@ signal scene_replaced(new: Node,on: Node)
 func emit_scene_replaced(new: Node,on: Node)->void:
 	scene_replaced.emit(new,on)
 
+func process(delta: float)->void:
+	if Input.is_action_just_pressed("P4_BOMB"):
+		get_tree().paused=!get_tree().paused
 
 func replace_subscene(parent: Node,old: Node, new: PackedScene, on_thread: Thread)->void:
 	if on_thread.is_alive(): return

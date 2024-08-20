@@ -24,5 +24,3 @@ func _physics_process(delta):
 	
 	if force_turn:
 		turn()
-
-

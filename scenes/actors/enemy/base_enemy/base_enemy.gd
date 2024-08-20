@@ -54,5 +54,3 @@ func kill(a)->void:
 	if a is Explosion:
 		SignalBus.player_killed_enemy.emit(a.player_id)
 	queue_free()
-
-

@@ -7,7 +7,6 @@
 [node name="SmartEnemy" instance=ExtResource("1_x3ye2")]
 collision_mask = 47
 script = ExtResource("2_jnrpo")
-speed = null
 
 [node name="Sprite2D" parent="." index="1"]
 scale = Vector2(1, 1)

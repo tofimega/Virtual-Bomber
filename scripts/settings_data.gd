@@ -1,9 +1,8 @@
 class_name SettingsData
 extends Resource
 
-var scale_to_string: Array[String]=["fractional","integer"]
 
-@export_enum("fractional", "integer") var scale_mode: int=1:
+@export var scale_mode: Window.ContentScaleStretch=1:
 	set(s):
 		scale_mode=clamp(s,0,1)
 		Settings.settings_changed.emit()
