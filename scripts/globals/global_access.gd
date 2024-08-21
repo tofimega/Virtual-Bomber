@@ -6,16 +6,9 @@ extends Node
 var game_settings: GameSettings
 
 
-# at the end of a given round, this will be called
-func game_over(p: PLAYER_ID)->bool:
-	if p==null:
-		return false
-		
-	game_settings.player_data[p].points+=1
-	return game_settings.player_data[p].points>=games_to_win
 
-# number of rounds a match will last
-var games_to_win: int=0
+
+
 
 
 var level_to_load: String

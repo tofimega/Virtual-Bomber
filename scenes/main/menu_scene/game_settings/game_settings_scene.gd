@@ -31,7 +31,7 @@ func update_game_mode_data()->void:
 	print("7: updating game mode: "+str(game_settings.rounds))
 	game_settings.rounds=game_mode_selection.wins
 	game_settings.game_mode=game_mode_selection.game_mode
-	print("game mode updated: "+str(GlobalAccess.games_to_win))
+	print("game mode updated: "+str(game_settings.rounds))
 
 func update_level_data()->void:
 	print("6: updating level: "+GlobalAccess.level_to_load)
