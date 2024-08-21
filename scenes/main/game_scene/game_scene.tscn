@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm1jrrqxmpr40"]
+[gd_scene load_steps=4 format=3 uid="uid://dm1jrrqxmpr40"]
 
 [ext_resource type="Script" path="res://scripts/managers/game_manager.gd" id="1_6ha3f"]
 [ext_resource type="Script" path="res://scenes/main/game_scene/game_scene.gd" id="1_a15io"]
+[ext_resource type="Script" path="res://scenes/main/game_scene/actors.gd" id="2_ndly1"]
 
 [node name="GameScene" type="Node2D"]
 y_sort_enabled = true
@@ -9,9 +10,14 @@ script = ExtResource("1_a15io")
 
 [node name="Actors" type="Node2D" parent="." groups=["Actor Container"]]
 y_sort_enabled = true
+script = ExtResource("2_ndly1")
+
+[node name="Players" type="Node2D" parent="Actors"]
+y_sort_enabled = true
+
+[node name="Enemies" type="Node2D" parent="Actors"]
+
+[node name="Powerups" type="Node2D" parent="Actors"]
 
 [node name="GameManager" type="Node" parent="." groups=["Game Manager"]]
 script = ExtResource("1_6ha3f")
-
-[node name="Timer" type="Timer" parent="GameManager"]
-wait_time = 4.0

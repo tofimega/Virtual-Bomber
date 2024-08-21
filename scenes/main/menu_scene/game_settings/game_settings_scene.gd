@@ -14,6 +14,7 @@ func _ready():
 	back_to_menu.pressed.connect(switch_to_menu)
 
 func update_player_data()->void:
+	game_settings.player_count=0
 	print("2: updating player data: "+str(game_settings.player_data))
 	game_settings.player_data.clear()
 	print("3: old data clear: "+str(game_settings.player_data))
@@ -24,10 +25,11 @@ func update_player_data()->void:
 			if !c.player_name.text.is_empty():
 				game_settings.get_player_data(i).name=c.player_name.text
 			i+=1
+			game_settings.player_count+=1
 	print("4: new data in: "+str(game_settings.player_data))
 func update_game_mode_data()->void:
-	print("7: updating game mode: "+str(GlobalAccess.games_to_win))
-	GlobalAccess.games_to_win=game_mode_selection.wins
+	print("7: updating game mode: "+str(game_settings.rounds))
+	game_settings.rounds=game_mode_selection.wins
 	game_settings.game_mode=game_mode_selection.game_mode
 	print("game mode updated: "+str(GlobalAccess.games_to_win))
 

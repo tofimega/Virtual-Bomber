@@ -9,7 +9,10 @@ func pyth(a: Vector2)->float:
 
 func choose_direction()->void:
 	
-	var players:Array[Player]=GlobalAccess.get_game_manager().active_players
+	var players:Array[Player]=[]
+	for p: Node in GlobalAccess.get_actor_container().players.get_children():
+		if p is Player:
+			players.append(p)
 	if players==null || players.is_empty():
 		super()
 		return

@@ -6,7 +6,7 @@ extends Panel
 @onready var option_button: OptionButton = $MarginContainer/VBoxContainer/OptionButton
 
 var wins: int=3
-var game_mode: GameMode
+var game_mode: GameMode= SurvivalGameMode.new()
 
 func _ready()->void:
 	spin_box.value_changed.connect(func(new_value: float): wins=int(new_value))

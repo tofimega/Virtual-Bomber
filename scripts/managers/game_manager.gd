@@ -1,34 +1,21 @@
 class_name GameManager
 extends Node
 
-@onready var timer = $Timer
-
-
-var active_players: Array[Player]=[]
-var active_explosions: int=0
-var active_bombs: int=0
 
 var player_spawn_points: Array[Vector2]=[]
 var enemy_spawn_points: Array[EnemySpawn]=[]
 
 
 func _ready():
-	SignalBus.player_ready.connect(add_player)
-	SignalBus.player_dead.connect(rem_player)
-	
-	SignalBus.bomb_placed.connect(inc_bombs)
-	SignalBus.bomb_exploded.connect(dec_bombs)
-	
-	SignalBus.new_explosion_on_field.connect(inc_explosions)
-	SignalBus.explosion_dissipated.connect(dec_explosions)
 
 	SignalBus.player_spawn_ready.connect(add_spawn_point)
 	
 	SignalBus.enemy_spawn_ready.connect(add_enemy_spawn_point)
 	
 	SignalBus.level_loaded.connect(start_game)
+	SignalBus.round_over.connect(start_next_round)
 	
-	timer.timeout.connect(start_next_round)
+	
 	_setup_score_counters()
 	_load_level()
 
@@ -81,48 +68,31 @@ func spawn_players()->void:
 		player.position.x=player_spawn_points[player_count].x
 		player.position.y=player_spawn_points[player_count].y
 		
-		GlobalAccess.get_actor_container().add_child.call_deferred(player)
+		GlobalAccess.get_actor_container().players.add_child.call_deferred(player)
 		
 		player_count+=1
 		if player_count>=GlobalAccess.players:
 			break
-	
-#region incs, decs
-func add_player(p: Player)->void:
-	active_players.append(p)
-func rem_player(p: Player)->void:
-	active_players.erase(p)
-	_check_game_state()
-func inc_bombs(b)->void:
-	active_bombs+=1
-func dec_bombs(b)->void:
-	active_bombs-=1
-func inc_explosions()->void:
-	active_explosions+=1
-func dec_explosions()->void:
-	active_explosions-=1
 
-#endregion
+
 #region game state
 func next(over: bool)->void:
 
 	if over:
-		SceneControl.replace_game_scene(load("res://scenes/main/results_scene/results.tscn")) #TODO: results scene
+		SceneControl.replace_game_scene(load("res://scenes/main/results_scene/results.tscn"))
 		return
 	SceneControl.replace_game_scene(load("res://scenes/main/game_scene/game_scene.tscn"))
 
 	
-func start_next_round()->void:
-	if active_players.size()==1:
-		var over: bool=GlobalAccess.game_over(active_players[0].id)
-		next(over)
-		return
-	elif active_players.is_empty():
+func start_next_round(status: GameMode.RoundStatus)->void:
+	if status ==GameMode.RoundStatus.TIE:
 		next(false)
+		return
+	if status==GameMode.RoundStatus.CONCLUSIVE:
+		var winning_id: GlobalAccess.PLAYER_ID=GlobalAccess.game_settings.game_mode.get_winner_of_round()
+		GlobalAccess.game_settings.player_data[winning_id].points+=1
+		next(GlobalAccess.game_settings.player_data[winning_id].points>=GlobalAccess.game_settings.rounds)
 
-func _check_game_state()->void:
-	if active_players.size()<=1:
-		timer.start()
 
-	
+
 #endregion

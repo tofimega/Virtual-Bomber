@@ -43,7 +43,7 @@ enum PLAYER_ID{
 func get_game_scene()->Node:
 	return get_tree().get_first_node_in_group("main_viewport").get_children()[0]
 
-func get_actor_container()->Node2D:
+func get_actor_container()->ActorContainer:
 	return get_tree().get_first_node_in_group("Actor Container")
 
 func get_game_manager()->GameManager:
