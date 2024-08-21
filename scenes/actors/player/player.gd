@@ -96,7 +96,7 @@ func kill(area)->void:
 	
 	GlobalAccess.game_settings.player_data[id].deaths+=1
 	print("ow")
-	SignalBus.player_dead.emit(self)
+	SignalBus.player_dead.emit(self.id)
 	queue_free()
 	
 

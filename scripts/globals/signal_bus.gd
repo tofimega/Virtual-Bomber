@@ -15,6 +15,8 @@ signal request_remove_player(player: GlobalAccess.PLAYER_ID)
 #region game flow
 signal start_new_round
 signal new_round
+signal round_over(status: GameMode.RoundStatus)
+
 
 signal bomb_placed(bomb: Bomb)
 signal bomb_exploded(bomb: Bomb)
@@ -25,7 +27,7 @@ signal new_explosion_on_field()
 signal explosion_dissipated()
 
 signal player_ready(p: Player)
-signal player_dead(p: Player)
+signal player_dead(p: GlobalAccess.PLAYER_ID)
 
 signal player_capacity_up(id: GlobalAccess.PLAYER_ID)
 signal player_range_up(id: GlobalAccess.PLAYER_ID)

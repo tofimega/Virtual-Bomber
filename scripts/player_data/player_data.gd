@@ -77,7 +77,7 @@ func _init()->void:
 			bomb_count+=1
 		)
 	SignalBus.bomb_exploded.connect(func(b:Bomb):
-		if b.id==id:
+		if b.id==id and bomb_count>0:
 			bomb_count-=1
 		)
 		
