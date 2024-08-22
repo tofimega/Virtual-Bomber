@@ -10,10 +10,10 @@ Finishing a game originally made for a uni assignment.
 
 ## remaining tasks:
 
+- redesign and implement level editor
 - update level format
 - finish game scene UI (dependent on above)
 - add controller support
-- redesign and implement level editor
 - visual & audio assets
 - version 1.0 
 - expand features (more enemies, powerups, game modes, variable level size)
