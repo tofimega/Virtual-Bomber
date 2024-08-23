@@ -15,7 +15,7 @@ func _ready():
 	SignalBus.level_loaded.connect(start_game, ConnectFlags.CONNECT_DEFERRED)
 	SignalBus.round_over.connect(start_next_round)
 	
-	
+	get_tree().paused=true
 	_setup_score_counters()
 	_load_level()
 
@@ -24,6 +24,10 @@ func start_game()->void:
 	initialize_data()
 	spawn_enemies()
 	spawn_players()
+	get_tree().paused=false
+	SignalBus.start_new_round.emit()
+
+
 
 func initialize_data()->void:
 	SignalBus.new_round.emit()
