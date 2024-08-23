@@ -34,7 +34,7 @@ func spawn_enemies()->void:
 	for p in enemy_spawn_points:
 		var e: BaseEnemy=p.enemy_type.instantiate()
 		e.position=p.position
-		GlobalAccess.get_actor_container().add_child.call_deferred(e)
+		GlobalAccess.get_actor_container().enemies.add_child.call_deferred(e)
 		
 		p.queue_free()
 	enemy_spawn_points.clear()
