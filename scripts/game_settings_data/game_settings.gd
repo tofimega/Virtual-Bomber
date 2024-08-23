@@ -7,7 +7,7 @@ var rounds: int
 
 var player_data: Dictionary={}
 var level_data: Object # TODO: create class
-var game_mode: GameMode # TODO: create class
+var game_mode: GameMode
 
 # check if variables above are ok
 func validate_data()->bool:

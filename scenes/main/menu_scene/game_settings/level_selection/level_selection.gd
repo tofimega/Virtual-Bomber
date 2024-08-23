@@ -6,7 +6,7 @@ extends Panel
 @onready var custom_level_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/CustomLevelButton
 
 
-#TODO: replace with something more generic
+
 
 
 var current_selection: String=""
