@@ -8,7 +8,7 @@
 size = Vector2(15, 12)
 
 [node name="GhostEnemy" instance=ExtResource("1_0r7rj")]
-collision_mask = 1
+collision_mask = 9
 script = ExtResource("2_4mmqc")
 
 [node name="Sprite2D" parent="." index="1"]

@@ -5,8 +5,6 @@ extends Node
 
 signal scene_replaced(new: Node,on: Node)
 
-func emit_scene_replaced(new: Node,on: Node)->void:
-	scene_replaced.emit(new,on)
 
 func process(delta: float)->void:
 	if Input.is_action_just_pressed("P4_BOMB"):
@@ -56,7 +54,7 @@ func delayed_replace(until_null: Node,what: Node, to: Node)->void:
 			continue
 	if what !=null:
 		to.add_child.call_deferred(what)
-		emit_scene_replaced.call_deferred(what,to)
+		scene_replaced.emit.call_deferred(what, to)
 
 
 func get_main_viewport()->SubViewport:

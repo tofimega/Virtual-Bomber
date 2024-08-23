@@ -12,7 +12,7 @@ func _ready():
 	
 	SignalBus.enemy_spawn_ready.connect(add_enemy_spawn_point)
 	
-	SignalBus.level_loaded.connect(start_game)
+	SignalBus.level_loaded.connect(start_game, ConnectFlags.CONNECT_DEFERRED)
 	SignalBus.round_over.connect(start_next_round)
 	
 	

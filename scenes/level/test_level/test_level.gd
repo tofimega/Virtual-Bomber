@@ -28,7 +28,7 @@ func _ready():
 				spawn_object(o[0],int(o[2]),int(o[1]))
 	
 	
-	SignalBus.call_deferred("emit_level_loaded")
+	SignalBus.level_loaded.emit.call_deferred()
 
 func spawn_object(o: String,row:int,col:int)->void:
 	var pos:Vector2i=Vector2i(col,row)

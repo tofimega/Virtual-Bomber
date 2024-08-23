@@ -8,7 +8,7 @@ var score: PackedScene=preload("res://scenes/UI/score_counter/score_counter_pane
 func _ready()->void:
 	print("17: game scene loaded")
 	if get_tree().get_first_node_in_group("left_panel").get_children().size()==0 or not get_tree().get_first_node_in_group("left_panel").get_children()[0] is ScorePanel:
-		SceneControl.scene_replaced.connect(set_score_counters)
+		SceneControl.scene_replaced.connect(set_score_counters, ConnectFlags.CONNECT_DEFERRED)
 		SceneControl.replace_left_scene(score)
 		SceneControl.replace_right_scene(score)
 		

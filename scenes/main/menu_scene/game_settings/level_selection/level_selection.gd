@@ -7,17 +7,15 @@ extends Panel
 
 
 #TODO: replace with something more generic
-@onready var level_1_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons/Level1Button
-@onready var level_2_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons/Level2Button
-@onready var level_2_button_2 = $MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons/Level2Button2
 
 
 var current_selection: String=""
 
 func _ready():
-	level_1_button.pressed.connect(func():current_selection="res://spriteTest.txt")
-	level_2_button.pressed.connect(func():current_selection="res://test3.txt")
-	level_2_button_2.pressed.connect(func():current_selection="res://assets/levels/1.txt")
+	for b: Node in level_buttons.get_children():
+		if b is LevelButton:
+			b.pressed.connect(func(): current_selection=b.level_data)
+	
 	custom_level_button.pressed.connect(get_level_from_user)
 
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://5j4rc8qewbqp"]
+[gd_scene load_steps=4 format=3 uid="uid://5j4rc8qewbqp"]
 
 [ext_resource type="Script" path="res://scenes/main/menu_scene/game_settings/level_selection/level_selection.gd" id="1_d3vqr"]
 [ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="1_r6odh"]
+[ext_resource type="Script" path="res://scenes/UI/level_button/level_button.gd" id="2_ewtvb"]
 
 [node name="LevelSelection" type="Panel"]
 custom_minimum_size = Vector2(320, 0)
@@ -35,23 +36,29 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
-[node name="Level1Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons"]
+[node name="LevelButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "SpriteTest"
 alignment = 0
+script = ExtResource("2_ewtvb")
+level_name = "SpriteTest"
+level_data = "res://spriteTest.txt"
 
-[node name="Level2Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons"]
+[node name="LevelButton2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Test3"
 alignment = 0
+script = ExtResource("2_ewtvb")
+level_name = "test3"
+level_data = "res://test3.txt"
 
-[node name="Level2Button2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons"]
+[node name="LevelButton3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/ScrollContainer/LevelButtons"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "1"
 alignment = 0
+script = ExtResource("2_ewtvb")
+level_name = "1"
+level_data = "res://assets/levels/1.txt"
 
 [node name="CustomLevelButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
