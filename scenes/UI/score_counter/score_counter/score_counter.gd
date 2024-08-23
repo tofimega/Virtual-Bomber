@@ -11,7 +11,7 @@ extends Control
 @onready var players_killed: Label = $Stastistics/PlayersKilled
 @onready var score: Label = $Score
 
-var id: GlobalAccess.PLAYER_ID:
+var id: GlobalAccess.PlayerID:
 	set(a):
 		id=a
 		if id>=GlobalAccess.game_settings.player_data.size():
@@ -28,7 +28,7 @@ func update_data(id):
 		score.text=str(d.points)
 		player_icon.texture=d.icon
 		
-		range.text="r: "+str(d.range)
+		range.text="r: "+str(d.explosion_range)
 		capacity.text="c: "+str(d.capacity)
 		enemies_killed.text="e: "+str(d.enemies_killed)
 		deaths.text="x: "+str(d.deaths)

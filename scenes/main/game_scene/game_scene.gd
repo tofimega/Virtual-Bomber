@@ -15,9 +15,9 @@ func _ready()->void:
 func set_score_counters(panel: Node,parent: Node)->void:
 	if not panel is ScorePanel: return
 	if parent==get_tree().get_first_node_in_group("left_panel"):
-		panel.top_counter.id=GlobalAccess.PLAYER_ID.P1
-		panel.bottom_counter.id=GlobalAccess.PLAYER_ID.P3
+		panel.top_counter.id=GlobalAccess.PlayerID.P1
+		panel.bottom_counter.id=GlobalAccess.PlayerID.P3
 	
 	elif parent==get_tree().get_first_node_in_group("right_panel"):
-		panel.top_counter.id=GlobalAccess.PLAYER_ID.P2
-		panel.bottom_counter.id=GlobalAccess.PLAYER_ID.P4
+		panel.top_counter.id=GlobalAccess.PlayerID.P2
+		panel.bottom_counter.id=GlobalAccess.PlayerID.P4

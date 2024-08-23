@@ -7,7 +7,7 @@ extends Control
 @onready var player_name: LineEdit = $PlayerName
 
 
-var id: GlobalAccess.PLAYER_ID
+var id: GlobalAccess.PlayerID
 
 func _ready()->void:
 	remove_player_button.pressed.connect(remove_player)

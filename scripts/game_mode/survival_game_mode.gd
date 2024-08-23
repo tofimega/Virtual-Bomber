@@ -5,7 +5,7 @@ const END_GAME_TIMEOUT: float=4
 
 var players_remaining: int
 
-var dead_players: Array[GlobalAccess.PLAYER_ID]=[]
+var dead_players: Array[GlobalAccess.PlayerID]=[]
 
 var timer_finished: bool=false:
 	set(f):
@@ -23,7 +23,7 @@ func setup_round()->void:
 	players_remaining=GlobalAccess.game_settings.player_count
 	timer_finished=false
 	
-func dec_players(p: GlobalAccess.PLAYER_ID)->void:
+func dec_players(p: GlobalAccess.PlayerID)->void:
 	dead_players.append(p)
 	players_remaining-=1
 	if players_remaining<=1:
@@ -39,8 +39,8 @@ func is_round_over()->GameMode.RoundStatus:
 	return RoundStatus.IN_PROGRESS
 		
 
-func get_winner_of_round()->GlobalAccess.PLAYER_ID:
-	for p: GlobalAccess.PLAYER_ID in GlobalAccess.game_settings.player_data:
+func get_winner_of_round()->GlobalAccess.PlayerID:
+	for p: GlobalAccess.PlayerID in GlobalAccess.game_settings.player_data:
 		if GlobalAccess.game_settings.player_data[p].id not in dead_players:
 			return p
-	return GlobalAccess.PLAYER_ID.P1
+	return GlobalAccess.PlayerID.P1

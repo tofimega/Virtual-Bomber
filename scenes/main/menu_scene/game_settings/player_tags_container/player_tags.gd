@@ -26,7 +26,7 @@ func try_add_player()->void:
 			player_tags.remove_child(player_tags.get_children()[-1])
 
 		
-func try_remove_player(id: GlobalAccess.PLAYER_ID)->void:
+func try_remove_player(id: GlobalAccess.PlayerID)->void:
 	if player_count>2:
 		player_tags.remove_child(player_tags.get_child(id))
 		var i: int=0

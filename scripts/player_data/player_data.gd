@@ -5,14 +5,14 @@ extends RefCounted
 
 
 
-var player_id_set=false:
+var PlayerID_set=false:
 	set(d):
-		player_id_set=true
-var id: GlobalAccess.PLAYER_ID: 
+		PlayerID_set=true
+var id: GlobalAccess.PlayerID: 
 	set(i):
-		if !player_id_set:
+		if !PlayerID_set:
 			id=i
-			player_id_set=true
+			PlayerID_set=true
 		
 
 var icon: Texture2D=ResourceLoader.load("res://icon.svg"):
@@ -34,9 +34,9 @@ var points: int:
 		points=p
 		SignalBus.player_data_changed.emit(id)
 
-var range: int=1:
+var explosion_range: int=1:
 	set(r):
-		range=r
+		explosion_range=r
 		SignalBus.player_data_changed.emit(id)
 var capacity: int=1:
 	set(c):
@@ -64,12 +64,12 @@ var enemies_killed: int=0:
 func _init()->void:
 	SignalBus.player_killed_player.connect(_inc_player_kill_count)
 	SignalBus.player_killed_enemy.connect(_inc_enemy_kill_count)
-	SignalBus.player_capacity_up.connect(func(id: GlobalAccess.PLAYER_ID):
+	SignalBus.player_capacity_up.connect(func(id: GlobalAccess.PlayerID):
 		if id==self.id:	capacity+=1
 		)
-	SignalBus.player_range_up.connect(func(id:GlobalAccess.PLAYER_ID):
+	SignalBus.player_range_up.connect(func(id:GlobalAccess.PlayerID):
 		if id==self.id:
-			range+=1
+			explosion_range+=1
 		)
 		
 	SignalBus.bomb_placed.connect(func(b:Bomb):
@@ -83,17 +83,17 @@ func _init()->void:
 		
 	SignalBus.new_round.connect(reset_round_data)
 
-func _inc_player_kill_count(id: GlobalAccess.PLAYER_ID,victim_id: GlobalAccess.PLAYER_ID)->void:
+func _inc_player_kill_count(id: GlobalAccess.PlayerID,victim_id: GlobalAccess.PlayerID)->void:
 	if id == self.id and victim_id!=self.id:
 		players_killed+=1
 
 
-func _inc_enemy_kill_count(id: GlobalAccess.PLAYER_ID)->void:
+func _inc_enemy_kill_count(id: GlobalAccess.PlayerID)->void:
 	if id == self.id:
 		enemies_killed+=1
 
 
 func reset_round_data()->void:
-	range=1
+	explosion_range=1
 	capacity=1
-	bomb_count==0
+	bomb_count=0

@@ -24,8 +24,8 @@ func setup_round()->void:
 func is_round_over()->RoundStatus:
 	return RoundStatus.IN_PROGRESS
 
-func get_winner_of_round()->GlobalAccess.PLAYER_ID:
-	return 0
+func get_winner_of_round()->GlobalAccess.PlayerID:
+	return 0 as GlobalAccess.PlayerID
 
 func is_level_compatible(level_data: Object)->bool:
 	return true

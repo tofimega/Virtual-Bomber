@@ -32,8 +32,8 @@ func explode()->void:
 	timer.stop()
 	#spawn starter explosion
 	var explosion: Explosion=preload("res://scenes/actors/bomb/explosion/explosion.tscn").instantiate()
-	explosion.raw_power=player.range
-	explosion.true_power=player.range
+	explosion.raw_power=player.explosion_range
+	explosion.true_power=player.explosion_range
 	explosion.player=player
 	explosion.position=Vector2(position)
 	explosion.direction=Explosion.SpreadDirection.SOURCE

@@ -62,9 +62,9 @@ func spawn_players()->void:
 	
 	var player_count=0
 
-	for i in GlobalAccess.PLAYER_ID:
+	for i in GlobalAccess.PlayerID:
 		var player: Player=preload("res://scenes/actors/player/player.tscn").instantiate()
-		player.id=GlobalAccess.PLAYER_ID[i]
+		player.id=GlobalAccess.PlayerID[i]
 		player.position.x=player_spawn_points[player_count].x
 		player.position.y=player_spawn_points[player_count].y
 		
@@ -89,7 +89,7 @@ func start_next_round(status: GameMode.RoundStatus)->void:
 		next(false)
 		return
 	if status==GameMode.RoundStatus.CONCLUSIVE:
-		var winning_id: GlobalAccess.PLAYER_ID=GlobalAccess.game_settings.game_mode.get_winner_of_round()
+		var winning_id: GlobalAccess.PlayerID=GlobalAccess.game_settings.game_mode.get_winner_of_round()
 		GlobalAccess.game_settings.player_data[winning_id].points+=1
 		next(GlobalAccess.game_settings.player_data[winning_id].points>=GlobalAccess.game_settings.rounds)
 

@@ -14,7 +14,7 @@ func validate_data()->bool:
 	return true
 
 
-func get_player_data(id: GlobalAccess.PLAYER_ID)->PlayerData:
+func get_player_data(id: GlobalAccess.PlayerID)->PlayerData:
 	if !player_data.has(id):
 		player_data[id]=PlayerData.new()
 	player_data[id].id=id

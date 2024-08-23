@@ -36,7 +36,7 @@ var bomb_capacity: int:
 
 var input_map: PlayerInputMap
 
-var id: GlobalAccess.PLAYER_ID:
+var id: GlobalAccess.PlayerID:
 	set (p):
 		#TODO: set player data in GlobalAccess
 		input_map=PlayerInputMap.get_input_map(p)

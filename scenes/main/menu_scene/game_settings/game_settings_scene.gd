@@ -39,6 +39,7 @@ func update_level_data()->void:
 	GlobalAccess.level_to_load=level_selection.current_selection
 	print("level updated: "+GlobalAccess.level_to_load)
 func switch_to_game()->void:
+	# TODO: validate on selection, not on attempted start
 	print("1: start")
 	update_player_data()
 	update_level_data()

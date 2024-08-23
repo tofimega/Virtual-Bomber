@@ -8,7 +8,7 @@ signal enemy_spawn_ready(spawn_point: EnemySpawn)
 
 #region game settings stuff
 signal request_add_player
-signal request_remove_player(player: GlobalAccess.PLAYER_ID)
+signal request_remove_player(player: GlobalAccess.PlayerID)
 #endregion
 
 
@@ -27,14 +27,14 @@ signal new_explosion_on_field()
 signal explosion_dissipated()
 
 signal player_ready(p: Player)
-signal player_dead(p: GlobalAccess.PLAYER_ID)
+signal player_dead(p: GlobalAccess.PlayerID)
 
-signal player_capacity_up(id: GlobalAccess.PLAYER_ID)
-signal player_range_up(id: GlobalAccess.PLAYER_ID)
+signal player_capacity_up(id: GlobalAccess.PlayerID)
+signal player_range_up(id: GlobalAccess.PlayerID)
 #endregion
 
 #region scoring
-signal player_data_changed(id: GlobalAccess.PLAYER_ID)
-signal player_killed_player(killer: GlobalAccess.PLAYER_ID, victim: GlobalAccess.PLAYER_ID)
-signal player_killed_enemy(killer: GlobalAccess.PLAYER_ID)
+signal player_data_changed(id: GlobalAccess.PlayerID)
+signal player_killed_player(killer: GlobalAccess.PlayerID, victim: GlobalAccess.PlayerID)
+signal player_killed_enemy(killer: GlobalAccess.PlayerID)
 #endregion
