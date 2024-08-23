@@ -73,11 +73,11 @@ func _init()->void:
 		)
 		
 	SignalBus.bomb_placed.connect(func(b:Bomb):
-		if b.id==id:
+		if b.player.id==id:
 			bomb_count+=1
 		)
 	SignalBus.bomb_exploded.connect(func(b:Bomb):
-		if b.id==id and bomb_count>0:
+		if b.player.id==id and bomb_count>0:
 			bomb_count-=1
 		)
 		

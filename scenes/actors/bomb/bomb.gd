@@ -10,11 +10,10 @@ extends StaticBody2D
 @onready var collision_shape = $CollisionShape2D
 
 
-var player: Player
+var player: PlayerData
 
 
-@onready var power: int=player.power
-@onready var id: GlobalAccess.PLAYER_ID=player.id
+
 func _ready():
 	SignalBus.player_placing_bomb.emit(self)
 	timer.timeout.connect(explode)
@@ -33,9 +32,9 @@ func explode()->void:
 	timer.stop()
 	#spawn starter explosion
 	var explosion: Explosion=preload("res://scenes/actors/bomb/explosion/explosion.tscn").instantiate()
-	explosion.raw_power=power
-	explosion.true_power=power
-	explosion.player_id=id
+	explosion.raw_power=player.range
+	explosion.true_power=player.range
+	explosion.player_id=player.id
 	explosion.position=Vector2(position)
 	explosion.direction=Explosion.SpreadDirection.SOURCE
 	GlobalAccess.get_actor_container().add_child.call_deferred(explosion)

@@ -51,7 +51,7 @@ func inc_power()->void:
 	SignalBus.player_range_up.emit(id)
 
 func inc_bombs(b:Bomb)->void:
-	if b.id==id:
+	if b.player.id==id:
 		bombs.append(b)
 
 func dec_bombs(b: Bomb)->void:
@@ -78,7 +78,7 @@ func place_bomb()->void:
 		var tile_size=GlobalAccess.get_level_grid().object.tile_set.tile_size
 		bomb.position.x=position.x-(int(position.x)% tile_size.x)
 		bomb.position.y=position.y-(int(position.y)% tile_size.y)
-		bomb.player=self
+		bomb.player=GlobalAccess.game_settings.get_player_data(id)
 		GlobalAccess.get_actor_container().add_child.call_deferred(bomb)
 		
 
