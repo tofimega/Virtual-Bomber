@@ -32,7 +32,7 @@ func initialize_data()->void:
 
 func spawn_enemies()->void:
 	for p in enemy_spawn_points:
-		var e: BaseEnemy=p.enemy_type
+		var e: BaseEnemy=p.enemy_type.instantiate()
 		e.position=p.position
 		GlobalAccess.get_actor_container().add_child.call_deferred(e)
 		
