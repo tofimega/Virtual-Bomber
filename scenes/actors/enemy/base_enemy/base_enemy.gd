@@ -52,5 +52,5 @@ func turn()->void:
 	
 func kill(a)->void:
 	if a is Explosion:
-		SignalBus.player_killed_enemy.emit(a.player_id)
+		SignalBus.player_killed_enemy.emit(a.player.id)
 	queue_free()

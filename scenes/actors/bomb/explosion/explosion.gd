@@ -4,7 +4,7 @@ extends Area2D
 
 var raw_power: int=0
 var true_power: int=0
-var player_id: GlobalAccess.PLAYER_ID
+var player: PlayerData
 var direction: SpreadDirection
 
 @onready var spreader: Spreader = $Spreader
