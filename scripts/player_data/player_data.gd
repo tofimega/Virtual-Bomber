@@ -5,14 +5,14 @@ extends RefCounted
 
 
 
-var PlayerID_set=false:
+var player_id_set=false:
 	set(d):
-		PlayerID_set=true
+		player_id_set=true
 var id: GlobalAccess.PlayerID: 
 	set(i):
-		if !PlayerID_set:
+		if !player_id_set:
 			id=i
-			PlayerID_set=true
+			player_id_set=true
 		
 
 var icon: Texture2D=ResourceLoader.load("res://icon.svg"):
