@@ -27,7 +27,7 @@ func dec_players(p: GlobalAccess.PlayerID)->void:
 	dead_players.append(p)
 	players_remaining-=1
 	if players_remaining<=1:
-		var timer: SceneTreeTimer=SceneControl.get_left_panel().get_tree().create_timer(END_GAME_TIMEOUT)
+		var timer: SceneTreeTimer=SceneControl.get_tree().create_timer(END_GAME_TIMEOUT)
 		timer.timeout.connect(func(): timer_finished=true)
 
 func is_round_over()->GameMode.RoundStatus:
