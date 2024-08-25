@@ -23,7 +23,7 @@ func _ready()->void:
 	SignalBus.player_data_changed.connect(update_data)
 func update_data(id):
 	if id==self.id:
-		var d: PlayerData=GlobalAccess.game_settings.player_data[id]
+		var d: PlayerData=GlobalAccess.game_settings.get_player_data(id)
 		player_name.text=d.name
 		score.text=str(d.points)
 		player_icon.texture=d.icon

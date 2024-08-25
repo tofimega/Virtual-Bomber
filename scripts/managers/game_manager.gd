@@ -75,7 +75,7 @@ func spawn_players()->void:
 		GlobalAccess.get_actor_container().players.add_child.call_deferred(player)
 		
 		player_count+=1
-		if player_count>=GlobalAccess.players:
+		if player_count>=GlobalAccess.game_settings.player_count:
 			break
 
 
