@@ -5,3 +5,7 @@ extends Control
 @onready var bottom_counter: ScoreCounter = $VBoxContainer/ScoreCounter2
 
 
+func _ready()->void:
+	var base: GlobalAccess.PlayerID=GlobalAccess.PlayerID.P1 if get_parent()==SceneControl.get_left_panel() else GlobalAccess.PlayerID.P2
+	top_counter.id=base
+	bottom_counter.id=base+2
