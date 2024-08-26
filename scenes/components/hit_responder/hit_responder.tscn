@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dguhcrjjswjhw"]
+
+[ext_resource type="Script" path="res://scenes/components/hit_responder/hit_responder.gd" id="1_q2g8b"]
+
+[node name="HitResponder" type="Area2D"]
+script = ExtResource("1_q2g8b")

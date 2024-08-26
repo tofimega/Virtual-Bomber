@@ -10,7 +10,7 @@ func _ready()->void:
 
 func _apply_powerup(player: Player)->void:
 	effect.apply_effect(player)
-	print("oh yeah")
+	print("applying powerup")
 
 
 func _on_body_entered(body: Player):

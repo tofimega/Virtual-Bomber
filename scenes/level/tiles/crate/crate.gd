@@ -1,7 +1,7 @@
 class_name Crate
 extends Tile
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var sprite = $AnimatedSprite2D
 
 
 
@@ -14,14 +14,12 @@ static func _static_init() -> void:
 		if res is PowerupType:
 			powerup_types.append(res)
 
-func _on_area_2d_area_entered(area):
-	animated_sprite_2d.play("breaking")
-	
-	
+func crack():
+	sprite.play("breaking")
 
 func drop_item()->void:
-	print("yeowch")
 	if randi()%5<3:
+		print("dropping item")
 		var powerup: Powerup= ResourceLoader.load("res://scenes/actors/powerup/powerup.tscn").instantiate()
 		
 		powerup.effect=powerup_types[randi()%powerup_types.size()]
@@ -33,11 +31,11 @@ func drop_item()->void:
 	
 
 func _on_animated_sprite_2d_animation_finished():
-	if animated_sprite_2d.animation=="breaking":
+	if sprite.animation=="breaking":
 		queue_free()
 
 
 func _on_animated_sprite_2d_frame_changed():
-	if animated_sprite_2d.frame==20:
+	if sprite.frame==20:
 		drop_item()
 		collision_layer=0
