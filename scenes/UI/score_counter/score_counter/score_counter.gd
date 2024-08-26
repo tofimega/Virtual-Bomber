@@ -3,12 +3,12 @@ extends Control
 
 @onready var player_name: Label = $PlayerName
 @onready var player_icon: TextureRect = $PlayerIcon
-@onready var range: Label = $Stastistics/Range
-@onready var enemies_killed: Label = $Stastistics/EnemiesKilled
-@onready var capacity: Label = $Stastistics/Capacity
-@onready var deaths: Label = $Stastistics/Deaths
-@onready var bomb_count: Label = $Stastistics/BombCount
-@onready var players_killed: Label = $Stastistics/PlayersKilled
+@onready var range: Counter = $Stastistics/Range
+@onready var enemies_killed: Counter = $Stastistics/EnemiesKilled
+@onready var capacity: Counter = $Stastistics/Capacity
+@onready var deaths: Counter = $Stastistics/Deaths
+@onready var bomb_count: Counter = $Stastistics/BombCount
+@onready var players_killed: Counter = $Stastistics/PlayersKilled
 @onready var score: Label = $Score
 
 var id: GlobalAccess.PlayerID:
@@ -28,13 +28,13 @@ func update_data(id):
 		score.text=str(d.points)
 		player_icon.texture=d.icon
 		
-		range.text="r: "+str(d.explosion_range)
-		capacity.text="c: "+str(d.capacity)
-		enemies_killed.text="e: "+str(d.enemies_killed)
-		deaths.text="x: "+str(d.deaths)
-		players_killed.text="p: "+str(d.players_killed)
-		bomb_count.text="b: "+str(d.bomb_count)
+		range.label.text=str(d.explosion_range)
+		capacity.label.text=str(d.capacity)
+		enemies_killed.label.text=str(d.enemies_killed)
+		deaths.label.text=str(d.deaths)
+		players_killed.label.text=str(d.players_killed)
+		bomb_count.label.text=str(d.bomb_count)
 		
 		if d.bomb_count>=d.capacity:
-			bomb_count.add_theme_color_override("font_color",Color(1,0,0,1))
-		else: bomb_count.remove_theme_color_override("font_color")
+			bomb_count.label.add_theme_color_override("font_color",Color(1,0,0,1))
+		else: bomb_count.label.remove_theme_color_override("font_color")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cddaatjekyh0"]
+
+[ext_resource type="Script" path="res://scenes/UI/score_counter/score_counter/counter/counter.gd" id="1_f6g1c"]
+[ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="1_kwu0c"]
+
+[node name="Counter" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f6g1c")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("1_kwu0c")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "12"

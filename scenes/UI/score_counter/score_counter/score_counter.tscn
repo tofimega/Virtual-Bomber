@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://df1csvjksmu2v"]
+[gd_scene load_steps=4 format=3 uid="uid://df1csvjksmu2v"]
 
 [ext_resource type="Script" path="res://scenes/UI/score_counter/score_counter/score_counter.gd" id="1_h4ygj"]
 [ext_resource type="Texture2D" uid="uid://by40brljb1ca3" path="res://icon.svg" id="1_oroi1"]
+[ext_resource type="PackedScene" uid="uid://cddaatjekyh0" path="res://scenes/UI/score_counter/score_counter/counter/counter.tscn" id="3_xpwgs"]
 
 [node name="ScoreCounter" type="Control"]
 custom_minimum_size = Vector2(180, 146)
@@ -33,39 +34,27 @@ offset_left = 79.0
 offset_top = 11.0
 offset_right = 119.0
 offset_bottom = 51.0
-theme_override_constants/h_separation = 10
+theme_override_constants/h_separation = 11
 theme_override_constants/v_separation = 0
 columns = 2
 
-[node name="Range" type="Label" parent="Stastistics"]
+[node name="Range" parent="Stastistics" instance=ExtResource("3_xpwgs")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "r: 12"
 
-[node name="EnemiesKilled" type="Label" parent="Stastistics"]
+[node name="EnemiesKilled" parent="Stastistics" instance=ExtResource("3_xpwgs")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "e: 12"
 
-[node name="Capacity" type="Label" parent="Stastistics"]
+[node name="Capacity" parent="Stastistics" instance=ExtResource("3_xpwgs")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "c: 12"
 
-[node name="PlayersKilled" type="Label" parent="Stastistics"]
+[node name="PlayersKilled" parent="Stastistics" instance=ExtResource("3_xpwgs")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "p: 12"
 
-[node name="BombCount" type="Label" parent="Stastistics"]
+[node name="BombCount" parent="Stastistics" instance=ExtResource("3_xpwgs")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "b: 12"
 
-[node name="Deaths" type="Label" parent="Stastistics"]
+[node name="Deaths" parent="Stastistics" instance=ExtResource("3_xpwgs")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "x: 12"
 
 [node name="PlayerName" type="Label" parent="."]
 layout_mode = 0
