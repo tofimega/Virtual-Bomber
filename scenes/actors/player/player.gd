@@ -6,6 +6,12 @@ extends CharacterBody2D
 @onready var bomb_ignorer = $BombIgnorer as BombIgnorer
 
 
+var data: PlayerData= GlobalAccess.game_settings.get_player_data(id):
+	get:
+		if data == null:
+			return GlobalAccess.game_settings.get_player_data(id)
+		return data
+
 var can_place: bool:
 	set(p):
 		pass
@@ -38,18 +44,12 @@ var input_map: PlayerInputMap
 
 var id: GlobalAccess.PlayerID:
 	set (p):
-		#TODO: set player data in GlobalAccess
 		input_map=PlayerInputMap.get_input_map(p)
+		data= GlobalAccess.game_settings.get_player_data(p)
 		id=p
 		#TODO: set sprite
 
 #region incs, decs
-func inc_capacity()->void:
-	SignalBus.player_capacity_up.emit(id)
-
-func inc_power()->void:
-	SignalBus.player_range_up.emit(id)
-
 func inc_bombs(b:Bomb)->void:
 	if b.player.id==id:
 		bombs.append(b)

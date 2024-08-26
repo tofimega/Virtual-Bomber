@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CapacityPowerup" load_steps=3 format=3 uid="uid://d10cpir3y6dv8"]
+
+[ext_resource type="Script" path="res://scripts/powerup_type/capacity_powerup.gd" id="1_20yyb"]
+[ext_resource type="SpriteFrames" uid="uid://bhd8v1ej6m5lm" path="res://assets/resources/spriteframes/powerup/capacity_powerup.tres" id="1_plqox"]
+
+[resource]
+script = ExtResource("1_20yyb")
+expand_by = 1
+graphics = ExtResource("1_plqox")

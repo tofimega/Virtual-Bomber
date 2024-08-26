@@ -36,10 +36,16 @@ var points: int:
 
 var explosion_range: int=1:
 	set(r):
+		var tmp=explosion_range
 		explosion_range=r
+		if r>tmp:
+			SignalBus.player_range_up.emit(id)
 		SignalBus.player_data_changed.emit(id)
 var capacity: int=1:
 	set(c):
+		var tmp=capacity
+		if c>capacity:
+			SignalBus.player_capacity_up.emit(id)
 		capacity=c
 		SignalBus.player_data_changed.emit(id)
 
@@ -64,14 +70,6 @@ var enemies_killed: int=0:
 func _init()->void:
 	SignalBus.player_killed_player.connect(_inc_player_kill_count)
 	SignalBus.player_killed_enemy.connect(_inc_enemy_kill_count)
-	SignalBus.player_capacity_up.connect(func(id: GlobalAccess.PlayerID):
-		if id==self.id:	capacity+=1
-		)
-	SignalBus.player_range_up.connect(func(id:GlobalAccess.PlayerID):
-		if id==self.id:
-			explosion_range+=1
-		)
-		
 	SignalBus.bomb_placed.connect(func(b:Bomb):
 		if b.player.id==id:
 			bomb_count+=1
