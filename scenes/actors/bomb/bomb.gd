@@ -5,8 +5,6 @@ extends StaticBody2D
 
 @export var countdown: float= 4
 
-
-@onready var exploder = $Exploder as Area2D
 @onready var collision_shape = $CollisionShape2D
 
 
@@ -17,15 +15,10 @@ var player: PlayerData
 func _ready():
 	SignalBus.player_placing_bomb.emit(self)
 	timer.timeout.connect(explode)
-	exploder.area_entered.connect(react)
-	exploder.body_entered.connect(react)
 	timer.start(countdown)
 	
 	SignalBus.bomb_placed.emit(self)
-	
-	
-func react(a)->void:
-	explode()
+
 
 func explode()->void:
 	print("boom")

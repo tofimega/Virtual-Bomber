@@ -113,8 +113,6 @@ func set_power(checker:Area2D)->void:
 		
 		var body: CollisionObject2D=body_info["collider"]
 		
-		
-		
 		if body is Crate or body is Bomb:
 			explosion.true_power=1
 			return
