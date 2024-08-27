@@ -18,7 +18,7 @@ func _ready()->void:
 func try_add_player()->void:
 	if player_count<4:
 		var new_tag:PlayerSelectTag=player_tag_scene.instantiate()
-		new_tag.id=player_count
+		new_tag.id=player_count as GlobalAccess.PlayerID
 		if player_tags.get_children()[-1] is Button:
 			player_tags.add_child(new_tag)
 			player_tags.move_child(new_tag,player_tags.get_children().size()-2)

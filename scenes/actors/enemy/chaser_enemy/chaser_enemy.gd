@@ -20,8 +20,10 @@ func choose_direction()->void:
 	var t: TileMapContainer=GlobalAccess.get_level_grid()
 	if t!=null:
 		if current_dir==Vector2.UP||current_dir==Vector2.DOWN:
+			@warning_ignore("integer_division")
 			wandering=t.object.tile_set.tile_size.y/2
 		else:
+			@warning_ignore("integer_division")
 			wandering=t.object.tile_set.tile_size.x/2
 	else:
 		wandering=0

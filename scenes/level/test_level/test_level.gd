@@ -18,8 +18,8 @@ func _ready():
 		col=0
 		if row<16:
 		
-			for char in line:
-				spawn_tile(char,row,col)
+			for c in line:
+				spawn_tile(c,row,col)
 				col+=1
 			row+=1
 		else:

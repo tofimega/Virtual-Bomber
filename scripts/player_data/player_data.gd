@@ -86,13 +86,13 @@ func _init()->void:
 		
 	SignalBus.new_round.connect(reset_round_data)
 
-func _inc_player_kill_count(id: GlobalAccess.PlayerID,victim_id: GlobalAccess.PlayerID)->void:
-	if id == self.id and victim_id!=self.id:
+func _inc_player_kill_count(killer_id: GlobalAccess.PlayerID,victim_id: GlobalAccess.PlayerID)->void:
+	if killer_id == self.id and victim_id!=self.id:
 		players_killed+=1
 
 
-func _inc_enemy_kill_count(id: GlobalAccess.PlayerID)->void:
-	if id == self.id:
+func _inc_enemy_kill_count(killer_id: GlobalAccess.PlayerID)->void:
+	if killer_id == self.id:
 		enemies_killed+=1
 
 

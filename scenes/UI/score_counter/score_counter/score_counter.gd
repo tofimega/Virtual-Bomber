@@ -3,7 +3,7 @@ extends Control
 
 @onready var player_name: Label = $PlayerName
 @onready var player_icon: TextureRect = $PlayerIcon
-@onready var range: Counter = $Stastistics/Range
+@onready var explosion_range: Counter = $Stastistics/Range
 @onready var enemies_killed: Counter = $Stastistics/EnemiesKilled
 @onready var capacity: Counter = $Stastistics/Capacity
 @onready var deaths: Counter = $Stastistics/Deaths
@@ -21,14 +21,14 @@ var id: GlobalAccess.PlayerID:
 
 func _ready()->void:
 	SignalBus.player_data_changed.connect(update_data)
-func update_data(id):
-	if id==self.id:
-		var d: PlayerData=GlobalAccess.game_settings.get_player_data(id)
+func update_data(id_to_update):
+	if id_to_update==self.id:
+		var d: PlayerData=GlobalAccess.game_settings.get_player_data(id_to_update)
 		player_name.text=d.name
 		score.text=str(d.points)
 		player_icon.texture=d.icon
 		
-		range.label.text=str(d.explosion_range)
+		explosion_range.label.text=str(d.explosion_range)
 		capacity.label.text=str(d.capacity)
 		enemies_killed.label.text=str(d.enemies_killed)
 		deaths.label.text=str(d.deaths)
