@@ -4,13 +4,12 @@ Finishing a game originally made for a uni assignment.
 ## finished tasks:
 -  port the entire thing from [VBGE](https://github.com/tofimega/Very-Bad-Game-Engine) to Godot (barring old UI and level editor)
 - redesign and implement UI
-
-## current task:
 - bugfix, cleanup, modularization & optimization sweep
 
-## remaining tasks:
-
+## current task:
 - redesign and implement level editor
+
+## remaining tasks:
 - update level format
 - finish game scene UI (dependent on above)
 - add controller support
