@@ -6,7 +6,9 @@ extends Control
 @onready var menu = $VBoxContainer/HBoxContainer/Menu
 
 func _ready()->void:
-	label.text="GAME OVER\nWinner is Player "+str(GlobalAccess.get_winner())
+	var id_string: String=GlobalAccess.get_winner()
+	var winner_data: PlayerData=GlobalAccess.game_settings.get_player_data(GlobalAccess.PlayerID[id_string])
+	label.text="GAME OVER\nWinner is "+winner_data.name
 	new_game.pressed.connect(start_new_game)
 	menu.pressed.connect(back_to_menu)
 

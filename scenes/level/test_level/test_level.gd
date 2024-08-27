@@ -4,7 +4,7 @@ extends Node2D
 
 
 func _ready():
-	var level_data: String =FileAccess.get_file_as_string(GlobalAccess.level_to_load)
+	var level_data: String =FileAccess.get_file_as_string(GlobalAccess.game_settings.level_data)
 	
 	var lines: PackedStringArray=level_data.split('\n')
 	

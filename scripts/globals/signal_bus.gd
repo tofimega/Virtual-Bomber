@@ -8,7 +8,16 @@ signal enemy_spawn_ready(spawn_point: EnemySpawn)
 
 #region game settings stuff
 signal request_add_player
+signal player_added(player: GlobalAccess.PlayerID)
+
 signal request_remove_player(player: GlobalAccess.PlayerID)
+signal player_removed(player: GlobalAccess.PlayerID)
+
+signal player_settings_changed(player: GlobalAccess.PlayerID)
+
+signal request_validate_level(level: String)
+
+signal request_validate_gamemode(game_mode: GameMode)
 #endregion
 
 

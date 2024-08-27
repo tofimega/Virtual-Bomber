@@ -58,10 +58,11 @@ func _load_level()->void:
 func add_spawn_point(p: PlayerSpawn)->void:
 	player_spawn_points.append(p.position)
 	p.queue_free()
-	print("yea")
+	print("player spawn added")
 	
 	
 func spawn_players()->void:
+	print("spawning players")
 	player_spawn_points.shuffle()
 	
 	var player_count=0

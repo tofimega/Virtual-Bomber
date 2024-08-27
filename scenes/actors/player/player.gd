@@ -65,7 +65,7 @@ func _ready():
 	hurt_box.area_entered.connect(kill)
 	hurt_box.body_entered.connect(kill)
 	SignalBus.player_ready.emit(self)
-	
+	print("player ready: "+str(id))
 
 func _physics_process(delta):
 	move()
@@ -95,7 +95,7 @@ func kill(area)->void:
 		SignalBus.player_killed_player.emit(area.player.id,self.id)
 	
 	GlobalAccess.game_settings.player_data[id].deaths+=1
-	print("ow")
+	print("player hit: "+ str(id))
 	SignalBus.player_dead.emit(self.id)
 	queue_free()
 	

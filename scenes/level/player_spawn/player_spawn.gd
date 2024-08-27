@@ -3,5 +3,5 @@ extends Marker2D
 
 
 func _ready():
-	print("ok")
+	print("player spawn ready")
 	SignalBus.player_spawn_ready.emit(self)

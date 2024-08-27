@@ -6,7 +6,7 @@ var player_count: int
 var rounds: int
 
 var player_data: Dictionary={}
-var level_data: Object # TODO: create class
+var level_data: String # TODO: create class
 var game_mode: GameMode
 
 # check if variables above are ok

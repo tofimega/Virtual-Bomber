@@ -1,12 +1,15 @@
 class_name PlayerSelect
 extends Panel
 
-@onready var player_tags = $MarginContainer/PlayerTags
+@onready var player_tags: HBoxContainer =  $MarginContainer/PlayerTags
 
 var player_count: int=2
 
 var player_tag_scene:PackedScene=preload("res://scenes/UI/player_select/player_select_tag.tscn")
 var new_button_scene: PackedScene=preload("res://scenes/main/menu_scene/game_settings/player_tags_container/new_player_button/new_player.tscn")
+
+
+
 
 func _ready()->void:
 	SignalBus.request_add_player.connect(try_add_player)
@@ -24,7 +27,7 @@ func try_add_player()->void:
 		player_count+=1
 		if player_count==4:
 			player_tags.remove_child(player_tags.get_children()[-1])
-
+		SignalBus.player_added.emit(player_count-1)
 		
 func try_remove_player(id: GlobalAccess.PlayerID)->void:
 	if player_count>2:
@@ -37,4 +40,5 @@ func try_remove_player(id: GlobalAccess.PlayerID)->void:
 		if not player_tags.get_children()[-1] is Button:
 			player_tags.add_child(new_button_scene.instantiate())
 		player_count-=1
+		SignalBus.player_removed.emit(id)
 		

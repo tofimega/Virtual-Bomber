@@ -14,9 +14,10 @@ var current_selection: String=""
 func _ready():
 	for b: Node in level_buttons.get_children():
 		if b is LevelButton:
-			b.pressed.connect(func(): current_selection=b.level_data)
+			b.pressed.connect(func(): SignalBus.request_validate_level.emit(b.level_data))
 	
 	custom_level_button.pressed.connect(get_level_from_user)
+
 
 
 func get_level_from_user()->void:
@@ -30,7 +31,7 @@ func get_level_from_user()->void:
 	file_dialog.file_selected.connect(
 		func(path: String):
 			print(path)
-			current_selection=path
+			SignalBus.request_validate_level.emit(path)
 			
 			)
 	get_tree().get_root().add_child(file_dialog)

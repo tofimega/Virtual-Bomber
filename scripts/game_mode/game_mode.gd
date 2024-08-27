@@ -27,5 +27,5 @@ func is_round_over()->RoundStatus:
 func get_winner_of_round()->GlobalAccess.PlayerID:
 	return 0 as GlobalAccess.PlayerID
 
-func is_level_compatible(level_data: Object)->bool:
+func is_level_compatible(level_data: String)->bool:
 	return true
