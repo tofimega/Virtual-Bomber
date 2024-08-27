@@ -22,6 +22,10 @@ var icon: Texture2D=ResourceLoader.load("res://icon.svg"):
 
 var name: String="":
 	set(n):
+		n=n.dedent()
+		n=n.strip_edges()
+		n=n.strip_escapes()
+		n=n.substr(0,6)
 		name=n
 		SignalBus.player_data_changed.emit(id)
 	get:
@@ -31,22 +35,23 @@ var name: String="":
 
 var points: int:
 	set(p):
-		points=p
+		points=clamp(p,1,99)
 		SignalBus.player_data_changed.emit(id)
 
 var explosion_range: int=1:
 	set(r):
 		var tmp=explosion_range
-		explosion_range=r
+		explosion_range=clamp(r,1,99)
 		if r>tmp:
 			SignalBus.player_range_up.emit(id)
 		SignalBus.player_data_changed.emit(id)
 var capacity: int=1:
 	set(c):
 		var tmp=capacity
-		if c>capacity:
+		capacity=clamp(c,1,99)
+		
+		if c>tmp:
 			SignalBus.player_capacity_up.emit(id)
-		capacity=c
 		SignalBus.player_data_changed.emit(id)
 
 var deaths: int=0:
