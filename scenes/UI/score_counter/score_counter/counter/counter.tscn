@@ -23,4 +23,4 @@ stretch_mode = 4
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "12"
+text = "00"
