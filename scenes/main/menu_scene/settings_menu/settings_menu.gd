@@ -22,17 +22,17 @@ func load_fresh_settings()->void:
 	Settings.save_data()
 	print_status()
 
-func change_scale_mode(value: int)->void:
+func change_scale_mode(value: Window.ContentScaleStretch)->void:
 	Settings.settings_file.scale_mode=value
 	load_fresh_settings()
 
 
-func change_filter(value: int)->void:
+func change_filter(value: SubViewport.DefaultCanvasItemTextureFilter)->void:
 	Settings.settings_file.filter=value
 	load_fresh_settings()
 
-func change_window_mode(value: int)->void:
-	Settings.settings_file.window_mode=value*4
+func change_window_mode(value: DisplayServer.WindowMode)->void:
+	Settings.settings_file.window_mode=value*4 as DisplayServer.WindowMode
 	load_fresh_settings()
 
 func init_values()->void:
@@ -42,6 +42,7 @@ func init_values()->void:
 
 	scaling_select.select(Settings.settings_file.scale_mode)
 	
+	@warning_ignore("integer_division")
 	window_mode_select.select(Settings.settings_file.window_mode/4)
 	
 	print_status()
