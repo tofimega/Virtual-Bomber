@@ -11,10 +11,10 @@ func process(delta: float)->void:
 		get_tree().paused=!get_tree().paused
 
 func replace_subscene(parent: Node,old: Node, new: PackedScene, on_thread: Thread)->void:
+	if !new.can_instantiate(): return
 	if on_thread.is_alive(): return
 	if on_thread.is_started(): on_thread.wait_to_finish()
-	if new.can_instantiate():
-		on_thread.start(delayed_replace.bind(old,new.instantiate(),parent))
+	on_thread.start(delayed_replace.bind(old,new.instantiate(),parent))
 
 
 func replace_left_scene(new: PackedScene)->void:
