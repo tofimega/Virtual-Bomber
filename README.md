@@ -1,5 +1,6 @@
 Finishing a game originally made for a uni assignment.
 
+Placeholder player and enemy sprites from [Kenney's Pixel Platformer Pack](https://kenney.nl/assets/pixel-platformer)
 
 ## finished tasks:
 -  port the entire thing from [VBGE](https://github.com/tofimega/Very-Bad-Game-Engine) to Godot (barring old UI and level editor)
